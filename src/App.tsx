@@ -1,9 +1,18 @@
+import InvoicesMainPage from "./pages/InvoicesMainPage.tsx";
+import InvoicesSinglePage from "./pages/invoicesSinglePage.tsx";
+
+
 function App() {
-  return (
-    <>
-      <h2>App Component</h2>
-    </>
-  )
+
+    const isActive = false
+
+    const selectPage = isActive ? <InvoicesMainPage/> : <InvoicesSinglePage/>
+    return (
+        <>
+            {selectPage}
+
+        </>
+    )
 }
 
 export default App

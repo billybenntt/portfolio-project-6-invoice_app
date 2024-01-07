@@ -1,0 +1,160 @@
+
+
+
+// LAYOUT
+
+.main-container {
+  width: 730px;
+  display: block;
+  margin: 0 auto;
+}
+
+
+
+
+
+// NAVBAR
+
+.navbar {
+  height: 72px;
+
+  .navbar-center {
+    background-color: wheat;
+    border: 1px solid black;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .logo {
+    padding: 1rem;
+  }
+
+  .theme {
+    padding: 1rem;
+  }
+
+  .avatar {
+    padding: 1rem;
+  }
+
+  .logo-btn {
+    transform: scale(1);
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .navbar {
+
+    .navbar-center {
+      display: flex;
+      flex-direction: row;
+      height: 80px;
+      width: 100vw;
+    }
+
+    .logo,
+    .theme,
+    .avatar {
+      width: auto;
+    }
+
+
+    .avatar {
+      border-top: 0;
+      border-left: 1px solid #494e6e;
+      padding: 1rem;
+    }
+
+    .logo-btn {
+      transform: scale(1.1);
+    }
+
+  }
+
+}
+
+@media only screen and (min-width: 1024px) {
+  .navbar {
+
+    .navbar-center {
+      background-color: wheat;
+      overflow: hidden;
+      border: 1px solid black;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      width: 103px;
+    }
+
+    .logo,
+    .theme,
+    .avatar {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    button {
+      background-color: transparent;
+      border-style: none;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .logo {
+      position: relative;
+      padding: 33px 31px 32px 32px;
+      border-radius: 0 20px 20px 0;
+      background-color: #7C5DFAFF;
+      z-index: 1;
+      overflow: hidden;
+
+      .logo-img{
+        z-index: 9999;
+      }
+
+
+      &::after {
+        content: "";
+        height: 100px;
+        width: 100%;
+        z-index: 100;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        background-color: #9277ff;
+        border-radius: 20px 0 0 20px;
+      }
+    }
+
+    .theme {
+      margin-top: auto;
+      padding: 28px 42px 28px 41px;
+    }
+
+    .avatar {
+      border-top: 1px solid #494e6e;
+      padding: 24px 32px 24px 31px;
+    }
+
+    .logo-btn {
+      z-index: 1000;
+      transform: scale(1.4);
+    }
+
+  }
+
+}
