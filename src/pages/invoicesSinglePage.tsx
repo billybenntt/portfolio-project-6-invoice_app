@@ -5,8 +5,10 @@ import invoice from "../data/sampleAllData.tsx";
 
 function InvoicesSinglePage() {
 
-
     const isLoading = false
+    const showInvoices = Object.keys(invoice).length > 0
+
+
 
     return (
         <>
@@ -16,7 +18,7 @@ function InvoicesSinglePage() {
                     <h1>Loading</h1>
                 ) : (
                     <>
-                        {Object.keys(invoice).length ? (
+                        {showInvoices ? (
                             <InvoiceCard/>
                         ) : (
                             <h1>No Invoice</h1>

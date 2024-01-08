@@ -1,4 +1,4 @@
-type Invoice = {
+interface Invoice  {
     id: string,
     paymentDue: string,
     clientName: string,

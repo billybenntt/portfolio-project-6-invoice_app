@@ -1,80 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 .main-container {
   width: 730px;
   display: block;
   margin: 0 auto;
-}
-
-.invoice-status {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 104px;
-  height: 40px;
-  border-radius: 6px;
-}
-.invoice-status.paid {
-  color: #33d69f;
-}
-.invoice-status.pending {
-  color: #ff8f00;
-}
-.invoice-status.draft {
-  color: red;
-}
-.invoice-status .status-container {
-  display: flex;
-  align-items: flex-end;
-}
-.invoice-status .status-text {
-  color: currentColor;
-  line-height: 9px;
-  font-size: 12px;
-  font-weight: bold;
-  text-transform: capitalize;
-}
-.invoice-status .status-point {
-  display: inline-block;
-  background-color: currentColor;
-  height: 8px;
-  width: 8px;
-  border-radius: 50%;
-  margin-right: 8px;
-}
-
-.btn-primary {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 48px;
-  background-color: #7c5dfa;
-  color: #ffffff;
-  border-radius: 24px;
-  border-style: none;
-  font-weight: bold;
-  padding: 0 24px 0 23px;
-}
-.btn-primary:hover {
-  cursor: pointer;
-}
-.btn-primary.large {
-  padding: 0 15px 0 8px;
-}
-.btn-primary .button-icon-container {
-  background-color: #ffffff;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  margin-right: 16px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.btn-primary.danger {
-  background-color: #ec5757;
-}
-.btn-primary.default {
-  color: #7e88c3;
 }
 
 .navbar {
@@ -103,6 +37,87 @@
 }
 .navbar .logo-btn {
   transform: scale(1);
+}
+
+.invoice-list__header {
+  margin: 32px 0;
+}
+.invoice-list__header .invoice-list__title {
+  margin-bottom: 4px;
+}
+.invoice-list__header .invoice-list__filter {
+  margin-right: 18px;
+}
+.invoice-list__header .mobile {
+  display: inline-block;
+}
+.invoice-list__header .desktop {
+  display: none;
+}
+.invoice-list__header .arrow {
+  margin-left: 12px;
+}
+
+.invoice-list__container .arrow,
+.invoice-list__container .date.desktop,
+.invoice-list__container .price.desktop {
+  display: none;
+}
+.invoice-list__container .invoice-list__item {
+  padding: 24px;
+}
+.invoice-list__container .invoice-list__item-value {
+  margin: 0;
+  width: 50%;
+}
+
+.invoice-card__container {
+  margin-top: 64px;
+}
+.invoice-card__container .invoice-card__header,
+.invoice-card__container .invoice-card__body,
+.invoice-card__container .invoice-items-balance {
+  border: 1px solid black;
+  overflow: hidden;
+  border-radius: 8px;
+}
+.invoice-card__container .invoice-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  height: 88px;
+  margin-top: 32px;
+  margin-bottom: 24px;
+  padding: 20px 32px;
+}
+.invoice-card__container .invoice-card__body {
+  display: flex;
+  flex-direction: column;
+  padding: 48px;
+}
+.invoice-card__container .invoice-mid {
+  margin-top: 21px;
+  margin-bottom: 45px;
+}
+.invoice-card__container .invoice-list-container {
+  padding: 16px 32px 24px 32px;
+}
+.invoice-card__container .invoice-item-title {
+  margin-bottom: 8px;
+}
+.invoice-card__container .invoice-address {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+
+.invoice-card__container-mobile {
+  display: none;
+  position: relative;
+}
+.invoice-card__container-mobile .mobile-menu-absolute-container {
+  position: absolute;
 }
 
 @media only screen and (min-width: 768px) {
@@ -190,38 +205,6 @@
     transform: scale(1.4);
   }
 }
-.invoice-list__header {
-  margin: 32px 0;
-}
-.invoice-list__header .invoice-list__title {
-  margin-bottom: 4px;
-}
-.invoice-list__header .invoice-list__filter {
-  margin-right: 18px;
-}
-.invoice-list__header .mobile {
-  display: inline-block;
-}
-.invoice-list__header .desktop {
-  display: none;
-}
-.invoice-list__header .arrow {
-  margin-left: 12px;
-}
-
-.invoice-list__container .arrow,
-.invoice-list__container .date.desktop,
-.invoice-list__container .price.desktop {
-  display: none;
-}
-.invoice-list__container .invoice-list__item {
-  padding: 24px;
-}
-.invoice-list__container .invoice-list__item-value {
-  margin: 0;
-  width: 50%;
-}
-
 @media only screen and (min-width: 1024px) {
   .invoice-list__header {
     border: 1px solid black;

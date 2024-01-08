@@ -1,115 +1,85 @@
-// UTILITY MIXINS
 @import "variables";
 
-@mixin text-xxs {
-  font-size: map-get($font-sizes, "xxs");
-  line-height: map-get($line-height, "1");
-  font-weight: normal;
-}
-
-
-@mixin text-xs {
-  font-size: map-get($font-sizes, "xs");
-  line-height: map-get($line-height, "1");
-  font-weight: normal;
-}
-
-@mixin text-sm {
-  font-size: map-get($font-sizes, "sm");
-  line-height: map-get($line-height, "3");
-  font-weight: normal;
-}
-
-@mixin text-base {
-  font-size: map-get($font-sizes, "base");
-  line-height: map-get($line-height, "2");
-  font-weight: normal;
-}
-
-@mixin text-lg {
-  font-size: map-get($font-sizes, "lg");
-  line-height: map-get($line-height, "4");
-  font-weight: bold;
-}
-
-@mixin text-xl {
-  font-size: map-get($font-sizes, "xl");
-  line-height: map-get($line-height, "5");
-  font-weight: bold;
-}
-
-@mixin d-block {
-  display: block;
-}
-
-@mixin d-flex {
+// UTILITY CLASSES
+.invoice-status {
   display: flex;
-}
+  justify-content: center;
+  align-items: center;
+  width: 104px;
+  height: 40px;
+  border-radius: 6px;
 
-@mixin d-grid {
-  display: grid;
-}
+  &.paid {
+    color: #33d69f;
+  }
 
-@mixin h-screen {
-  height: 100vh;
-}
+  &.pending {
+    color: #ff8f00;
+  }
 
-@mixin w-full {
-  width: 100%;
-}
+  &.draft {
+    color: red;
+  }
 
-@mixin mx-auto {
-  margin: 0 auto;
-}
+  .status-container {
+    display: flex;
+    align-items: flex-end;
+  }
 
-@mixin transition-all {
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 500ms;
-}
+  .status-text {
+    color: currentColor;
+    line-height: 9px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: capitalize;
+  }
 
-
-@mixin transition-all-2 {
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 800ms;
-}
-
-
-
-//  COLOR SCHEMES
-
-@mixin color-scheme($color-1, $color-2) {
-  background-color: $color-1;
-  color: $color-2;
-
-  html.dark & {
-    background-color: $color-2;
-    color: $color-1;
+  .status-point {
+    display: inline-block;
+    background-color: currentColor;
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    margin-right: 8px;
   }
 }
 
+.btn-primary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+  background-color: #7C5DFAFF;
+  color: #ffffff;
+  border-radius: 24px;
+  border-style: none;
+  font-weight: bold;
+  padding: 0 24px 0 23px;
 
-@mixin color-scheme-text($color-1, $color-2) {
-  color: $color-2;
-  html.dark & {
-    color: $color-1;
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.large {
+    padding: 0 15px 0 8px;
+  }
+
+  .button-icon-container {
+    background-color: #ffffff;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-right: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &.danger {
+    background-color: #EC5757FF;
+  }
+
+  &.default {
+    color: #7e88c3;
   }
 }
-
-
-@mixin color-scheme-border($color-1, $color-2) {
-  border: 1px solid $color-2;
-  html.dark & {
-    border: 1px solid $color-1;
-  }
-}
-
-
-@mixin color-scheme-fill($color-1, $color-2) {
-  fill: $color-2;
-  html.dark & {
-    fill: $color-1;
-  }
-}
-
