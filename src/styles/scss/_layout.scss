@@ -1,16 +1,94 @@
 
-
-
 // LAYOUT
-
 .main-container {
   width: 730px;
   display: block;
   margin: 0 auto;
 }
 
+// UTILITY CLASSES
+.invoice-status {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 104px;
+  height: 40px;
+  border-radius: 6px;
 
+  &.paid {
+    color: #33d69f;
+  }
 
+  &.pending {
+    color: #ff8f00;
+  }
+
+  &.draft {
+    color: red;
+  }
+
+  .status-container {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .status-text {
+    color: currentColor;
+    line-height: 9px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: capitalize;
+  }
+
+  .status-point {
+    display: inline-block;
+    background-color: currentColor;
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    margin-right: 8px;
+  }
+}
+
+.btn-primary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+  background-color: #7C5DFAFF;
+  color: #ffffff;
+  border-radius: 24px;
+  border-style: none;
+  font-weight: bold;
+  padding: 0 24px 0 23px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.large {
+    padding: 0 15px 0 8px;
+  }
+
+  .button-icon-container {
+    background-color: #ffffff;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-right: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &.danger {
+    background-color: #EC5757FF;
+  }
+
+  &.default {
+    color: #7e88c3;
+  }
+}
 
 
 // NAVBAR
@@ -122,7 +200,7 @@
       z-index: 1;
       overflow: hidden;
 
-      .logo-img{
+      .logo-img {
         z-index: 9999;
       }
 
@@ -158,3 +236,125 @@
   }
 
 }
+
+
+// INVOICE LIST
+
+.invoice-list__header {
+  margin: 32px 0;
+
+  .invoice-list__title {
+    margin-bottom: 4px;
+  }
+
+  .invoice-list__filter {
+    margin-right: 18px;
+  }
+
+  .mobile {
+    display: inline-block;
+  }
+
+  .desktop {
+    display: none;
+  }
+
+  .arrow {
+    margin-left: 12px;
+  }
+}
+
+.invoice-list__container {
+  .arrow,
+  .date.desktop,
+  .price.desktop {
+    display: none;
+  }
+
+
+  .invoice-list__item {
+    padding: 24px;
+  }
+
+  .invoice-list__item-value {
+    margin: 0;
+    width: 50%;
+  }
+
+
+}
+
+@media only screen and (min-width: 1024px) {
+
+  .invoice-list__header {
+    border: 1px solid black;
+    margin: 72px 0 65px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .mobile {
+      display: none;
+    }
+
+    .invoice-list__title {
+      margin-bottom: 8px;
+    }
+
+    .invoice-list__filter {
+      margin-left: auto;
+      margin-right: 40px;
+    }
+
+    .arrow {
+      margin-left: 16px;
+    }
+  }
+
+  .invoice-list__container {
+    width: 100%;
+    list-style: none;
+    padding: 0;
+
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    .date-price-container {
+      display: none;
+    }
+
+
+  }
+
+  .invoice-list__item {
+    box-shadow: 0 10px 10px -10px rgba(72, 84, 159, 0.1);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .invoice-list__item:not(:last-child) {
+    margin-bottom: 16px;
+  }
+
+  .invoice-list__item-value {
+    text-align: left;
+  }
+
+  .invoice-list__none {
+    width: 242px;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+
+    .invoice-list__none-title {
+      margin-top: 64px;
+      margin-bottom: 24px;
+    }
+  }
+
+}
+
+
