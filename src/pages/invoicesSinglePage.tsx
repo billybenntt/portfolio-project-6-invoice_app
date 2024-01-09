@@ -9,7 +9,6 @@ function InvoicesSinglePage() {
     const showInvoices = Object.keys(invoice).length > 0
 
 
-
     return (
         <>
             <Navbar/>

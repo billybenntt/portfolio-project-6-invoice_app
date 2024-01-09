@@ -6,12 +6,14 @@ function InvoicesMainPage() {
     const isLoading = false
 
     return (
-        <div>
+        <>
             <Navbar/>
-            <section className="main-container">
+            <main className="main-container">
+
+
                 {isLoading ? <h1>Loading</h1> : <InvoiceList/>}
-            </section>
-        </div>
+            </main>
+        </>
     )
 }
 

@@ -1,42 +1,32 @@
 @import "variables";
 
 // UTILITY MIXINS
-@mixin text-xxs {
-  font-size: map-get($font-sizes, "xxs");
-  line-height: map-get($line-height, "1");
-  font-weight: normal;
-}
-
-
-@mixin text-xs {
-  font-size: map-get($font-sizes, "xs");
-  line-height: map-get($line-height, "1");
-  font-weight: normal;
-}
-
-@mixin text-sm {
-  font-size: map-get($font-sizes, "sm");
-  line-height: map-get($line-height, "3");
-  font-weight: normal;
-}
-
-@mixin text-base {
-  font-size: map-get($font-sizes, "base");
-  line-height: map-get($line-height, "2");
-  font-weight: normal;
-}
-
-@mixin text-lg {
-  font-size: map-get($font-sizes, "lg");
-  line-height: map-get($line-height, "4");
-  font-weight: bold;
+@mixin text-xxl {
+  font-weight: map-get($font-weight, "bold");
+  font-size: map-get($font-sizes, "6");
+  line-height: map-get($line-height, "5");
+  letter-spacing: map-get($letter-spacing, "4");
 }
 
 @mixin text-xl {
-  font-size: map-get($font-sizes, "xl");
-  line-height: map-get($line-height, "5");
-  font-weight: bold;
+  font-weight: map-get($font-weight, "bold");
+  font-size: map-get($font-sizes, "5");
+  line-height: map-get($line-height, "4");
+  letter-spacing: map-get($letter-spacing, "3");
 }
+
+@mixin text-lg {
+  font-weight: map-get($font-weight, "bold");
+  font-size: map-get($font-sizes, "xl");
+  letter-spacing: map-get($letter-spacing, "2");
+}
+
+@mixin text-base {
+  font-weight: map-get($font-weight, "medium");
+  font-size: map-get($font-sizes, "1");
+}
+
+
 
 @mixin d-block {
   display: block;
@@ -74,7 +64,6 @@
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 800ms;
 }
-
 
 
 //  COLOR SCHEMES

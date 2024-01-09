@@ -18,7 +18,7 @@ function InvoiceCard() {
     } = senderAddress;
 
     return (
-        <>
+        <section className="invoice-card">
             <div className="invoice-card__container-mobile">
                 <div className="mobile-menu-absolute-container">
                     <div className="buttons-menu buttons-menu--mobile">
@@ -29,7 +29,7 @@ function InvoiceCard() {
                             <span>Delete</span>
                         </button>
                         <button className="primary-button">
-                            <span>Mark as Pasid</span>
+                            <span>Mark as paid</span>
                         </button>
                     </div>
                 </div>
@@ -38,7 +38,6 @@ function InvoiceCard() {
             <div className="invoice-card__container">
 
                 {/*PREVIOUS PAGE */}
-
                 <div>
                     <span>Go Back</span>
                 </div>
@@ -185,7 +184,7 @@ function InvoiceCard() {
 
                 </div>
             </div>
-        </>
+        </section>
     );
 }
 

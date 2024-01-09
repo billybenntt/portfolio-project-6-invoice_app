@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700&display=swap');
+
+$accent-light-100: #F8F8FB;
+$accent-light-200: #DFE3FA;
+$accent-light-300: #888EB0;
+$accent-light-400: #7E88C3;
+$primary-100: #9277FF;
+$primary-200: #7C5DFA;
+$accent-dark-100: #373B53;
+$accent-dark-200: #252945;
+$accent-dark-300: #1E2139;
+$accent-dark-400: #141625;
+$accent-dark-500: #0C0E16;
+$secondary-100: #EC5757;
+$success-100: #33D69F;
+$warning-100: #FF8F00;
+
+$font-sans: 'League Spartan', sans-serif;
+$font-serif: serif;
+$font-mono: monospace;
+
+
+$max-w-sm: 327px;
+$max-w-md: 672px;
+$max-w-lg: 730px;
+$rounded-sm: 4px;
+$rounded-md: 6px;
+$rounded-lg: 10px;
+$rounded-xl: 24px;
+$rounded-full: 50%;
+$box-shadow-1: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+$box-shadow-2: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+$box-shadow-3: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+$transition: 0.3s ease-in-out all;
+$font-sizes: (
+        "1": 0.813rem, /*13px*/
+        "2": 0.938rem, /*15px*/
+        "3": 1rem, /*16px*/
+        "4": 1.375rem, /*22px*/
+        "5": 1.5rem, /*24px*/
+        "6": 2.25rem /*36px*/
+);
+$line-height: (
+        "1": 0.938rem, /*15px*/
+        "2": 1.125rem, /*18px*/
+        "3": 1.5rem, /*24px*/
+        "4": 1.375rem, /*22px*/
+        "5": 2.063rem, /*33px*/
+);
+$letter-spacing: (
+        "1": -0.10px, /*-0.10px*/
+        "2": -0.25px, /*-0.25px*/
+        "3": -0.75px, /*-0.75px*/
+        "4": -1px, /*-1px*/
+);
+
+$font-weight: (
+        "bold": 700,
+        "medium": 400,
+);
+
+$breakpoints: (
+        "sm": 375px,
+        "md": 768px,
+        "lg": 1024px,
+);
+
