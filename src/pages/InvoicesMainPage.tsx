@@ -9,8 +9,6 @@ function InvoicesMainPage() {
         <>
             <Navbar/>
             <main className="main-container">
-
-
                 {isLoading ? <h1>Loading</h1> : <InvoiceList/>}
             </main>
         </>
