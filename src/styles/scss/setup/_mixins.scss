@@ -17,7 +17,7 @@
 
 @mixin text-lg {
   font-weight: map-get($font-weight, "bold");
-  font-size: map-get($font-sizes, "xl");
+  font-size: map-get($font-sizes, "2");
   letter-spacing: map-get($letter-spacing, "2");
 }
 

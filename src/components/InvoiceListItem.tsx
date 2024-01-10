@@ -1,9 +1,12 @@
-interface Invoice  {
+import Status from "./subcomponents/Status.tsx";
+
+
+interface Invoice {
     id: string,
     paymentDue: string,
     clientName: string,
     total: number,
-    status: string
+    status: "paid" | "pending" | "draft"
 }
 
 function InvoiceListItem(props: Invoice) {
@@ -15,41 +18,23 @@ function InvoiceListItem(props: Invoice) {
             tabIndex={0}
             key={id}
             onClick={() => console.log(1)}>
-            <div className="invoice-list__item-value">
-                <span className="hash">#</span>
-                {id}
-            </div>
-            <div className="invoice-list__item-value">
-                <span>Due </span> {paymentDue}
-            </div>
-            <div className="invoice-list__item-value">
-                {clientName}
+
+            <div className="item__group">
+                <h4>
+                    <span className="text-light-1">#</span>{id}
+                </h4>
+                <p>{paymentDue}</p>
+                <h4>NTD {total}</h4>
             </div>
 
-            <div className="invoice-list__item-value">
-                  <span>
-                    <span>Due</span>{" "}
-                      {paymentDue}
-                  </span>
-                <span>
-                    NTD{total}
-                  </span>
+
+            <div className="item__group">
+                <p>{clientName}</p>
+                <Status status={status}/>
+
             </div>
 
-            <div className="invoice-list__item-value desktop">
-                <span>NTD</span>
-                {total}
-            </div>
 
-            <div className={"invoice-list__item-value invoice-status " + status}>
-                <div className="status-container">
-                    <span className="status-point"/>
-                    <span className="status-text">{status}</span>
-                </div>
-            </div>
-            <span className="invoice-list__item-value">
-                <span>▶️</span>
-            </span>
         </li>
     )
 }

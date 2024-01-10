@@ -14,16 +14,18 @@ function Navbar() {
                         <img src={pageLogo} alt="page-logo"/>
                     </span>
                 </div>
-                <div className="theme">
-                    {theme === "light" ?
-                        <span className="theme-img"><img src={iconMoon} alt="page-logo"/></span>:
-                        <span className="theme-img"><img src={iconSun} alt="page-logo"/></span>}
-                </div>
-                <div className="avatar">
-                    <span>😺</span>
+
+                <div className="navbar__control">
+                    <div className="theme">
+                        {theme === "light" ?
+                            <span className="theme-img"><img src={iconMoon} alt="page-logo"/></span> :
+                            <span className="theme-img"><img src={iconSun} alt="page-logo"/></span>}
+                    </div>
+                    <div className="avatar">
+                        <span>😺</span>
+                    </div>
                 </div>
             </div>
-
         </nav>
     )
 }

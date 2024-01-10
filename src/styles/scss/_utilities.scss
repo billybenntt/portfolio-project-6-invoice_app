@@ -35,6 +35,17 @@
   letter-spacing: map-get($letter-spacing, "2");
 }
 
+// TEXT COLORS
+
+.text-dark-1 {
+  color: $accent-dark-500;
+}
+
+.text-light-1 {
+  color: $accent-light-400;
+}
+
+
 // BUTTONS
 
 .btn {
@@ -54,9 +65,10 @@
 
 
 .btn-primary-1 {
-  width: 150px;
+  padding: 0 0.9rem;
   color: $accent-light-100;
   background-color: $primary-200;
+  text-transform: capitalize;
 
   .btn-img {
     width: 2rem;
@@ -91,10 +103,10 @@
 .btn-secondary-1 {
   width: 89px;
   color: $accent-light-100;
-  background-color: $secondary-100;
+  background-color: $danger-200;
 
   &:hover {
-    opacity: 0.8;
+    background-color: $danger-100
   }
 }
 
@@ -147,6 +159,7 @@
   justify-content: center;
   gap: 0.3rem;
   border-radius: $rounded-md;
+  text-transform: capitalize;
 
   .status-icon {
     width: 0.5rem;
@@ -154,21 +167,21 @@
     border-radius: $rounded-full;
   }
 
-  &.success {
+  &.paid {
     color: $success-100;
     background-color: hsla(160, 67%, 52%, 0.2);
   }
 
-  &.success .status-icon {
+  &.paid .status-icon {
     background-color: $success-100;
   }
 
-  &.warning {
+  &.pending {
     color: $warning-100;
     background-color: rgba(255, 143, 0, 0.2);
   }
 
-  &.warning .status-icon {
+  &.pending .status-icon {
     background-color: $warning-100;
   }
 
@@ -181,9 +194,29 @@
     background-color: $accent-dark-100;
   }
 
+}
+
+
+@media only screen and (min-width: map-get($breakpoints, "sm")) {
+  .mobile {
+    display: flex;
+  }
+
+  .desktop {
+    display: none;
+  }
 
 }
 
 
+@media only screen and (min-width: map-get($breakpoints, "md")) {
+  .mobile {
+    display: none;
+  }
 
+  .desktop {
+    display: flex;
+  }
+
+}
 

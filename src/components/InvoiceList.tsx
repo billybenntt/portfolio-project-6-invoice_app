@@ -1,42 +1,44 @@
 import data from "../data/sampleAllData.tsx";
 import InvoiceListItem from "./InvoiceListItem.tsx";
-import IconPlus from '../assets/icon-plus.svg'
+import Button from './subcomponents/Button.tsx'
+import IconArrowDown from '../assets/icon-arrow-down.svg'
+
 
 function InvoiceList() {
 
     const invoices = data
     const showInvoices = invoices.length > 0
 
-    const invoiceListItems = invoices.map((item) => {
+    const invoiceListItems = invoices.map((item: any) => {
         return <InvoiceListItem key={item.id} {...item}/>
     })
 
     return (
         <section className="invoice-list">
-            <div className="invoice-list__header">
-                <div>
-                    <h1 className="text-xxl">Invoices</h1>
-                    <p className="invoice-list__amount">
-                        There are 7 total invoices
-                    </p>
-                </div>
-                <div className="invoice-list__filter">
-                    <h5 className="">Filter by status</h5>
-                    <span>🔽</span>
-                </div>
-                <div className="invoice-list__create">
-                    <button className="btn btn-primary-1">
-                    <span className="btn-img">
-                    <img src={IconPlus} alt="icon"/>
-                    </span>
-                        <span className="text-lg">New Invoice</span>
-                    </button>
-                </div>
-            </div>
+            <div className="invoice-list-center">
+                <div className="invoice-list__header">
+                    <div className="invoice-list__title">
+                        <h2>Invoices</h2>
+                        <p> Total invoices</p>
+                    </div>
 
-            {
-                showInvoices ? (
-                    <ul className="invoice-list__container" style={{border: "1px solid black"}}>
+                    <div className="invoice-list__control">
+                        <div className="control__filter">
+                            <h3 className="text-lg">Filter</h3>
+                            <span>
+                            <img src={IconArrowDown} alt="icon-arrow"/>
+                            </span>
+                        </div>
+
+                        <div className="control__create">
+                            <Button text="new" type="1" show="mobile"/>
+                            <Button text="new Invoice" type="1" show="desktop"/>
+                        </div>
+                    </div>
+                </div>
+
+                {showInvoices ? (
+                    <ul className="invoice-list__container">
                         {invoiceListItems}
                     </ul>
                 ) : (
@@ -49,10 +51,11 @@ function InvoiceList() {
                         </p>
                     </div>
                 )
-            }
+                }
+            </div>
+
         </section>
     )
-        ;
 }
 
 export default InvoiceList;

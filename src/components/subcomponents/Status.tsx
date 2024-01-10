@@ -1,18 +1,17 @@
 
 type Status = {
-    status: string,
-    text: string
+    status: "paid" | "pending" | "draft"
 }
 
 
 function Status(props: Status) {
 
-    const {status, text} = props
+    const {status} = props
 
     return (
-        <div className={`status ${status} success`}>
+        <div className={`status ${status}`}>
             <span className="status-icon"></span>
-            <span className="text-lg">{text}</span>
+            <span className="text-lg">{status}</span>
         </div>
     )
 }

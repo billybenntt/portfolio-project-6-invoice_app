@@ -33,26 +33,28 @@ img {
   letter-spacing: -1px;
 }
 
-.text-xl {
+.text-xl, .invoice-list .invoice-list-center .invoice-list__header .invoice-list__title h2 {
   font-weight: 700;
   font-size: 1.5rem;
   line-height: 1.375rem;
   letter-spacing: -0.75px;
 }
 
-.text-lg {
+.text-lg, .invoice-list .invoice-list-center .invoice-list__container .invoice-list__item .item__group h4, .invoice-list .invoice-list-center .invoice-list__header .invoice-list__control .control__filter h3 {
   font-weight: 700;
+  font-size: 0.938rem;
   letter-spacing: -0.25px;
   line-height: 1.5rem;
 }
 
 .text-lg-alt {
   font-weight: 700;
+  font-size: 0.938rem;
   letter-spacing: -0.25px;
   line-height: 0.938rem;
 }
 
-.text-base {
+.text-base, .invoice-list .invoice-list-center .invoice-list__container .invoice-list__item .item__group p, .invoice-list .invoice-list-center .invoice-list__header .invoice-list__title p {
   font-weight: 400;
   font-size: 0.813rem;
   line-height: 1.125rem;
@@ -64,6 +66,14 @@ img {
   font-size: 0.813rem;
   line-height: 0.938rem;
   letter-spacing: -0.25px;
+}
+
+.text-dark-1, .invoice-list .invoice-list-center .invoice-list__container .invoice-list__item .item__group h4 {
+  color: #0C0E16;
+}
+
+.text-light-1, .invoice-list .invoice-list-center .invoice-list__container .invoice-list__item .item__group p, .invoice-list .invoice-list-center .invoice-list__header .invoice-list__title p {
+  color: #7E88C3;
 }
 
 .btn {
@@ -80,9 +90,10 @@ img {
 }
 
 .btn-primary-1 {
-  width: 150px;
+  padding: 0 0.9rem;
   color: #F8F8FB;
   background-color: #7C5DFA;
+  text-transform: capitalize;
 }
 .btn-primary-1 .btn-img {
   width: 2rem;
@@ -112,7 +123,7 @@ img {
   background-color: #EC5757;
 }
 .btn-secondary-1:hover {
-  opacity: 0.8;
+  background-color: #FF9797;
 }
 
 .btn-accent-1 {
@@ -154,24 +165,25 @@ img {
   justify-content: center;
   gap: 0.3rem;
   border-radius: 6px;
+  text-transform: capitalize;
 }
 .status .status-icon {
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 50%;
 }
-.status.success {
+.status.paid {
   color: #33D69F;
   background-color: hsla(160, 67%, 52%, 0.2);
 }
-.status.success .status-icon {
+.status.paid .status-icon {
   background-color: #33D69F;
 }
-.status.warning {
+.status.pending {
   color: #FF8F00;
   background-color: rgba(255, 143, 0, 0.2);
 }
-.status.warning .status-icon {
+.status.pending .status-icon {
   background-color: #FF8F00;
 }
 .status.draft {
@@ -182,6 +194,22 @@ img {
   background-color: #373B53;
 }
 
+@media only screen and (min-width: 375px) {
+  .mobile {
+    display: flex;
+  }
+  .desktop {
+    display: none;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .mobile {
+    display: none;
+  }
+  .desktop {
+    display: flex;
+  }
+}
 body {
   font-family: "League Spartan", sans-serif;
 }
@@ -194,40 +222,43 @@ body {
 
 .navbar {
   background-color: #F8F8FB;
-  height: 72px;
+  padding: 1rem;
 }
 .navbar .navbar-center {
   background-color: #373B53;
-  border: 1px solid black;
   position: fixed;
-  z-index: 1;
   top: 0;
   left: 0;
-  height: 100px;
+  height: 72px;
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
+.navbar .logo, .navbar .navbar__control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navbar .navbar__control {
+  flex-direction: row;
+}
 .navbar .logo {
   position: relative;
-  padding: 33px 31px 32px 32px;
-  border-radius: 0 20px 20px 0;
-  background-color: #7c5dfa;
-  z-index: 1;
-  overflow: hidden;
-}
-.navbar .logo .logo-img {
-  z-index: 10;
+  background-color: #7C5DFA;
+  z-index: -1;
+  height: 72px;
+  width: 72px;
 }
 .navbar .logo::after {
   content: "";
-  height: 100px;
   width: 100%;
+  height: 50%;
   position: absolute;
   top: 50%;
   left: 0;
+  z-index: -1;
   background-color: #9277ff;
-  border-radius: 20px 0 0 20px;
+  overflow: hidden;
 }
 .navbar .theme {
   padding: 1rem;
@@ -240,25 +271,58 @@ body {
 }
 
 .invoice-list {
+  margin-top: 5rem;
   width: 327px;
-  background-color: lightpink;
 }
-.invoice-list .invoice-list__header .mobile {
-  display: inline-block;
+.invoice-list .invoice-list-center {
+  display: flex;
+  background-color: #F8F8FB;
+  flex-direction: column;
+  gap: 1rem;
 }
-.invoice-list .invoice-list__header .desktop {
-  display: none;
+.invoice-list .invoice-list-center .invoice-list__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
 }
-.invoice-list .invoice-list__container .arrow,
-.invoice-list .invoice-list__container .date.desktop,
-.invoice-list .invoice-list__container .price.desktop {
-  display: none;
+.invoice-list .invoice-list-center .invoice-list__header .invoice-list__control {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
 }
-.invoice-list .invoice-list__container .invoice-list__item {
-  padding: 2rem;
+.invoice-list .invoice-list-center .invoice-list__header .invoice-list__control .control__filter {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-right: 1rem;
 }
-.invoice-list .invoice-list__container .invoice-list__item-value {
-  width: 50%;
+.invoice-list .invoice-list-center .invoice-list__header .invoice-list__control .control__filter h3 {
+  margin-right: 0.5rem;
+}
+.invoice-list .invoice-list-center .invoice-list__container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.invoice-list .invoice-list-center .invoice-list__container .invoice-list__item {
+  width: 100%;
+  max-height: 134px;
+  padding: 1.5rem;
+  display: flex;
+  cursor: pointer;
+  border-radius: 8px;
+  justify-content: space-between;
+  background-color: #FFFFFF;
+}
+.invoice-list .invoice-list-center .invoice-list__container .invoice-list__item .item__group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 1rem;
+}
+.invoice-list .invoice-list-center .invoice-list__container .invoice-list__item .item__group p {
+  text-align: end;
 }
 
 .invoice-card {
@@ -267,7 +331,6 @@ body {
 .invoice-card .invoice-card__container .invoice-card__header,
 .invoice-card .invoice-card__container .invoice-card__body,
 .invoice-card .invoice-card__container .invoice-items-balance {
-  border: 1px solid black;
   overflow: hidden;
   border-radius: 8px;
 }
@@ -284,7 +347,6 @@ body {
 .invoice-card .invoice-card__container .invoice-card__body {
   display: flex;
   flex-direction: column;
-  padding: 48px;
 }
 .invoice-card .invoice-card__container .invoice-mid {
   margin-top: 21px;
@@ -313,23 +375,14 @@ body {
   .navbar .navbar-center {
     display: flex;
     flex-direction: row;
+    height: 80px;
   }
-  .navbar .logo,
-  .navbar .theme,
-  .navbar .avatar {
-    width: auto;
-  }
-  .navbar .avatar {
-    border-top: 0;
-    border-left: 1px solid #494e6e;
-    padding: 1rem;
-  }
-  .navbar .logo-btn {
-    transform: scale(1.1);
+  .navbar .navbar-center .logo {
+    height: 80px;
+    width: 80px;
   }
   .invoice-list {
     width: 672px;
-    background-color: lightyellow;
   }
   .invoice-card {
     width: 672px;
@@ -337,43 +390,23 @@ body {
 }
 @media only screen and (min-width: 1024px) {
   .navbar .navbar-center {
-    overflow: hidden;
-    border: 1px solid black;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    width: 103px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  .navbar .navbar-center .logo {
+    height: 103px;
     width: 103px;
   }
-  .navbar .logo,
-  .navbar .theme,
-  .navbar .avatar {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .navbar .navbar-center .navbar__control {
+    flex-direction: column;
   }
-  .navbar button {
-    background-color: transparent;
-    border-style: none;
-  }
-  .navbar button:hover {
-    cursor: pointer;
-  }
-  .navbar .theme {
-    margin-top: auto;
-    padding: 28px 42px 28px 41px;
-  }
-  .navbar .avatar {
-    border-top: 1px solid #494e6e;
-    padding: 24px 32px 24px 31px;
-  }
-  .navbar .logo-btn {
-    z-index: 1000;
-    transform: scale(1.4);
+  .navbar .navbar-center .navbar__control .avatar {
+    border-top: 1px solid #7E88C3;
   }
   .invoice-card {
     width: 730px;
@@ -383,46 +416,14 @@ body {
     background-color: lightblue;
   }
   .invoice-list .invoice-list__header {
-    border: 1px solid black;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-  .invoice-list .invoice-list__header .mobile {
-    display: none;
-  }
-  .invoice-list .invoice-list__header .invoice-list__title {
-    margin-bottom: 8px;
-  }
-  .invoice-list .invoice-list__header .invoice-list__filter {
-    margin-left: auto;
-    margin-right: 40px;
-  }
-  .invoice-list .invoice-list__header .arrow {
-    margin-left: 16px;
-  }
-  .invoice-list .invoice-list__container {
-    width: 100%;
-    list-style: none;
-    padding: 0;
-  }
-  .invoice-list .invoice-list__container:hover {
-    cursor: pointer;
-  }
-  .invoice-list .invoice-list__container .date-price-container {
-    display: none;
-  }
-  .invoice-list .invoice-list__item {
-    box-shadow: 0 10px 10px -10px rgba(72, 84, 159, 0.1);
+  .invoice-list .invoice-list__item .item__group {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
-  }
-  .invoice-list .invoice-list__item:not(:last-child) {
-    margin-bottom: 16px;
-  }
-  .invoice-list .invoice-list__item-value {
-    text-align: left;
   }
   .invoice-list .invoice-list__none {
     width: 242px;
