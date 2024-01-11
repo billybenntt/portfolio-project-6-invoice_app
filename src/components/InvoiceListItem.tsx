@@ -31,7 +31,6 @@ function InvoiceListItem(props: Invoice) {
             <div className="item__group">
                 <p>{clientName}</p>
                 <Status status={status}/>
-
             </div>
 
 

@@ -197,6 +197,16 @@
 }
 
 
+  .box {
+    height: 100px;
+    border: 1px solid #252945;
+    width: 100px;
+    display: block;
+    background-color: #7E88C3;
+  }
+
+
+
 @media only screen and (min-width: map-get($breakpoints, "sm")) {
   .mobile {
     display: flex;

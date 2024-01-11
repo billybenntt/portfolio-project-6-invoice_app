@@ -9,10 +9,12 @@ function Navbar() {
     return (
         <nav className="navbar">
             <div className="navbar-center">
-                <div className="logo">
-                    <span className="logo-img">
+                <div className="logo" onClick={()=> console.log("logo")}>
+                    <div className="logo-center">
+                           <span className="logo-img">
                         <img src={pageLogo} alt="page-logo"/>
-                    </span>
+                         </span>
+                    </div>
                 </div>
 
                 <div className="navbar__control">

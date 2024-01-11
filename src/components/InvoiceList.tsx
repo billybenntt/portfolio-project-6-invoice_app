@@ -2,6 +2,7 @@ import data from "../data/sampleAllData.tsx";
 import InvoiceListItem from "./InvoiceListItem.tsx";
 import Button from './subcomponents/Button.tsx'
 import IconArrowDown from '../assets/icon-arrow-down.svg'
+import ImgNoInvoice from '../assets/illustration-empty.svg'
 
 
 function InvoiceList() {
@@ -42,13 +43,10 @@ function InvoiceList() {
                         {invoiceListItems}
                     </ul>
                 ) : (
-                    <div className="invoice-list__none">
-                        <button>empty illustration</button>
-                        <h2 className="invoice-list__none-title">There is nothing here</h2>
-                        <p>
-                            Create an invoice by clicking the{" "}
-                            <span>New Invoice</span> button and get started
-                        </p>
+                    <div className="invoice-list__empty">
+                        <img src={ImgNoInvoice} alt="img-no_invoice"/>
+                        <h2>There is nothing here</h2>
+                        <p> Create an invoice by clicking the New Invoice button and get started</p>
                     </div>
                 )
                 }
