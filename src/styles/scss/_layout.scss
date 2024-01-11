@@ -307,6 +307,25 @@ body {
 
 }
 
+.invoice-form {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  width: 719px;
+  background-color: lightblue;
+  transform: translateX(-719px);
+  padding-top: 3.7rem;
+  padding-left: 9.938rem;
+  border-radius: $rounded-xl;
+}
+
+
+.invoice-form.show {
+  transition: all 0.2s linear;
+  transform: translateX(0px);
+}
+
 
 // MEDIA QUERIES
 

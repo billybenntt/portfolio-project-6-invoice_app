@@ -1,5 +1,6 @@
 import Navbar from "../components/Navbar.tsx";
 import IconPlus from '../assets/icon-plus.svg'
+import InvoiceForm from "../components/InvoiceForm.tsx";
 
 function InvoicesMainPage() {
 
@@ -7,6 +8,7 @@ function InvoicesMainPage() {
     return (
         <>
             <Navbar/>
+            <InvoiceForm/>
             <main className="main-container" style={{backgroundColor: "white"}}>
                 <div style={{display: 'flex', flexDirection: 'column', gap: '1rem', padding: "3rem"}}>
                     <button className="btn btn-primary-1">
