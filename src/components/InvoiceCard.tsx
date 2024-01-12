@@ -14,7 +14,7 @@ function InvoiceCard() {
                     <span>
                         <img src={IconArrowLeft} alt="icon-back"/>
                     </span>
-                   <h4>Go back</h4>
+                    <h4>Go back</h4>
                 </div>
 
                 <div className="invoice-card__header">
@@ -46,39 +46,98 @@ function InvoiceCard() {
                     </div>
 
                     <div className="body__group">
-                        <div>
-                            <p>Invoice Date</p>
-                            <h4>21 Aug 2021</h4>
-                        </div>
-                        <div>
-                            <p>Payment Due</p>
-                            <h4>20 Sep 2021</h4>
-                        </div>
 
                         <div>
-                            <p>Bill To</p>
-                            <h4>Alex Grim</h4>
+                            <div>
+                                <p>Invoice Date</p>
+                                <h4>21 Aug 2021</h4>
+                            </div>
+                            <div>
+                                <p>Payment Due</p>
+                                <h4>20 Sep 2021</h4>
+                            </div>
                         </div>
+
+
                         <div>
-                            <p>84 Church Way</p>
-                            <p>Bradford</p>
-                            <p>BD1 9PB</p>
-                            <p> United Kingdom </p>
+                            <div>
+                                <p>Bill To</p>
+                                <h4>Alex Grim</h4>
+                            </div>
+                            <div>
+                                <p>84 Church Way</p>
+                                <p>Bradford</p>
+                                <p>BD1 9PB</p>
+                                <p> United Kingdom </p>
+                            </div>
                         </div>
+
+
                         <div>
                             <p>Sent to</p>
                             <h4>alexgrim@mail.com</h4>
                         </div>
                     </div>
                     <div className="body__group">
-                        <div className="subtotal">subtotal</div>
-                        <div className="total">total</div>
+
+                        <div className="subtotal">
+
+                            {/*DYNAMIC SIZE*/}
+
+                            <div className="subtotal__item">
+                                <div>
+                                    <h4>Banner Design</h4>
+                                    <h4 className="text-light-1">1 x £ 156.00</h4>
+                                </div>
+                                <div>
+                                    <h4>£ 156.00</h4>
+                                </div>
+                            </div>
+
+                            <div className="subtotal__item">
+                                <div>
+                                    <h4>Banner Design</h4>
+                                    <h4 className="text-light-1">1 x £ 156.00</h4>
+                                </div>
+                                <div>
+                                    <h4>£ 156.00</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="total">
+                            <p>Grand Total</p>
+                            <h2>£ 556.00</h2>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div className="invoice-card__controls mobile">
-                invoice-card__controls
+
+                <div className="controls__center">
+
+                    <div>
+                        <button className="btn btn-accent-1">
+                            <span className="text-lg">Edit</span>
+                        </button>
+                    </div>
+
+                    <div>
+                        <button className="btn btn-danger-1">
+                            <span className="text-lg">Delete</span>
+                        </button>
+                    </div>
+
+
+                    <div>
+                        <button className="btn btn-primary-2">
+                            <span className="text-lg">Mark As Paid</span>
+                        </button>
+                    </div>
+
+                </div>
+
+
             </div>
 
         </section>

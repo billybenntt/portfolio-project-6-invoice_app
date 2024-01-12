@@ -1,6 +1,6 @@
 function InvoiceForm() {
   return (
-    <div className="invoice-form show">
+    <div className="invoice-form">
       <h2>InvoiceForm Component</h2>
     </div>
   )
