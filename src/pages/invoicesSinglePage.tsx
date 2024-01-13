@@ -1,6 +1,7 @@
 import Navbar from "../components/Navbar.tsx";
 import InvoiceCard from "../components/InvoiceCard.tsx";
 import invoice from "../data/sampleAllData.tsx";
+import InvoiceForm from "../components/InvoiceForm.tsx";
 
 
 function InvoicesSinglePage() {
@@ -12,6 +13,8 @@ function InvoicesSinglePage() {
     return (
         <>
             <Navbar/>
+            <InvoiceForm/>
+
             <main className="main-container">
                 {isLoading ? (
                     <h1>Loading</h1>

@@ -1,4 +1,4 @@
-import Status from "./subcomponents/Status.tsx";
+import Status from "./Status.tsx";
 
 
 interface Invoice {

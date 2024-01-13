@@ -4,8 +4,7 @@ import InvoicesSinglePage from "./pages/invoicesSinglePage.tsx";
 
 function App() {
 
-    const isActive = true
-
+    const isActive = false
     const selectPage = isActive ? <EmptyPage/> : <InvoicesSinglePage/>
     return (
         <>

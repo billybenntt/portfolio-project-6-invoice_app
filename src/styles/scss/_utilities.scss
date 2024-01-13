@@ -1,4 +1,6 @@
 @import "setup/variables";
+@import "controls/forms";
+@import "controls/buttons";
 @import "setup/mixins";
 
 
@@ -46,107 +48,6 @@
 }
 
 
-// BUTTONS
-
-.btn {
-  height: 3rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: $rounded-xl;
-  cursor: pointer;
-  border: transparent;
-
-  &:hover {
-    transition: all 0.5s ease-in-out;
-  }
-
-}
-
-
-.btn-primary-1 {
-  padding: 0 0.9rem;
-  color: $accent-light-100;
-  background-color: $primary-200;
-  text-transform: capitalize;
-
-  .btn-img {
-    width: 2rem;
-    height: 2rem;
-    background-color: $accent-light-100;
-    border-radius: $rounded-full;
-    display: grid;
-    place-content: center;
-    margin-right: 0.5rem;
-  }
-
-  &:hover {
-    opacity: 0.8;
-  }
-
-
-}
-
-
-.btn-primary-2 {
-  width: 131px;
-  color: $accent-light-100;
-  background-color: $primary-200;
-
-
-  &:hover {
-    opacity: 0.8;
-  }
-}
-
-
-.btn-danger-1 {
-  width: 89px;
-  color: $accent-light-100;
-  background-color: $danger-200;
-
-  &:hover {
-    background-color: $danger-100
-  }
-}
-
-.btn-accent-1 {
-  width: 73px;
-  background-color: $accent-light-100;
-  color: $accent-light-400;
-
-  &:hover {
-    background-color: $accent-light-200;
-  }
-}
-
-
-.btn-accent-2 {
-  width: 120px;
-  background-color: $accent-dark-100;
-  color: $accent-light-300;
-
-  &:hover {
-    background-color: $accent-dark-500;
-    transition: all 0.5s ease-in-out;
-  }
-}
-
-
-.btn-accent-3 {
-  width: 350px;
-  background-color: $accent-light-100;
-  color: $accent-light-400;
-
-  img {
-    margin-right: 0.3rem;
-  }
-
-  &:hover {
-    background-color: $accent-light-200;
-
-  }
-}
 
 
 // STATUS
@@ -208,104 +109,7 @@
 
 
 
-// FORMS
 
-.form__row {
-  width: 240px;
-  margin-bottom: 1rem;
-  display: flex;
-  row-gap: 0.563rem;
-  flex-direction: column;
-
-  .form__label {
-    color: $accent-light-400;
-    @extend .text-base
-  }
-
-  .form__input {
-    @extend .text-lg;
-    outline: none;
-    font-family: inherit;
-    width: 100%;
-    height: 48px;
-    border: 1px solid $accent-light-200;
-    border-radius: $rounded-sm;
-    padding: 1rem;
-
-    &:focus {
-      border: 1px solid $primary-100;
-    }
-  }
-
-}
-
-.form__row-select {
-  width: 240px;
-  margin-bottom: 1rem;
-  display: flex;
-  row-gap: 0.563rem;
-  flex-direction: column;
-
-  .form__label {
-    color: $accent-light-400;
-    @extend .text-base
-  }
-
-  .form__input {
-    @extend .text-lg;
-    outline: none;
-    font-family: inherit;
-    position: relative;
-    width: 100%;
-    height: 48px;
-    border: 1px solid $accent-light-200;
-    border-radius: $rounded-sm;
-    padding: 1rem;
-
-    &:focus {
-      border: 1px solid $primary-100;
-    }
-  }
-
-  .form__select {
-    border-radius: $rounded-lg;
-    border: 1px solid $accent-light-200;
-    cursor: pointer;
-    overflow: hidden;
-    display: none;
-    background-color: white;
-    box-shadow: $box-shadow-1;
-    position: absolute;
-    width: 240px;
-    top: 265px;
-    z-index: 5;
-
-    &.show {
-      display: flex;
-      flex-direction: column;
-    }
-
-  }
-
-
-  &:hover {
-    display: flex;
-  }
-
-
-  .form__select-item {
-    height: 39px;
-    padding: 1rem;
-    border-bottom: 1px dotted $accent-light-200;
-
-    &:hover {
-      color: $primary-200;
-    }
-
-  }
-
-
-}
 
 .form__row-date{
 

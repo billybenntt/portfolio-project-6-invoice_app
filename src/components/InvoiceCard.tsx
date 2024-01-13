@@ -72,7 +72,6 @@ function InvoiceCard() {
                             </div>
                         </div>
 
-
                         <div>
                             <p>Sent to</p>
                             <h4>alexgrim@mail.com</h4>
