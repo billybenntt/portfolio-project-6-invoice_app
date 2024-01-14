@@ -1,8 +1,7 @@
 import Navbar from "../components/Navbar.tsx";
-// import IconPlus from '../assets/icon-plus.svg'
 import InvoiceForm from "../components/InvoiceForm.tsx";
-import FormRow from "../components/subcomponents/FormRow.tsx";
-import FormRowSelect from "../components/subcomponents/FormRowSelect.tsx";
+
+import FormListItem from "../components/subcomponents/FormListItem.tsx";
 
 function InvoicesMainPage() {
 
@@ -57,14 +56,12 @@ function InvoicesMainPage() {
                     {/*</div>*/}
 
 
-                    <FormRow label="Something"/>
-                    <FormRowSelect label="Payment Terms"/>
 
 
-                    <div className="form__row">
-                        <label htmlFor="" className="form__label">Date</label>
-                        <input type="date" className="form__input"/>
+                    <div style={{width: "327px"}}>
+                         <FormListItem/>
                     </div>
+
 
 
                 </div>

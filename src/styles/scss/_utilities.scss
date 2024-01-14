@@ -20,8 +20,9 @@
 }
 
 .text-lg-alt {
-  @include text-lg;
-  line-height: map-get($line-height, "1");
+  font-size: 18px;
+  font-weight: bold;
+  line-height: map-get($line-height, "2");
 }
 
 .text-base {

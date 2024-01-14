@@ -12,7 +12,7 @@ function Navbar() {
                 <div className="logo" onClick={()=> console.log("logo")}>
                     <div className="logo-center">
                            <span className="logo-img">
-                        <img src={pageLogo} alt="page-logo"/>
+                           <img src={pageLogo} alt="page-logo" className="logo-icon"/>
                          </span>
                     </div>
                 </div>
