@@ -1,17 +1,21 @@
 import FormRow from "./subcomponents/FormRow.tsx";
 import IconArrowLeft from '../assets/icon-arrow-left.svg'
+import IconPlus from '../assets/icon-plus.svg'
 import FormRowDate from "./subcomponents/FormRowDate.tsx";
 import FormRowSelect from "./subcomponents/FormRowSelect.tsx";
 import FormListItem from "./subcomponents/FormListItem.tsx";
 
 function InvoiceForm() {
 
-
-    const showBar = "show"
+    const showBar = ""
+    const isEditing = false
 
 
     return (
         <div className={`invoice-form ${showBar}`}>
+
+
+
             <div className="invoice-form-center">
                 <div className="invoice-form-return" onClick={() => console.log("back")}>
                     <span>
@@ -57,15 +61,46 @@ function InvoiceForm() {
                 </div>
 
                 {/*ITEM LIST*/}
-                <h4 className="text-lg-alt text-light-1">Item List</h4>
 
+                <h4 className="text-lg-alt text-light-1">Item List</h4>
                 <div>
-                    <FormListItem/>
-                    <FormListItem/>
-                    <FormListItem/>
+                    <div>
+                        <FormListItem/>
+                        <FormListItem/>
+                        <FormListItem/>
+                    </div>
+
+                    <button className="btn btn-accent-3">
+                        <img src={IconPlus} alt="icon"/>
+                        <span className="text-lg">Add New Item</span>
+                    </button>
                 </div>
 
+            </div>
 
+
+            <div className="invoice-form__controls">
+
+                {isEditing ? (<div className="controls__edit">
+                        <button className="btn btn-accent-1">
+                            <span className="text-lg">Cancel</span>
+                        </button>
+                        <button className="btn btn-primary-2">
+                            <span className="text-lg">Save Changes</span>
+                        </button>
+                    </div>) :
+                    <div className="controls__create">
+                        <button className="btn btn-accent-1">
+                            <span className="text-lg">Discard</span>
+                        </button>
+                        <button className="btn btn-accent-2">
+                            <span className="text-lg">Save as Draft</span>
+                        </button>
+                        <button className="btn btn-primary-2">
+                            <span className="text-lg">Save and Send</span>
+                        </button>
+                    </div>
+                }
             </div>
         </div>
     )

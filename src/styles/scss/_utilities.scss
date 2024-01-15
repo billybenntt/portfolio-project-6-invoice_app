@@ -49,8 +49,6 @@
 }
 
 
-
-
 // STATUS
 
 .status {
@@ -107,17 +105,85 @@
   background-color: #7E88C3;
 }
 
+.modal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5000;
+  background-color: rgba(0, 0, 0, 0.5);
+}
 
 
+// MODAL MAIN
+.modal {
+  border-radius: $rounded-lg;
+  background-color: #fff;
+  width: $max-w-sm;
+  padding: 3rem;
+  height: 249px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
 
+.modal.show {
+  animation: showModal 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
 
-.form__row-date{
+.modal.hide {
+  animation: hideModal 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+
+// MODAL CONTENT
+
+.modal-center {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+
+
+  .modal__control{
+    display: flex;
+    column-gap: 1rem;
+    justify-content: end;
+
+  }
+
 
 }
 
 
 
+
+
+
+
+// MODAL ANIMATION
+
+@keyframes showModal {
+  0% {
+    transform: translate(-0%, -5000%);
+  }
+
+  100% {
+    transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes hideModal {
+  0% {
+    transform: translate(-50%, -50%);
+  }
+
+  100% {
+    transform: translate(-0%, -5000%);
+  }
+}
 
 
 @media only screen and (min-width: map-get($breakpoints, "sm")) {
@@ -129,6 +195,9 @@
     display: none;
   }
 
+
+
+
 }
 
 
@@ -139,6 +208,10 @@
 
   .desktop {
     display: flex;
+  }
+
+    .modal{
+    width: 480px;
   }
 
 }

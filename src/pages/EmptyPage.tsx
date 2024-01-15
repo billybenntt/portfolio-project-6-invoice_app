@@ -10,6 +10,8 @@ function InvoicesMainPage() {
         <>
             <Navbar/>
             <InvoiceForm/>
+
+
             <main className="main-container" style={{backgroundColor: "white"}}>
                 <div style={{display: 'flex', flexDirection: 'column', gap: '1rem', padding: "3rem"}}>
                     {/*<button className="btn btn-primary-1">*/}
@@ -64,7 +66,12 @@ function InvoicesMainPage() {
 
 
 
+
+
+
                 </div>
+
+
             </main>
         </>
     )
