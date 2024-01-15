@@ -7,14 +7,12 @@ import FormListItem from "./subcomponents/FormListItem.tsx";
 
 function InvoiceForm() {
 
-    const showBar = ""
+    const showBar = "show"
     const isEditing = false
 
 
     return (
         <div className={`invoice-form ${showBar}`}>
-
-
 
             <div className="invoice-form-center">
                 <div className="invoice-form-return" onClick={() => console.log("back")}>

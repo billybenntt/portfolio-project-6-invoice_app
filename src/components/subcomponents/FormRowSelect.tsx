@@ -37,7 +37,6 @@ function FormRowSelect(props:    formRow) {
             <span className="form__input-icon">
                 <img src={IconImg} alt="form__input-icon"/>
             </span>
-
             <ul className={`form__select ${show}`} onMouseLeave={() => setShow("")}>
                 <li className="form__select-item" onClick={() => handleOption("option 1")}>option 1</li>
                 <li className="form__select-item" onClick={() => handleOption("option 2")}>option 2</li>

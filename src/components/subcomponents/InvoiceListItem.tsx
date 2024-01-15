@@ -1,5 +1,5 @@
 import Status from "./Status.tsx";
-
+import IconArrowRight from '../../assets/icon-arrow-right.svg'
 
 interface Invoice {
     id: string,
@@ -23,14 +23,22 @@ function InvoiceListItem(props: Invoice) {
                 <h4>
                     <span className="text-light-1">#</span>{id}
                 </h4>
-                <p>{paymentDue}</p>
-                <h4>NTD {total}</h4>
+                <p>{paymentDue && "Due  19 Aug 2021"}</p>
+                <p className="desktop">{clientName}</p>
+                <h4 className="mobile">NTD {total}</h4>
             </div>
 
 
             <div className="item__group">
-                <p>{clientName}</p>
+                <h4 className="desktop">NTD {total}</h4>
+                <p className="mobile">{clientName}</p>
                 <Status status={status}/>
+
+                <div className="desktop">
+                    <span>
+                        <img src={IconArrowRight} alt="right"/>
+                    </span>
+                </div>
             </div>
 
 

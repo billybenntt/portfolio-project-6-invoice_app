@@ -15,7 +15,7 @@ function Button(props: Button) {
             <span className="btn-img">
             <img src={IconPlus} alt="icon-button"/>
             </span>
-            <span className="text-lg-alt">
+            <span className="text-lg">
               {text}
             </span>
         </button>

@@ -159,36 +159,40 @@ body {
       display: flex;
       flex-direction: column;
       gap: 1rem;
+    }
 
-      .invoice-list__item {
-        width: 100%;
-        max-height: 134px;
-        padding: 1.5rem;
-        display: flex;
-        cursor: pointer;
-        border-radius: $rounded-lg;
-        justify-content: space-between;
-        background-color: $accent-light-000;
+    .invoice-list__item {
+      width: 100%;
 
-        .item__group {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          row-gap: 1rem;
+      max-height: 134px;
+      padding: 1.5rem;
+      display: flex;
+      cursor: pointer;
+      border-radius: $rounded-lg;
+      justify-content: space-between;
+      background-color: $accent-light-000;
 
-          h4 {
-            @extend .text-dark-1;
-            @extend .text-lg
-          }
+    }
 
-          p {
-            @extend .text-light-1;
-            @extend .text-base;
-            text-align: end;
-          }
-        }
+    .item__group {
+      display: flex;
+      align-items: start;
+      flex-direction: column;
+      row-gap: 1rem;
+
+      h4 {
+        @extend .text-dark-1;
+        @extend .text-lg
+      }
+
+      p {
+        @extend .text-light-1;
+        @extend .text-base;
+        text-align: end;
       }
     }
+
+
   }
 
   .invoice-list__empty {
@@ -434,7 +438,23 @@ body {
   .invoice-list {
     .invoice-list-center {
       width: $max-w-md;
+
+
     }
+
+    .invoice-list__item {
+
+      .item__group {
+        flex-direction: row;
+        align-items: center;
+        column-gap: 2rem;
+
+      }
+
+
+    }
+
+
   }
 
   .invoice-card {
@@ -513,10 +533,10 @@ body {
     }
 
     .invoice-list__item {
+
       .item__group {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+
+        // something
       }
     }
   }
