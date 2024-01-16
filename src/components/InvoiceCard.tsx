@@ -10,6 +10,7 @@ function InvoiceCard() {
     return (
         <section className="invoice-card">
             <div className="invoice-card-center">
+
                 <div className="invoice-card__return">
                     <span>
                         <img src={IconArrowLeft} alt="icon-back"/>
@@ -17,11 +18,35 @@ function InvoiceCard() {
                     <h4>Go back</h4>
                 </div>
 
+
                 <div className="invoice-card__header">
-                    <div>
-                        <p>Status</p>
+
+                    <div className="invoice-card__status">
+                            <p>Status</p>
+                        <Status status="paid"/>
                     </div>
-                    <Status status="pending"/>
+
+
+                    {/* CARD CONTROLS DESKTOP*/}
+                    <div className="invoice-card__controls desktop">
+                        <div className="controls__center">
+                            <div>
+                                <button className="btn btn-accent-1">
+                                    <span className="text-lg">Edit</span>
+                                </button>
+                            </div>
+                            <div>
+                                <button className="btn btn-danger-1">
+                                    <span className="text-lg">Delete</span>
+                                </button>
+                            </div>
+                            <div>
+                                <button className="btn btn-primary-2">
+                                    <span className="text-lg">Mark As Paid</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div className="invoice-card__body">
@@ -109,6 +134,9 @@ function InvoiceCard() {
                                 <p>Price</p>
                                 <p>Total</p>
                             </div>
+
+                            {/*DYNAMIC SIZE*/}
+
                             <div className="subtotal__item">
                                 <h4>Banner Design</h4>
                                 <h4>2</h4>
@@ -134,6 +162,7 @@ function InvoiceCard() {
                 </div>
             </div>
 
+            {/* CARD CONTROLS MOBILE*/}
             <div className="invoice-card__controls mobile">
                 <div className="controls__center">
                     <div>

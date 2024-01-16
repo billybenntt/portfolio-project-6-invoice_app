@@ -253,7 +253,7 @@ body {
 
   .invoice-card__header {
     border-radius: $rounded-lg;
-    background-color: white;
+    background-color: $accent-light-000;
     width: 100%;
     height: 91px;
     padding: 1.5rem;
@@ -264,7 +264,7 @@ body {
 
   .invoice-card__body {
     border-radius: $rounded-lg;
-    background-color: white;
+    background-color: $accent-light-000;
     padding: 1.5rem;
     width: 100%;
     display: flex;
@@ -277,14 +277,12 @@ body {
 
 
     .card-group:nth-child(1) {
-      background-color: lightblue;
       row-gap: 1rem;
       flex-direction: column;
     }
 
 
     .card-group:nth-child(2) {
-      background-color: lightyellow;
       column-gap: 5rem;
       flex-wrap: wrap;
     }
@@ -337,9 +335,17 @@ body {
   }
 
 
-  .invoice-card__controls {
-    background-color: white;
+  .invoice-card__status {
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+    flex-grow: 1;
+    justify-content: space-between;
+  }
+
+  .invoice-card__controls.mobile {
     position: absolute;
+    background-color: $accent-light-000;
     height: 91px;
     margin-top: 3rem;
     width: 100%;
@@ -475,7 +481,6 @@ body {
       padding: 2rem;
 
       .card-group:nth-child(1) {
-        background-color: white;
         justify-content: space-between;
         flex-direction: row;
 
@@ -486,11 +491,6 @@ body {
 
       }
 
-      .card-group:nth-child(2) {
-        background-color: white;
-
-      }
-
 
     }
 
@@ -498,8 +498,7 @@ body {
     .invoice__subtotal {
       flex-direction: column;
       row-gap: 0.5rem;
-
-
+      background-color: $accent-light-010;
       .subtotal__description {
         display: flex;
         flex-direction: row;
@@ -509,7 +508,24 @@ body {
     }
 
 
+    .invoice-card__status {
+      justify-content: start;
+      column-gap: 2rem;
+    }
+
+    .invoice-card__controls.desktop {
+      display: flex;
+
+      .controls__center {
+        display: flex;
+        column-gap: 1rem;
+        flex-direction: row;
+      }
+    }
+
+
   }
+
 
   // INVOICE FORM
 
