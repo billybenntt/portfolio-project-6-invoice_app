@@ -13,7 +13,6 @@ function InvoiceForm() {
 
     return (
         <div className={`invoice-form ${showBar}`}>
-
             <div className="invoice-form-center">
                 <div className="invoice-form-return" onClick={() => console.log("back")}>
                     <span>
@@ -21,7 +20,6 @@ function InvoiceForm() {
                     </span>
                     <h4>Go back</h4>
                 </div>
-
                 <h3>Bill From</h3>
                 {/*BILL FROM*/}
                 <div className="invoice-form__from">

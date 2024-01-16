@@ -25,8 +25,9 @@ function InvoiceCard() {
                 </div>
 
                 <div className="invoice-card__body">
-                    <div className="body__group">
-                        <div>
+                    <div className="card-group">
+
+                        <div className="invoice__id">
                             <h4>
                                 <span className="text-light-1">
                                     #
@@ -35,7 +36,8 @@ function InvoiceCard() {
                             </h4>
                             <p>Graphic Design</p>
                         </div>
-                        <div>
+
+                        <div className="invoice__sender">
                             <div>
                                 <p>19 Union Terrace</p>
                                 <p>London</p>
@@ -45,9 +47,8 @@ function InvoiceCard() {
                         </div>
                     </div>
 
-                    <div className="body__group">
-
-                        <div>
+                    <div className="card-group">
+                        <div className="invoice__date">
                             <div>
                                 <p>Invoice Date</p>
                                 <h4>21 Aug 2021</h4>
@@ -57,9 +58,7 @@ function InvoiceCard() {
                                 <h4>20 Sep 2021</h4>
                             </div>
                         </div>
-
-
-                        <div>
+                        <div className="invoice__recipient">
                             <div>
                                 <p>Bill To</p>
                                 <h4>Alex Grim</h4>
@@ -72,39 +71,63 @@ function InvoiceCard() {
                             </div>
                         </div>
 
-                        <div>
+                        <div className="invoice__email">
                             <p>Sent to</p>
                             <h4>alexgrim@mail.com</h4>
                         </div>
                     </div>
-                    <div className="body__group">
+                    <div className="card-group">
 
-                        <div className="subtotal">
+                        {/*MOBILE */}
 
+                        <div className="invoice__subtotal mobile">
                             {/*DYNAMIC SIZE*/}
-
                             <div className="subtotal__item">
                                 <div>
                                     <h4>Banner Design</h4>
-                                    <h4 className="text-light-1">1 x £ 156.00</h4>
+                                    <h4>1 x £ 156.00</h4>
                                 </div>
-                                <div>
-                                    <h4>£ 156.00</h4>
-                                </div>
+                                <h4>£ 156.00</h4>
                             </div>
 
                             <div className="subtotal__item">
                                 <div>
                                     <h4>Banner Design</h4>
-                                    <h4 className="text-light-1">1 x £ 156.00</h4>
+                                    <h4>1 x £ 156.00</h4>
                                 </div>
-                                <div>
-                                    <h4>£ 156.00</h4>
-                                </div>
+                                <h4>£ 156.00</h4>
+                            </div>
+
+                        </div>
+
+
+                        {/*DESKTOP */}
+                        <div className="invoice__subtotal desktop">
+                            <div className="subtotal__description">
+                                <p>Item Name</p>
+                                <p>QTY</p>
+                                <p>Price</p>
+                                <p>Total</p>
+                            </div>
+                            <div className="subtotal__item">
+                                <h4>Banner Design</h4>
+                                <h4>2</h4>
+                                <h4>£156.00</h4>
+                                <h4>£312.00</h4>
+                            </div>
+
+                            <div className="subtotal__item">
+                                <h4>Banner Design</h4>
+                                <h4>2</h4>
+                                <h4>£156.00</h4>
+                                <h4>£312.00</h4>
                             </div>
                         </div>
-                        <div className="total">
-                            <p>Grand Total</p>
+
+
+                        <div className="invoice__total">
+                            <p className="mobile text-xl">Grand Total</p>
+                            <h4 className="desktop">Amount due</h4>
                             <h2>£ 556.00</h2>
                         </div>
                     </div>
@@ -112,33 +135,24 @@ function InvoiceCard() {
             </div>
 
             <div className="invoice-card__controls mobile">
-
                 <div className="controls__center">
-
                     <div>
                         <button className="btn btn-accent-1">
                             <span className="text-lg">Edit</span>
                         </button>
                     </div>
-
                     <div>
                         <button className="btn btn-danger-1">
                             <span className="text-lg">Delete</span>
                         </button>
                     </div>
-
-
                     <div>
                         <button className="btn btn-primary-2">
                             <span className="text-lg">Mark As Paid</span>
                         </button>
                     </div>
-
                 </div>
-
-
             </div>
-
         </section>
     );
 }

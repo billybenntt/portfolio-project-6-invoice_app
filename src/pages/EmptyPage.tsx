@@ -1,5 +1,4 @@
 import Navbar from "../components/Navbar.tsx";
-import InvoiceForm from "../components/InvoiceForm.tsx";
 
 import FormListItem from "../components/subcomponents/FormListItem.tsx";
 
@@ -9,9 +8,6 @@ function InvoicesMainPage() {
     return (
         <>
             <Navbar/>
-            <InvoiceForm/>
-
-
             <main className="main-container" style={{backgroundColor: "white"}}>
                 <div style={{display: 'flex', flexDirection: 'column', gap: '1rem', padding: "3rem"}}>
                     {/*<button className="btn btn-primary-1">*/}
