@@ -5,7 +5,7 @@ import InvoiceForm from "./components/InvoiceForm.tsx";
 
 function App() {
 
-    const isActive = false
+    const isActive = true
     const selectPage = isActive ? <InvoicesMainPage/> : <InvoicesSinglePage/>
     return (
         <>

@@ -10,7 +10,6 @@ function InvoiceForm() {
     const showBar = "show"
     const isEditing = false
 
-
     return (
         <div className={`invoice-form ${showBar}`}>
             <div className="invoice-form-center">

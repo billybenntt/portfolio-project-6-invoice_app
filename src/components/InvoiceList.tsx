@@ -1,8 +1,8 @@
 import data from "../data/sampleAllData.tsx";
 import InvoiceListItem from "./subcomponents/InvoiceListItem.tsx";
 import Button from './subcomponents/Button.tsx'
-import IconArrowDown from '../assets/icon-arrow-down.svg'
 import ImgNoInvoice from '../assets/illustration-empty.svg'
+import Filter from "./subcomponents/Filter.tsx";
 
 
 function InvoiceList() {
@@ -24,12 +24,8 @@ function InvoiceList() {
                     </div>
 
                     <div className="invoice-list__control">
-                        <div className="control__filter">
-                            <h3 className="text-lg">Filter</h3>
-                            <span>
-                            <img src={IconArrowDown} alt="icon-arrow"/>
-                            </span>
-                        </div>
+
+                        <Filter/>
 
                         <div className="control__create">
                             <Button text="new" type="1" show="mobile"/>

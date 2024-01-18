@@ -20,7 +20,7 @@
             postCode: "NR24 5WQ",
             country: "United Kingdom",
         },
-        items: [
+        "items": [
             {
                 name: "Brand Guidelines",
                 quantity: 1,
