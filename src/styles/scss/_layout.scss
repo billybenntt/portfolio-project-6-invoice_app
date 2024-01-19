@@ -148,13 +148,13 @@ body {
 
     .invoice-list__item {
       width: 100%;
-
       max-height: 134px;
       padding: 1.5rem;
       display: flex;
       cursor: pointer;
       border-radius: $rounded-lg;
       justify-content: space-between;
+
       background-color: $accent-light-000;
 
     }
@@ -419,6 +419,8 @@ body {
       display: flex;
     }
   }
+
+
 
 
 }

@@ -11,7 +11,7 @@ function FormListItem() {
                 <input type="text" className="form__input"/>
             </div>
 
-            <div className="form__list-item-group">
+            <div className="form__group">
                 <div>
                     <label htmlFor="" className="form__label">Qty</label>
                     <input type="text" className="form__input"/>
@@ -23,10 +23,10 @@ function FormListItem() {
 
                 <div>
                     <label htmlFor="" className="form__label">Total</label>
-                    <div className="item__total">2222</div>
+                    <h4 className="item__total">10000.25</h4>
                 </div>
 
-                <div>
+                <div className="form__item-delete">
                     <span>
                         <img src={IconDelete} alt=""/>
                     </span>
