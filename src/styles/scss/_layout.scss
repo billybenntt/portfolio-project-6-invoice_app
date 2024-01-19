@@ -6,6 +6,7 @@ body {
   background-color: $accent-light-100;
 }
 
+
 // LAYOUT
 .main-container {
   display: flex;
@@ -353,18 +354,18 @@ body {
 // INVOICE FORM
 
 .invoice-form {
-  position: absolute;
+  position: fixed;
+  overflow-y: scroll;
+  scrollbar-width: none;
   width: 100%;
-  min-height: 100%;
+  height: 100%;
   top: 0;
-  left: 0;
+  opacity: 0;
   background-color: $accent-light-000;
   border: 1px solid black;
-  transform: translateX(-719px);
   padding-top: 5.7rem;
   padding-left: 0;
   z-index: 4;
-
 
   .invoice-form-center {
     width: $max-w-sm;
@@ -423,8 +424,7 @@ body {
 }
 
 .invoice-form.show {
-  transition: all 0.2s linear;
-  transform: translateX(0px);
+  opacity: 1;
 }
 
 

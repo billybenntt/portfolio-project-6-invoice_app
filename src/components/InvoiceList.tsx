@@ -24,12 +24,11 @@ function InvoiceList() {
                     </div>
 
                     <div className="invoice-list__control">
-
                         <Filter/>
 
                         <div className="control__create">
-                            <Button text="new" type="1" show="mobile"/>
-                            <Button text="new Invoice" type="1" show="desktop"/>
+                            <Button text="new" type="1" show="mobile" style="primary"/>
+                            <Button text="new Invoice" type="1" show="desktop" style="primary"/>
                         </div>
                     </div>
                 </div>

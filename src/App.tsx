@@ -9,8 +9,8 @@ function App() {
     const selectPage = isActive ? <InvoicesMainPage/> : <InvoicesSinglePage/>
     return (
         <>
-            {0 && <InvoiceForm/>}
             {selectPage}
+            {<InvoiceForm/>}
 
         </>
     )

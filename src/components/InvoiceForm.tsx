@@ -8,7 +8,7 @@ import FormListItem from "./subcomponents/FormListItem.tsx";
 function InvoiceForm() {
 
     const showBar = "show"
-    const isEditing = false
+    const isEditing = true
 
     return (
         <div className={`invoice-form ${showBar}`}>
