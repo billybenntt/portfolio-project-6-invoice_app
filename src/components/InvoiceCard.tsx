@@ -1,11 +1,21 @@
 import IconArrowLeft from '../assets/icon-arrow-left.svg'
 import Status from "./subcomponents/Status.tsx";
-import {Link} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
+
 
 // import sampleAllData from "../data/sampleAllData.tsx";
 
 function InvoiceCard() {
     // const invoice = sampleAllData[2];
+
+
+    const {id} = useParams()
+
+
+    const handleEdit = (id: string | undefined) => {
+        console.log("The current ID is", id)
+    }
+
 
     return (
         <section className="invoice-card">
@@ -33,7 +43,7 @@ function InvoiceCard() {
                     <div className="invoice-card__controls desktop">
                         <div className="controls__center">
                             <div>
-                                <button className="btn btn-accent-1">
+                                <button className="btn btn-accent-1" onClick={() => handleEdit(id)}>
                                     <span className="text-lg">Edit</span>
                                 </button>
                             </div>
