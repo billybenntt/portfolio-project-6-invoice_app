@@ -1,5 +1,6 @@
 import Status from "./Status.tsx";
 import IconArrowRight from '../../assets/icon-arrow-right.svg'
+import {Link} from 'react-router-dom'
 
 interface Invoice {
     id: string,
@@ -21,7 +22,9 @@ function InvoiceListItem(props: Invoice) {
 
             <div className="item__group">
                 <h4>
-                    <span className="text-light-1">#</span>{id}
+                    <Link to={`/invoice/${id}`}>
+                        <span className="text-light-1">#</span>{id}
+                    </Link>
                 </h4>
                 <p>{paymentDue && "Due  19 Aug 2021"}</p>
                 <p className="desktop">{clientName}</p>

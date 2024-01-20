@@ -29,6 +29,10 @@ img {
   height: auto;
 }
 
+a {
+  all: unset;
+}
+
 .form__label {
   color: #7E88C3;
 }
@@ -744,7 +748,7 @@ body {
   border: 1px solid black;
   padding-top: 5.7rem;
   padding-left: 0;
-  z-index: 4;
+  z-index: -10;
 }
 .invoice-form .invoice-form-center {
   width: 327px;
@@ -788,6 +792,7 @@ body {
 
 .invoice-form.show {
   opacity: 1;
+  z-index: 4;
 }
 
 @media only screen and (min-width: 768px) {

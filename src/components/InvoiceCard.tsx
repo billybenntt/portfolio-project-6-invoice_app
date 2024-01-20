@@ -1,8 +1,8 @@
 import IconArrowLeft from '../assets/icon-arrow-left.svg'
-// import sampleAllData from "../data/sampleAllData.tsx";
-
-
 import Status from "./subcomponents/Status.tsx";
+import {Link} from "react-router-dom";
+
+// import sampleAllData from "../data/sampleAllData.tsx";
 
 function InvoiceCard() {
     // const invoice = sampleAllData[2];
@@ -15,14 +15,16 @@ function InvoiceCard() {
                     <span>
                         <img src={IconArrowLeft} alt="icon-back"/>
                     </span>
-                    <h4>Go back</h4>
+                    <Link to={`/`}>
+                        <h4>Go back</h4>
+                    </Link>
                 </div>
 
 
                 <div className="invoice-card__header">
 
                     <div className="invoice-card__status">
-                            <p>Status</p>
+                        <p>Status</p>
                         <Status status="paid"/>
                     </div>
 

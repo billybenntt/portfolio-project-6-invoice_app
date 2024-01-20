@@ -7,7 +7,7 @@ import FormListItem from "./subcomponents/FormListItem.tsx";
 
 function InvoiceForm() {
 
-    const showBar = "show"
+    const showBar = ""
     const isEditing = true
 
     return (
