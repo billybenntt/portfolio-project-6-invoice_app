@@ -21,7 +21,6 @@ function InvoiceCard() {
     return (
         <section className="invoice-card">
             <div className="invoice-card-center">
-
                 <div className="invoice-card__return">
                     <span>
                         <img src={IconArrowLeft} alt="icon-back"/>
@@ -31,14 +30,11 @@ function InvoiceCard() {
                     </Link>
                 </div>
 
-
                 <div className="invoice-card__header">
-
                     <div className="invoice-card__status">
                         <p>Status</p>
                         <Status status="paid"/>
                     </div>
-
 
                     {/* CARD CONTROLS DESKTOP*/}
                     <div className="invoice-card__controls desktop">

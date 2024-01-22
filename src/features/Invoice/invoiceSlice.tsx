@@ -35,7 +35,8 @@ const invoiceSlice = createSlice({
 
 });
 
-
+// STORE SLICE
 export default invoiceSlice.reducer;
+// STORE ACTIONS
 export const { openForm, closeForm } = invoiceSlice.actions
 
