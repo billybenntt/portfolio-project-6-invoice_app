@@ -1,19 +1,20 @@
 import IconArrowLeft from '../assets/icon-arrow-left.svg'
 import Status from "./subcomponents/Status.tsx";
 import {Link, useParams} from "react-router-dom";
+import {useAppDispatch} from '../store/hooks.ts';
+import {openForm} from "../features/Invoice/invoiceSlice.tsx";
 
-
-// import sampleAllData from "../data/sampleAllData.tsx";
 
 function InvoiceCard() {
-    // const invoice = sampleAllData[2];
 
 
     const {id} = useParams()
+    const dispatch = useAppDispatch()
 
 
-    const handleEdit = (id: string | undefined) => {
+    const handleFormEdit = (id: string | undefined) => {
         console.log("The current ID is", id)
+        dispatch(openForm())
     }
 
 
@@ -43,7 +44,7 @@ function InvoiceCard() {
                     <div className="invoice-card__controls desktop">
                         <div className="controls__center">
                             <div>
-                                <button className="btn btn-accent-1" onClick={() => handleEdit(id)}>
+                                <button className="btn btn-accent-1" onClick={() => handleFormEdit(id)}>
                                     <span className="text-lg">Edit</span>
                                 </button>
                             </div>

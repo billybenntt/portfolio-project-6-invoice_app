@@ -13,15 +13,14 @@ function InvoiceForm() {
     const dispatch = useAppDispatch()
 
 
-    const handleForm = () => {
+    const handleFormClose = () => {
         dispatch(closeForm())
     }
-
 
     return (
         <div className={`invoice-form ${showForm ? "show" : ""}`}>
             <div className="invoice-form-center">
-                <div className="invoice-form-return" onClick={handleForm}>
+                <div className="invoice-form-return" onClick={handleFormClose}>
                     <span>
                         <img src={IconArrowLeft} alt="icon-back"/>
                     </span>

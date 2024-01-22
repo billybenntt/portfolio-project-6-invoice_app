@@ -9,7 +9,6 @@ function InvoicesSinglePage() {
             <InvoiceForm/>
             <main className="main-container">
                 <InvoiceCard/>
-
             </main>
         </>
     )

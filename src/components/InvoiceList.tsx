@@ -3,12 +3,21 @@ import InvoiceListItem from "./subcomponents/InvoiceListItem.tsx";
 import Button from './subcomponents/Button.tsx'
 import ImgNoInvoice from '../assets/illustration-empty.svg'
 import Filter from "./subcomponents/Filter.tsx";
+import { useAppDispatch} from '../store/hooks.ts';
+import {openForm} from "../features/Invoice/invoiceSlice.tsx";
 
 
 function InvoiceList() {
 
     const invoices = data
     const showInvoices = invoices.length > 0
+
+    const dispatch = useAppDispatch()
+
+    const handleFormCreate = () => {
+        dispatch(openForm())
+    }
+
 
     const invoiceListItems = invoices.map((item: any) => {
         return <InvoiceListItem key={item.id} {...item}/>
@@ -22,11 +31,9 @@ function InvoiceList() {
                         <h2>Invoices</h2>
                         <p> Total invoices</p>
                     </div>
-
                     <div className="invoice-list__control">
                         <Filter/>
-
-                        <div className="control__create">
+                        <div className="control__create" onClick={handleFormCreate}>
                             <Button text="new" type="1" show="mobile" style="primary"/>
                             <Button text="new Invoice" type="1" show="desktop" style="primary"/>
                         </div>
@@ -46,7 +53,6 @@ function InvoiceList() {
                 )
                 }
             </div>
-
         </section>
     )
 }
