@@ -4,16 +4,24 @@ import IconPlus from '../assets/icon-plus.svg'
 import FormRowDate from "./subcomponents/FormRowDate.tsx";
 import FormRowSelect from "./subcomponents/FormRowSelect.tsx";
 import FormListItem from "./subcomponents/FormListItem.tsx";
+import {useAppSelector, useAppDispatch} from '../store/hooks.ts';
+import {closeForm} from "../features/Invoice/invoiceSlice.tsx";
 
 function InvoiceForm() {
 
-    const showBar = ""
-    const isEditing = true
+    const {showForm, isEditing} = useAppSelector(store => store.invoice)
+    const dispatch = useAppDispatch()
+
+
+    const handleForm = () => {
+        dispatch(closeForm())
+    }
+
 
     return (
-        <div className={`invoice-form ${showBar}`}>
+        <div className={`invoice-form ${showForm ? "show" : ""}`}>
             <div className="invoice-form-center">
-                <div className="invoice-form-return" onClick={() => console.log("back")}>
+                <div className="invoice-form-return" onClick={handleForm}>
                     <span>
                         <img src={IconArrowLeft} alt="icon-back"/>
                     </span>

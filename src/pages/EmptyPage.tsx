@@ -1,7 +1,5 @@
 import Navbar from "../components/Navbar.tsx";
-
 import FormListItem from "../components/subcomponents/FormListItem.tsx";
-
 function InvoicesMainPage() {
 
 
@@ -66,7 +64,6 @@ function InvoicesMainPage() {
 
 
                 </div>
-
 
             </main>
         </>
