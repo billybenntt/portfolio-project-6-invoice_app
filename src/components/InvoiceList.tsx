@@ -4,6 +4,7 @@ import {useAppDispatch, useAppSelector} from '../store/hooks.ts';
 import ImgNoInvoice from '../assets/illustration-empty.svg'
 import {openForm} from "../features/Invoice/invoiceSlice.tsx";
 import InvoiceListItem from "./subcomponents/InvoiceListItem.tsx";
+import {Invoice} from "../types/global";
 
 
 function InvoiceList() {
@@ -16,7 +17,7 @@ function InvoiceList() {
         dispatch(openForm())
     }
 
-    const invoiceListItems = allInvoices.map((item: any) => {
+    const invoiceListItems = allInvoices.map((item: Invoice) => {
         return <InvoiceListItem key={item.id} {...item}/>
     })
 

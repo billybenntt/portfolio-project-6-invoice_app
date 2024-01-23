@@ -2,9 +2,7 @@ import {PropStatus} from "../../types/components";
 
 function Status(props: PropStatus) {
 
-
     const {invoiceStatus} = props
-
 
     return (
         <div className={`status ${invoiceStatus}`}>

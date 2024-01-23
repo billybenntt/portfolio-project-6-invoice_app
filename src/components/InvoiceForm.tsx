@@ -30,7 +30,6 @@ function InvoiceForm() {
                 {/*BILL FROM*/}
                 <div className="invoice-form__from">
                     <FormRow label="Street Addess"/>
-
                     <div className="invoice-group">
                         <FormRow label="City"/>
                         <FormRow label="Post Code"/>
@@ -71,18 +70,15 @@ function InvoiceForm() {
                         <FormListItem/>
                         <FormListItem/>
                     </div>
-
                     <button className="btn btn-accent-3">
                         <img src={IconPlus} alt="icon"/>
                         <span className="text-lg">Add New Item</span>
                     </button>
                 </div>
-
             </div>
 
 
             <div className="invoice-form__controls">
-
                 {isEditing ? (<div className="controls__edit">
                         <button className="btn btn-accent-1">
                             <span className="text-lg">Cancel</span>

@@ -7,10 +7,8 @@ import {openForm, openModal} from "../features/Invoice/invoiceSlice.tsx";
 
 function InvoiceCard() {
 
-
     const {id} = useParams()
     const dispatch = useAppDispatch()
-
 
     const handleFormEdit = (id: string | undefined) => {
         console.log("The current ID is", id)
@@ -19,9 +17,8 @@ function InvoiceCard() {
 
     const handleFormDelete = () => {
         console.log("open modal")
-          dispatch(openModal())
+        dispatch(openModal())
     }
-
 
 
     return (
@@ -39,7 +36,7 @@ function InvoiceCard() {
                 <div className="invoice-card__header">
                     <div className="invoice-card__status">
                         <p>Status</p>
-                        <Status status="paid"/>
+                        <Status invoiceStatus="paid"/>
                     </div>
 
                     {/* CARD CONTROLS DESKTOP*/}
@@ -56,7 +53,7 @@ function InvoiceCard() {
                                 </button>
                             </div>
                             <div>
-                                <button className="btn btn-primary-2" >
+                                <button className="btn btn-primary-2">
                                     <span className="text-lg">Mark As Paid</span>
                                 </button>
                             </div>
