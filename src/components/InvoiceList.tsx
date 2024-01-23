@@ -1,25 +1,22 @@
-import data from "../data/sampleAllData.tsx";
-import InvoiceListItem from "./subcomponents/InvoiceListItem.tsx";
-import Button from './subcomponents/Button.tsx'
-import ImgNoInvoice from '../assets/illustration-empty.svg'
 import Filter from "./subcomponents/Filter.tsx";
-import { useAppDispatch} from '../store/hooks.ts';
+import Button from './subcomponents/Button.tsx'
+import {useAppDispatch, useAppSelector} from '../store/hooks.ts';
+import ImgNoInvoice from '../assets/illustration-empty.svg'
 import {openForm} from "../features/Invoice/invoiceSlice.tsx";
+import InvoiceListItem from "./subcomponents/InvoiceListItem.tsx";
 
 
 function InvoiceList() {
 
-    const invoices = data
-    const showInvoices = invoices.length > 0
-
+    const {allInvoices} = useAppSelector(store => store.invoice)
+    const showInvoices = allInvoices.length > 0
     const dispatch = useAppDispatch()
 
     const handleFormCreate = () => {
         dispatch(openForm())
     }
 
-
-    const invoiceListItems = invoices.map((item: any) => {
+    const invoiceListItems = allInvoices.map((item: any) => {
         return <InvoiceListItem key={item.id} {...item}/>
     })
 

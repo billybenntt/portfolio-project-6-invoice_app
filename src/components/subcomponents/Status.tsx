@@ -1,17 +1,15 @@
+import {PropStatus} from "../../types/components";
 
-type Status = {
-    status: "paid" | "pending" | "draft"
-}
+function Status(props: PropStatus) {
 
 
-function Status(props: Status) {
+    const {invoiceStatus} = props
 
-    const {status} = props
 
     return (
-        <div className={`status ${status}`}>
+        <div className={`status ${invoiceStatus}`}>
             <span className="status-icon"></span>
-            <span className="text-lg">{status}</span>
+            <span className="text-lg">{invoiceStatus}</span>
         </div>
     )
 }

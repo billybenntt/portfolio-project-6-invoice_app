@@ -1,8 +1,8 @@
 import IconPlus from '../../assets/icon-plus.svg'
 
-type Button = {
+export interface Button {
     text: string
-    style : "accent" | "primary"
+    style: "accent" | "primary"
     type: "1" | "2" | "3"
     show?: "mobile" | "desktop"
 }

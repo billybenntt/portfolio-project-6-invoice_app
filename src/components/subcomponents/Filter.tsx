@@ -7,7 +7,6 @@ function Filter() {
 
     const [showFilter, setShowFilter] = useState(false);
 
-
     function handleToggle() {
         setShowFilter((prevState) => {
             return !prevState

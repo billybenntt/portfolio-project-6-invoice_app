@@ -352,11 +352,12 @@ a {
 .modal-background {
   position: fixed;
   top: 0;
-  left: 0;
+  right: 0;
   width: 100%;
   height: 100%;
   z-index: 5000;
   background-color: rgba(0, 0, 0, 0.5);
+  display: none;
 }
 
 .modal {
@@ -371,12 +372,8 @@ a {
   transform: translate(-50%, -50%);
 }
 
-.modal.show {
-  animation: showModal 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-}
-
-.modal.hide {
-  animation: hideModal 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+.modal-background.show {
+  display: block;
 }
 
 .modal-center {

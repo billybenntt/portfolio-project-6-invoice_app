@@ -2,7 +2,7 @@ import IconArrowLeft from '../assets/icon-arrow-left.svg'
 import Status from "./subcomponents/Status.tsx";
 import {Link, useParams} from "react-router-dom";
 import {useAppDispatch} from '../store/hooks.ts';
-import {openForm} from "../features/Invoice/invoiceSlice.tsx";
+import {openForm, openModal} from "../features/Invoice/invoiceSlice.tsx";
 
 
 function InvoiceCard() {
@@ -16,6 +16,12 @@ function InvoiceCard() {
         console.log("The current ID is", id)
         dispatch(openForm())
     }
+
+    const handleFormDelete = () => {
+        console.log("open modal")
+          dispatch(openModal())
+    }
+
 
 
     return (
@@ -45,12 +51,12 @@ function InvoiceCard() {
                                 </button>
                             </div>
                             <div>
-                                <button className="btn btn-danger-1">
+                                <button className="btn btn-danger-1" onClick={() => handleFormDelete()}>
                                     <span className="text-lg">Delete</span>
                                 </button>
                             </div>
                             <div>
-                                <button className="btn btn-primary-2">
+                                <button className="btn btn-primary-2" >
                                     <span className="text-lg">Mark As Paid</span>
                                 </button>
                             </div>
@@ -180,7 +186,7 @@ function InvoiceCard() {
                         </button>
                     </div>
                     <div>
-                        <button className="btn btn-danger-1">
+                        <button className="btn btn-danger-1" onClick={() => handleFormDelete()}>
                             <span className="text-lg">Delete</span>
                         </button>
                     </div>
