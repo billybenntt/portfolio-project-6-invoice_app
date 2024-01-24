@@ -8,7 +8,6 @@ function InvoiceListItem(props: Partial<Invoice>) {
 
     const {id, paymentDue, clientName, total, status} = props
 
-
     return (
         <li tabIndex={0} key={id}>
             <Link to={`/invoice/${id}`} className="invoice-list__item">

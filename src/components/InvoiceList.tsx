@@ -13,9 +13,12 @@ function InvoiceList() {
     const showInvoices = allInvoices.length > 0
     const dispatch = useAppDispatch()
 
+
     const handleFormCreate = () => {
         dispatch(openForm())
     }
+
+
 
     const invoiceListItems = allInvoices.map((item: Invoice) => {
         return <InvoiceListItem key={item.id} {...item}/>

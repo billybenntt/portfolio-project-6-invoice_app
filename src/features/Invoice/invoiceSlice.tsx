@@ -36,7 +36,8 @@ const invoiceSlice = createSlice({
             state.showModal = false
         },
         getSingleInvoice: (state, {payload}) => {
-            state.singleInvoice = state.allInvoices.find(item => item.id === payload.id)!
+            const {id} = payload
+            state.singleInvoice = state.allInvoices.find((item) => item.id === id) as Invoice
         },
 
     },
@@ -51,5 +52,5 @@ const invoiceSlice = createSlice({
 export default invoiceSlice.reducer;
 // STORE ACTIONS
 export const {openForm, closeForm, openModal, closeModal, getSingleInvoice}
-= invoiceSlice.actions
+    = invoiceSlice.actions
 

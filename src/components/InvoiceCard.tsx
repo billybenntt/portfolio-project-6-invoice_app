@@ -1,8 +1,10 @@
 import IconArrowLeft from '../assets/icon-arrow-left.svg'
 import Status from "./subcomponents/Status.tsx";
 import {Link, useParams} from "react-router-dom";
-import {useAppDispatch} from '../store/hooks.ts';
-import {openForm, openModal} from "../features/Invoice/invoiceSlice.tsx";
+import {useAppDispatch, useAppSelector} from '../store/hooks.ts';
+import {openForm, openModal, getSingleInvoice} from "../features/Invoice/invoiceSlice.tsx";
+import {useEffect} from "react";
+import {Invoice} from "../types/global";
 
 
 function InvoiceCard() {
@@ -10,15 +12,22 @@ function InvoiceCard() {
     const {id} = useParams()
     const dispatch = useAppDispatch()
 
+    useEffect(() => {
+        dispatch(getSingleInvoice({id}))
+    }, [id]);
+
+
     const handleFormEdit = (id: string | undefined) => {
         console.log("The current ID is", id)
         dispatch(openForm())
     }
 
     const handleFormDelete = () => {
-        console.log("open modal")
         dispatch(openModal())
     }
+
+
+    const singleInvoice = useAppSelector(store => store.invoice.singleInvoice) as Invoice
 
 
     return (
@@ -36,7 +45,7 @@ function InvoiceCard() {
                 <div className="invoice-card__header">
                     <div className="invoice-card__status">
                         <p>Status</p>
-                        <Status invoiceStatus="paid"/>
+                        <Status invoiceStatus={singleInvoice.status}/>
                     </div>
 
                     {/* CARD CONTROLS DESKTOP*/}
@@ -69,17 +78,17 @@ function InvoiceCard() {
                                 <span className="text-light-1">
                                     #
                                 </span>
-                                XM9141
+                                {singleInvoice.id}
                             </h4>
-                            <p>Graphic Design</p>
+                            <p>{singleInvoice.description}</p>
                         </div>
 
                         <div className="invoice__sender">
                             <div>
-                                <p>19 Union Terrace</p>
-                                <p>London</p>
-                                <p>E1 3EZ</p>
-                                <p>United Kingdom</p>
+                                <p>{singleInvoice.senderAddress.street}</p>
+                                <p>{singleInvoice.senderAddress.city}</p>
+                                <p>{singleInvoice.senderAddress.postCode}</p>
+                                <p>{singleInvoice.senderAddress.country}</p>
                             </div>
                         </div>
                     </div>
@@ -88,29 +97,29 @@ function InvoiceCard() {
                         <div className="invoice__date">
                             <div>
                                 <p>Invoice Date</p>
-                                <h4>21 Aug 2021</h4>
+                                <h4>{singleInvoice.createdAt}</h4>
                             </div>
                             <div>
                                 <p>Payment Due</p>
-                                <h4>20 Sep 2021</h4>
+                                <h4>{singleInvoice.paymentDue}</h4>
                             </div>
                         </div>
                         <div className="invoice__recipient">
                             <div>
                                 <p>Bill To</p>
-                                <h4>Alex Grim</h4>
+                                <h4>{singleInvoice.clientName}</h4>
                             </div>
                             <div>
-                                <p>84 Church Way</p>
-                                <p>Bradford</p>
-                                <p>BD1 9PB</p>
-                                <p> United Kingdom </p>
+                                <p>{singleInvoice.clientAddress.street}</p>
+                                <p>{singleInvoice.clientAddress.city}</p>
+                                <p>{singleInvoice.clientAddress.postCode}</p>
+                                <p>{singleInvoice.clientAddress.country}</p>
                             </div>
                         </div>
 
                         <div className="invoice__email">
                             <p>Sent to</p>
-                            <h4>alexgrim@mail.com</h4>
+                            <h4>{singleInvoice.clientEmail}</h4>
                         </div>
                     </div>
                     <div className="card-group">
