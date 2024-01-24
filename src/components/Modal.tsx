@@ -5,7 +5,7 @@ import {useAppSelector, useAppDispatch} from '../store/hooks.ts';
 function Modal() {
     const dispatch = useAppDispatch()
 
-    const {showModal} = useAppSelector(store => store.invoice)
+    const {showModal, singleInvoice} = useAppSelector(store => store.invoice)
 
     const handleModalClose = () => {
         dispatch(closeModal())
@@ -17,7 +17,8 @@ function Modal() {
             <div className="modal">
                 <div className="modal-center">
                     <h2 className="text-xl">Confirm Deletion</h2>
-                    <p className="text-base text-light-1">Are you sure you want to delete invoice #XM9141? This action
+                    <p className="text-base text-light-1">Are you sure you want to delete invoice #{singleInvoice.id}?
+                        This action
                         cannot be undone.</p>
 
                     <div className="modal__control">

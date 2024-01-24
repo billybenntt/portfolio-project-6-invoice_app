@@ -572,7 +572,7 @@ body {
 }
 
 .invoice-list {
-  margin-top: 5rem;
+  margin: 5rem auto;
 }
 .invoice-list .invoice-list-center {
   width: 327px;
@@ -598,7 +598,6 @@ body {
   gap: 1rem;
 }
 .invoice-list .invoice-list-center .invoice-list__item {
-  width: 100%;
   max-height: 134px;
   padding: 1.5rem;
   display: flex;
