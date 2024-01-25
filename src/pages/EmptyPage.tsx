@@ -17,7 +17,6 @@ function InvoicesMainPage() {
 
 
     console.log(blankInvoice)
-
     blankInvoice.addInvoiceItem(testItem)
     blankInvoice.addInvoiceItem(testItem)
     blankInvoice.addInvoiceItem(testItem)

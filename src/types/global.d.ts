@@ -32,7 +32,7 @@ type InvoiceStatus = "pending" | "paid" | "draft"
 
 // REDUX
 export interface InvoiceState {
-    allInvoices: Invoice[]
+    allInvoices: Array<Invoice>
     singleInvoice: Invoice
     showForm: boolean,
     showModal: boolean,

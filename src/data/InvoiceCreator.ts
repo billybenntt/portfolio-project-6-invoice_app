@@ -14,24 +14,13 @@ export class InvoiceCreator {
             paymentTerms: invoiceData.paymentTerms || 0,
             clientName: invoiceData.clientName || "",
             clientEmail: invoiceData.clientEmail || "",
-            status: invoiceData.status || "",
+            status: invoiceData.status || "draft",
             senderAddress: this.verifyAddress(invoiceData.senderAddress),
             clientAddress: this.verifyAddress(invoiceData.clientAddress),
             items: this.verifyItems(invoiceData.items),
             total: invoiceData.total || 0,
         };
     }
-
-    // Method to add an item to the items array
-    public addInvoiceItem(item: Item): void {
-        this.invoice.items.push(item);
-    }
-
-    // Method to get the current items array
-    public getAllItems(): Item[] {
-        return this.invoice.items;
-    }
-
 
     // If Address fields are valid copy them else initialize to empty ""
     private verifyAddress(addressData: any): Address {
@@ -48,5 +37,15 @@ export class InvoiceCreator {
         return Array.isArray(itemsData) ? [...itemsData] : [];
     }
 
+
+    // Method to add an item to the items array
+    public addInvoiceItem(item: Item): void {
+        this.invoice.items.push(item);
+    }
+
+    // Method to get the current items array
+    public getAllItems(): Item[] {
+        return this.invoice.items;
+    }
 
 }
