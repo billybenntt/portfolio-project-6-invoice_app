@@ -1,30 +1,52 @@
-import {Invoice} from "../types/global";
-import {Item} from "../types/global";
+import {Item, Invoice, Address} from "../types/global";
+
 
 export class InvoiceCreator {
+    private invoice: Invoice;
 
-    private invoice: Invoice
+    // Get Data from Outside
+    constructor(invoiceData: any) {
+        this.invoice = {
+            id: invoiceData.id || "",
+            createdAt: invoiceData.createdAt || "",
+            paymentDue: invoiceData.paymentDue || "",
+            description: invoiceData.description || "",
+            paymentTerms: invoiceData.paymentTerms || 0,
+            clientName: invoiceData.clientName || "",
+            clientEmail: invoiceData.clientEmail || "",
+            status: invoiceData.status || "",
+            senderAddress: this.verifyAddress(invoiceData.senderAddress),
+            clientAddress: this.verifyAddress(invoiceData.clientAddress),
+            items: this.verifyItems(invoiceData.items),
+            total: invoiceData.total || 0,
+        };
+    }
 
-    constructor(item: Invoice) {
-        this.invoice = item
-        this.showCartItems()
+    // Method to add an item to the items array
+    public addInvoiceItem(item: Item): void {
+        this.invoice.items.push(item);
+    }
+
+    // Method to get the current items array
+    public getAllItems(): Item[] {
+        return this.invoice.items;
     }
 
 
-    generateInvoiceId() {
-
+    // If Address fields are valid copy them else initialize to empty ""
+    private verifyAddress(addressData: any): Address {
+        return {
+            street: addressData?.street || "",
+            city: addressData?.city || "",
+            postCode: addressData?.postCode || "",
+            country: addressData?.country || "",
+        };
     }
 
-
-    addItem(invoiceItem: Item) {
-        this.invoice.items.push(invoiceItem)
-    }
-
-
-    showCartItems() {
-        console.log(this.invoice.items)
+    // If Incoming Data is valid copy it else initialize an empty array.
+    private verifyItems(itemsData: any): Item[] {
+        return Array.isArray(itemsData) ? [...itemsData] : [];
     }
 
 
 }
-

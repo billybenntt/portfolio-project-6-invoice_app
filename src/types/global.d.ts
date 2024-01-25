@@ -9,7 +9,7 @@ export interface Invoice {
     status: InvoiceStatus
     senderAddress: Address
     clientAddress: Address
-    items: Item[]
+    items: Array<Item>
     total: number
 }
 

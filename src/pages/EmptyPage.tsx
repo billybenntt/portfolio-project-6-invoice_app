@@ -1,12 +1,35 @@
 import Navbar from "../components/Navbar.tsx";
-import FormListItem from "../components/subcomponents/FormListItem.tsx";
+import {InvoiceCreator} from "../data/InvoiceCreator.ts";
+import SampleAllData from "../data/sampleAllData.tsx";
+
+
 function InvoicesMainPage() {
+
+    const testInvoice = SampleAllData[0]
+    const blankInvoice = new InvoiceCreator(testInvoice)
+
+    const testItem = {
+        name: "extra item",
+        quantity: 1,
+        price: 3102.04,
+        total: 3102.04
+    }
+
+
+    console.log(blankInvoice)
+
+    blankInvoice.addInvoiceItem(testItem)
+    blankInvoice.addInvoiceItem(testItem)
+    blankInvoice.addInvoiceItem(testItem)
+    console.log(blankInvoice)
 
 
     return (
         <>
             <Navbar/>
             <main className="main-container" style={{backgroundColor: "white"}}>
+
+
                 <div style={{display: 'flex', flexDirection: 'column', gap: '1rem', padding: "3rem"}}>
                     {/*<button className="btn btn-primary-1">*/}
                     {/*<span className="btn-img">*/}
@@ -50,17 +73,6 @@ function InvoicesMainPage() {
                     {/*    <span className="status-icon"></span>*/}
                     {/*    <span className="text-lg">Draft</span>*/}
                     {/*</div>*/}
-
-
-
-
-                    <div style={{width: "327px"}}>
-                         <FormListItem/>
-                    </div>
-
-
-
-
 
 
                 </div>
