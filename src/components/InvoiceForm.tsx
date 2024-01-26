@@ -25,8 +25,8 @@ function InvoiceForm() {
     }
 
     // UPDATE / CREATE INVOICE
-
-    const handleChange = () => {
+    const handleChange = (e: any) => {
+        console.log(e.target.name)
         console.log(invoice)
     }
 
@@ -49,9 +49,12 @@ function InvoiceForm() {
                 <h3>Bill From</h3>
                 {/*BILL FROM*/}
                 <div className="invoice-form__from">
-                    <FormRow label="Street Addess"/>
+                    <FormRow label="Street Addess"
+                        name="address"
+                        handleChange={handleChange}
+                    />
                     <div className="invoice-group">
-                        <FormRow label="City"/>
+                        <FormRow label="City" />
                         <FormRow label="Post Code"/>
                         <FormRow label="Country"/>
                     </div>
@@ -111,7 +114,7 @@ function InvoiceForm() {
                         <button className="btn btn-accent-1" onClick={handleFormClose}>
                             <span className="text-lg">Discard</span>
                         </button>
-                        <button className="btn btn-accent-2">
+                        <button className="btn btn-accent-2" >
                             <span className="text-lg">Save as Draft</span>
                         </button>
                         <button className="btn btn-primary-2">
