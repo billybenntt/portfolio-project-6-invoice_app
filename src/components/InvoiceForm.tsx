@@ -6,26 +6,46 @@ import FormRowSelect from "./subcomponents/FormRowSelect.tsx";
 import FormListItem from "./subcomponents/FormListItem.tsx";
 import {useAppSelector, useAppDispatch} from '../store/hooks.ts';
 import {closeForm} from "../features/Invoice/invoiceSlice.tsx";
+import {useState} from "react";
 
 function InvoiceForm() {
 
-    const {showForm, isEditing} = useAppSelector(store => store.invoice)
+
+    const {showForm, isEditing, singleInvoice} = useAppSelector(store => store.invoice)
     const dispatch = useAppDispatch()
 
+    // LOCAL FORM STATE
+    const [invoice, setInvoice] = useState(singleInvoice);
+
+
+    // CLOSE FORM
 
     const handleFormClose = () => {
         dispatch(closeForm())
     }
 
+    // UPDATE / CREATE INVOICE
+
+    const handleChange = () => {
+        console.log(invoice)
+    }
+
+
     return (
         <div className={`invoice-form ${showForm ? "show" : ""}`}>
             <div className="invoice-form-center">
-                <div className="invoice-form-return" onClick={handleFormClose}>
+                <div className="invoice-form-status">
+                    <p>{isEditing ? `Edit #${singleInvoice.id}` : "New Invoice"}</p>
+                </div>
+
+                <div className="invoice-form-return mobile" onClick={handleFormClose}>
                     <span>
                         <img src={IconArrowLeft} alt="icon-back"/>
                     </span>
                     <h4>Go back</h4>
                 </div>
+
+
                 <h3>Bill From</h3>
                 {/*BILL FROM*/}
                 <div className="invoice-form__from">
@@ -80,7 +100,7 @@ function InvoiceForm() {
 
             <div className="invoice-form__controls">
                 {isEditing ? (<div className="controls__edit">
-                        <button className="btn btn-accent-1">
+                        <button className="btn btn-accent-1" onClick={handleFormClose}>
                             <span className="text-lg">Cancel</span>
                         </button>
                         <button className="btn btn-primary-2">
@@ -88,7 +108,7 @@ function InvoiceForm() {
                         </button>
                     </div>) :
                     <div className="controls__create">
-                        <button className="btn btn-accent-1">
+                        <button className="btn btn-accent-1" onClick={handleFormClose}>
                             <span className="text-lg">Discard</span>
                         </button>
                         <button className="btn btn-accent-2">

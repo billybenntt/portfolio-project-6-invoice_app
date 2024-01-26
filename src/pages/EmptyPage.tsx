@@ -10,15 +10,13 @@ function InvoicesMainPage() {
 
     const testItem = {
         name: "extra item",
-        quantity: 1,
-        price: 3102.04,
-        total: 3102.04
+        quantity: 2,
+        price: 3000.00,
+        total: 6000.00
     }
 
 
     console.log(blankInvoice)
-    blankInvoice.addInvoiceItem(testItem)
-    blankInvoice.addInvoiceItem(testItem)
     blankInvoice.addInvoiceItem(testItem)
     console.log(blankInvoice)
 

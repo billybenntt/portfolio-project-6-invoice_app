@@ -15,9 +15,8 @@ function InvoiceList() {
 
 
     const handleFormCreate = () => {
-        dispatch(openForm())
+        dispatch(openForm({isEditing: false}))
     }
-
 
 
     const invoiceListItems = allInvoices.map((item: Invoice) => {

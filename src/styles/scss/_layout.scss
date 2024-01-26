@@ -392,9 +392,13 @@ body {
 
   }
 
+  .invoice-form-status{
+    font-size: 20px;
+    font-weight: bold;
+  }
+
 
   .invoice-form-return {
-    display: flex;
     align-items: baseline;
     column-gap: 1rem;
     cursor: pointer;

@@ -7,7 +7,7 @@ export class InvoiceCreator {
     // Get Data from Outside
     constructor(invoiceData: any) {
         this.invoice = {
-            id: invoiceData.id || "",
+            id: invoiceData.id || this.generateInvoiceID(),
             createdAt: invoiceData.createdAt || "",
             paymentDue: invoiceData.paymentDue || "",
             description: invoiceData.description || "",
@@ -21,6 +21,7 @@ export class InvoiceCreator {
             total: invoiceData.total || 0,
         };
     }
+
 
     // If Address fields are valid copy them else initialize to empty ""
     private verifyAddress(addressData: any): Address {
@@ -37,10 +38,29 @@ export class InvoiceCreator {
         return Array.isArray(itemsData) ? [...itemsData] : [];
     }
 
+    // method to recalculate grand total.
+    private calculateTotal(itemsData: Item[]) {
+        const result = itemsData.reduce((total: number, item: Item) => {
+            const {price, quantity} = item
+            if (quantity) {
+                total += (price * quantity);
+            }
+            return total;
+        }, 0)
+        return Math.trunc(result)
+    }
 
-    // Method to add an item to the items array
+    // method to generate an invoice id for new invoices
+    private generateInvoiceID() {
+        const sequenceNumber = Math.floor(Math.random() * 9999) + 1000
+        return `AB${sequenceNumber}`
+    }
+
+
+    // Method to add an item to the items array and recalculate total.
     public addInvoiceItem(item: Item): void {
         this.invoice.items.push(item);
+        this.invoice.total = this.calculateTotal(this.invoice.items)
     }
 
     // Method to get the current items array

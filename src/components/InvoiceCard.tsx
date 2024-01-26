@@ -12,16 +12,18 @@ function InvoiceCard() {
     const {id} = useParams()
     const dispatch = useAppDispatch()
 
+    // LOAD CURRENT INVOICE ON COMPONENT START
     useEffect(() => {
         dispatch(getSingleInvoice({id}))
     }, [id]);
 
 
+    // EDIT INVOICE
     const handleFormEdit = (id: string | undefined) => {
-        console.log("The current ID is", id)
-        dispatch(openForm())
+        dispatch(openForm({isEditing: true, id: id}))
     }
 
+    // DELETE INVOICE AND OPEN MODAL
     const handleFormDelete = () => {
         dispatch(openModal())
     }
@@ -33,6 +35,7 @@ function InvoiceCard() {
     return (
         <section className="invoice-card">
             <div className="invoice-card-center">
+
                 <div className="invoice-card__return">
                     <span>
                         <img src={IconArrowLeft} alt="icon-back"/>

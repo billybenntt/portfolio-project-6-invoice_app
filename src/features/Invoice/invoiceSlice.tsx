@@ -23,7 +23,8 @@ const invoiceSlice = createSlice({
     name: 'invoice',
     initialState,
     reducers: {
-        openForm: (state) => {
+        openForm: (state, {payload}) => {
+            state.isEditing = payload.isEditing
             state.showForm = true
         },
         closeForm: (state) => {
