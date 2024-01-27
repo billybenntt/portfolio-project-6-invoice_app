@@ -16,7 +16,7 @@ export interface Invoice {
 export interface Address {
     street: string
     city: string
-    postCode?: string
+    postCode: string
     country: string
 }
 
