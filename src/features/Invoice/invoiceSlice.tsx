@@ -41,6 +41,7 @@ const invoiceSlice = createSlice({
             state.singleInvoice = state.allInvoices.find((item) => item.id === id) as Invoice
         },
 
+
     },
 
     extraReducers: (_) => {

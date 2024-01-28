@@ -14,12 +14,15 @@ function InvoiceForm() {
     const {showForm, isEditing, singleInvoice} = useAppSelector(store => store.invoice)
     const dispatch = useAppDispatch()
 
+
+
+    
+
     // LOCAL FORM STATE
     const [invoice, setInvoice] = useState(singleInvoice);
 
 
     // CLOSE FORM
-
     const handleFormClose = () => {
         dispatch(closeForm())
     }
@@ -29,29 +32,39 @@ function InvoiceForm() {
         const inputName: string[] = (e.target.name).split(".")
         const inputValue = e.target.value
 
+        if (inputName.length === 2) {
+            setInvoice({
+                ...invoice,
+                [inputName[0]]: {
+                    [inputName[1]]: inputValue
+                }
+            })
+        }
         setInvoice({
             ...invoice,
             [inputName[0]]: inputValue
         })
 
-
     }
 
 
-    // UPDATE NESTED OBJECT
-    const handleChangeAddress = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleItemChange = (updatedItem, index) => {
+        // Make a copy of items
+        const updatedItems = [...invoice.items];
 
-        const inputName: string[] = (e.target.name).split(".")
-        const inputValue = e.target.value
+        // Update the index
+        updatedItems[index] = updatedItem;
 
-        setInvoice({
-            ...invoice,
-            [inputName[0]]: {
-                [inputName[1]]: inputValue
-            }
-        })
+        console.log(updatedItem)
+        console.log(index)
 
-    }
+
+        // Update the main state
+        setInvoice(prevState => ({
+            ...prevState,
+            items: updatedItems
+        }));
+    };
 
 
     return (
@@ -74,23 +87,23 @@ function InvoiceForm() {
                 <div className="invoice-form__from">
                     <FormRow label="Street Addess"
                         name="clientAddress.street"
-                        handleChange={handleChangeAddress}
+                        handleChange={handleChange}
                         value={invoice.clientAddress.street}
                     />
                     <div className="invoice-group">
                         <FormRow label="City"
                             name="clientAddress.city"
-                            handleChange={handleChangeAddress}
+                            handleChange={handleChange}
                             value={invoice.clientAddress.city}
                         />
                         <FormRow label="Post Code"
                             name="clientAddress.postCode"
-                            handleChange={handleChangeAddress}
+                            handleChange={handleChange}
                             value={invoice.clientAddress.postCode}
                         />
                         <FormRow label="Country"
                             name="clientAddress.country"
-                            handleChange={handleChangeAddress}
+                            handleChange={handleChange}
                             value={invoice.clientAddress.country}
                         />
                     </div>
@@ -113,25 +126,25 @@ function InvoiceForm() {
 
                     <FormRow label="Street Address"
                         name="senderAddress.street"
-                        handleChange={handleChangeAddress}
+                        handleChange={handleChange}
                         value={invoice.senderAddress.street}
                     />
 
                     <div className="invoice-group">
                         <FormRow label="City"
                             name="senderAddress.city"
-                            handleChange={handleChangeAddress}
+                            handleChange={handleChange}
                             value={invoice.senderAddress.city}
                         />
 
                         <FormRow label="Post Code"
                             name="senderAddress.postCode"
-                            handleChange={handleChangeAddress}
+                            handleChange={handleChange}
                             value={invoice.senderAddress.postCode}
                         />
                         <FormRow label="Country"
                             name="senderAddress.country"
-                            handleChange={handleChangeAddress}
+                            handleChange={handleChange}
                             value={invoice.senderAddress.country}
                         />
                     </div>
@@ -157,10 +170,17 @@ function InvoiceForm() {
                 <h4 className="text-lg-alt text-light-1">Item List</h4>
                 <div>
                     <div>
-                        <FormListItem/>
-                        <FormListItem/>
-                        <FormListItem/>
+                        {invoice.items.map((item, index) => (
+                            <FormListItem
+                                key={index}
+                                id={index}
+                                {...item}
+                                handleChange={(updatedItem) => handleItemChange(updatedItem, index)}
+                            />
+                        ))}
                     </div>
+
+                    {/*ADD MORE ITEMS */}
                     <button className="btn btn-accent-3">
                         <img src={IconPlus} alt="icon"/>
                         <span className="text-lg">Add New Item</span>
@@ -169,6 +189,7 @@ function InvoiceForm() {
             </div>
 
 
+            {/*BUTTONS */}
             <div className="invoice-form__controls">
                 {isEditing ? (<div className="controls__edit">
                         <button className="btn btn-accent-1" onClick={handleFormClose}>

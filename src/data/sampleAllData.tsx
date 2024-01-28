@@ -24,8 +24,14 @@ const sampleAllData = [
             {
                 "name": "Brand Guidelines",
                 "quantity": 1,
-                "price": 1800.9,
-                "total": 1800.9
+                "price": 1800,
+                "total": 1800
+            },
+            {
+                "name": "Extra Invoice",
+                "quantity": 2,
+                "price": 1800,
+                "total": 3600
             }
         ],
         "total": 1800.9
