@@ -5,7 +5,7 @@ function FormListItem(props) {
     const {name, quantity, price, total, handleChange, id} = props
 
 
-    const handleItemChange = (e) => {
+    const onChange = (e) => {
 
     }
 

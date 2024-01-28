@@ -16,7 +16,7 @@ function InvoiceForm() {
 
 
 
-    
+
 
     // LOCAL FORM STATE
     const [invoice, setInvoice] = useState(singleInvoice);
