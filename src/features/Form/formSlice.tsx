@@ -64,6 +64,11 @@ const formSlice = createSlice({
             const {inputName, inputValue, index} = payload
             state.items[index][inputName] = inputValue
         },
+        deleteItem: (state, {payload}) => {
+            const {index} = payload
+            state.items.splice(state.items.indexOf(index), 1)
+        }
+
 
     },
 
@@ -74,5 +79,6 @@ export default formSlice.reducer;
 export const {
     handleChange,
     handleAddressChange,
-    handleItemChange
+    handleItemChange,
+    deleteItem
 } = formSlice.actions;
