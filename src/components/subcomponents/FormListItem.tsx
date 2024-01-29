@@ -2,12 +2,10 @@ import IconDelete from '../../assets/icon-delete.svg'
 
 function FormListItem(props) {
 
-    const {name, quantity, price, total, handleChange, id} = props
+    const {name, quantity, price, total, onChange, id} = props
 
 
-    const onChange = (e) => {
 
-    }
 
 
     return (
@@ -20,7 +18,7 @@ function FormListItem(props) {
                     name={`name`}
                     value={name}
                     id={name}
-                    onChange={(e) => handleChange({...props, name: e.target.value})}
+                    onChange={(e) => onChange({...props, name: e.target.value})}
                 />
             </div>
 
@@ -33,7 +31,7 @@ function FormListItem(props) {
                         name={`quantity`}
                         value={quantity}
                         id={quantity}
-                        onChange={(e) => handleChange({...props, name: e.target.value})}
+                        onChange={(e) => onChange({...props, name: e.target.value})}
                     />
 
                 </div>
@@ -44,7 +42,7 @@ function FormListItem(props) {
                         name={`items.price.${id}`}
                         value={price}
                         id={price}
-                        onChange={(e) => handleChange({...props, name: e.target.value})}
+                        onChange={(e) => onChange({...props, name: e.target.value})}
                     />
                 </div>
 
@@ -54,7 +52,7 @@ function FormListItem(props) {
                 </div>
 
                 <div className="form__item-delete"
-                    onClick={() => handleChange(null, id)}>
+                    onClick={() => onChange(null, id)}>
                     <span>
                         <img src={IconDelete} alt=""/>
                     </span>

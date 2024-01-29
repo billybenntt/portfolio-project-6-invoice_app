@@ -2,7 +2,6 @@ import {createSlice} from '@reduxjs/toolkit';
 import {Invoice, InvoiceState} from "../../types/global";
 import data from "../../data/sampleAllData.tsx";
 
-
 const defaultData = data as Invoice[]
 
 
@@ -53,6 +52,12 @@ const invoiceSlice = createSlice({
 // STORE SLICE
 export default invoiceSlice.reducer;
 // STORE ACTIONS
-export const {openForm, closeForm, openModal, closeModal, getSingleInvoice}
+export const {
+    openForm,
+    closeForm,
+    openModal,
+    closeModal,
+    getSingleInvoice
+}
     = invoiceSlice.actions
 

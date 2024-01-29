@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
-import AllInvoicesSlice from "../features/AllInvoices/allInvoicesSlice.tsx";
+import FormSlice from "../features/Form/formSlice.tsx";
 import invoicesSlice from "../features/Invoice/invoiceSlice.tsx";
 
 export const store = configureStore({
   reducer: {
-      allInvoices: AllInvoicesSlice,
+      form: FormSlice,
       invoice: invoicesSlice
   }
 })
