@@ -10,7 +10,6 @@ import {handleAddressChange, handleChange} from "../features/Form/formSlice.tsx"
 
 function InvoiceForm() {
 
-
     const dispatch = useAppDispatch()
     const {showForm, isEditing} = useAppSelector(store => store.invoice)
     const {singleInvoice, clientAddress, senderAddress, items} = useAppSelector(store => store.form)
@@ -33,25 +32,6 @@ function InvoiceForm() {
         const inputCaller = type
         dispatch(handleAddressChange({inputName, inputValue, inputCaller}))
     }
-
-
-    const onItemsChange = (updatedItem: any, index: number) => {
-        // Make a copy of items
-        const updatedItems = [...items];
-
-        // Update the index
-        updatedItems[index] = updatedItem;
-
-        console.log(updatedItem)
-        console.log(index)
-
-
-        // // Update the main state
-        // setInvoice((prevState: any) => ({
-        //     ...prevState,
-        //     items: updatedItems
-        // }));
-    };
 
 
     return (
@@ -165,9 +145,8 @@ function InvoiceForm() {
                         {items.map((item: any, index: number) => (
                             <FormListItem
                                 key={index}
-                                id={index}
+                                index={index}
                                 {...item}
-                                onChange={(updatedItem: any) => onItemsChange(updatedItem, index)}
                             />
                         ))}
                     </div>

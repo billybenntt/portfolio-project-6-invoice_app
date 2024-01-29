@@ -67,7 +67,10 @@ const formSlice = createSlice({
                 console.log("updated sender address")
             }
         },
-
+        handleItemChange: (state, {payload}) => {
+            const {inputName, inputValue, index} = payload
+            state.items[index][inputName] = inputValue
+        },
 
         getSingleInvoice: (state, {payload}) => {
             const {id} = payload
@@ -82,5 +85,6 @@ const formSlice = createSlice({
 export default formSlice.reducer;
 export const {
     handleChange,
-    handleAddressChange
+    handleAddressChange,
+    handleItemChange
 } = formSlice.actions;

@@ -1,11 +1,20 @@
 import IconDelete from '../../assets/icon-delete.svg'
-
-function FormListItem(props) {
-
-    const {name, quantity, price, total, onChange, id} = props
+import {handleItemChange} from "../../features/Form/formSlice.tsx";
+import {useAppDispatch} from '../../store/hooks.ts';
 
 
+function FormListItem(props: any) {
 
+
+    const dispatch = useAppDispatch()
+
+    const {name, quantity, price, total, index} = props
+
+    const onItemChange = (e:any) => {
+        const inputName = e.target.name
+        const inputValue = e.target.value
+        dispatch(handleItemChange({inputName, inputValue, index}))
+    }
 
 
     return (
@@ -18,7 +27,7 @@ function FormListItem(props) {
                     name={`name`}
                     value={name}
                     id={name}
-                    onChange={(e) => onChange({...props, name: e.target.value})}
+                    onChange={onItemChange}
                 />
             </div>
 
@@ -31,7 +40,7 @@ function FormListItem(props) {
                         name={`quantity`}
                         value={quantity}
                         id={quantity}
-                        onChange={(e) => onChange({...props, name: e.target.value})}
+                        onChange={onItemChange}
                     />
 
                 </div>
@@ -39,20 +48,20 @@ function FormListItem(props) {
                     <label htmlFor={price} className="form__label">Price</label>
                     <input type="text"
                         className="form__input"
-                        name={`items.price.${id}`}
+                        name={`price`}
                         value={price}
                         id={price}
-                        onChange={(e) => onChange({...props, name: e.target.value})}
+                        onChange={onItemChange}
                     />
                 </div>
 
                 <div>
-                    <label htmlFor="" className="form__label">Total</label>
-                    <h4 className="item__total">{total}</h4>
+                    <label htmlFor={total} className="form__label">Total</label>
+                    <h4 className="item__total" id={total}>{total}</h4>
                 </div>
 
                 <div className="form__item-delete"
-                    onClick={() => onChange(null, id)}>
+                    onClick={onItemChange}>
                     <span>
                         <img src={IconDelete} alt=""/>
                     </span>
