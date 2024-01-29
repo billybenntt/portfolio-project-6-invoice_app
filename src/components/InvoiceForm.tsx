@@ -12,7 +12,15 @@ function InvoiceForm() {
 
     const dispatch = useAppDispatch()
     const {showForm, isEditing} = useAppSelector(store => store.invoice)
-    const {singleInvoice, clientAddress, senderAddress, items} = useAppSelector(store => store.form)
+    const {
+        id,
+        clientName,
+        clientEmail,
+        description,
+        clientAddress,
+        senderAddress,
+        items
+    } = useAppSelector(store => store.form)
 
 
     // CLOSE FORM
@@ -38,7 +46,7 @@ function InvoiceForm() {
         <div className={`invoice-form ${showForm ? "show" : ""}`}>
             <div className="invoice-form-center">
                 <div className="invoice-form-status">
-                    <p>{isEditing ? `Edit #${singleInvoice.id}` : "New Invoice"}</p>
+                    <p>{isEditing ? `Edit #${id}` : "New Invoice"}</p>
                 </div>
 
                 <div className="invoice-form-return mobile" onClick={handleFormClose}>
@@ -86,12 +94,12 @@ function InvoiceForm() {
                     <FormRow label="Client’s Name"
                         name="clientName"
                         onChange={onChange}
-                        value={singleInvoice.clientName}
+                        value={clientName}
                     />
                     <FormRow label="Client’s Email"
                         name="clientEmail"
                         onChange={onChange}
-                        value={singleInvoice.clientEmail}
+                        value={clientEmail}
                     />
 
 
@@ -132,7 +140,7 @@ function InvoiceForm() {
                         <FormRow label="Project Description"
                             name="description"
                             onChange={onChange}
-                            value={singleInvoice.description}
+                            value={description}
                         />
                     </div>
                 </div>
