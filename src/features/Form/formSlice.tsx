@@ -1,6 +1,5 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import data from "../../data/sampleAllData.tsx";
-import {Invoice} from "../../types/global";
 
 
 const defaultData = JSON.parse(JSON.stringify(data))
@@ -47,12 +46,6 @@ const formSlice = createSlice({
     name: 'form',
     initialState,
     reducers: {
-        openForm: (state) => {
-            console.log(state)
-        },
-        closeForm: (state) => {
-            console.log(state)
-        },
         handleChange: (state, {payload}) => {
             const {inputName, inputValue} = payload
             state.singleInvoice[inputName] = inputValue
@@ -70,11 +63,6 @@ const formSlice = createSlice({
         handleItemChange: (state, {payload}) => {
             const {inputName, inputValue, index} = payload
             state.items[index][inputName] = inputValue
-        },
-
-        getSingleInvoice: (state, {payload}) => {
-            const {id} = payload
-            state.singleInvoice = state.allInvoices.find((item: any) => item.id === id) as Invoice
         },
 
     },
