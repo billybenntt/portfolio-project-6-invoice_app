@@ -6,7 +6,7 @@ import FormRowSelect from "./subcomponents/FormRowSelect.tsx";
 import FormListItem from "./subcomponents/FormListItem.tsx";
 import {useAppSelector, useAppDispatch} from '../store/hooks.ts';
 import {closeForm} from "../features/Invoice/invoiceSlice.tsx";
-import {handleAddressChange, handleChange} from "../features/Form/formSlice.tsx";
+import {createItem, handleAddressChange, handleChange} from "../features/Form/formSlice.tsx";
 
 function InvoiceForm() {
 
@@ -39,6 +39,10 @@ function InvoiceForm() {
         const inputValue = e.target.value
         const inputCaller = type
         dispatch(handleAddressChange({inputName, inputValue, inputCaller}))
+    }
+
+    const onItemCreate = () => {
+        dispatch(createItem())
     }
 
 
@@ -160,7 +164,7 @@ function InvoiceForm() {
                     </div>
 
                     {/*ADD MORE ITEMS */}
-                    <button className="btn btn-accent-3">
+                    <button className="btn btn-accent-3" onClick={onItemCreate}>
                         <img src={IconPlus} alt="icon"/>
                         <span className="text-lg">Add New Item</span>
                     </button>

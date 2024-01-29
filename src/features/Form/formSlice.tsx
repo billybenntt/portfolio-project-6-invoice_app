@@ -11,7 +11,7 @@ type AddressChangePayload = {
 };
 
 // INITIAL STATE
-const initialState ={
+const initialState = {
     ...defaultData
 }
 
@@ -39,7 +39,18 @@ const formSlice = createSlice({
         },
         deleteItem: (state, {payload}) => {
             const {index} = payload
-            state.items.splice(state.items.indexOf(index), 1)
+            state.items.splice(index, 1)
+        },
+        createItem: (state) => {
+
+            const newItem = {
+                "name": "New Item",
+                "quantity": 1,
+                "price": 0,
+                "total": 0
+            }
+
+            state.items.push(newItem)
         }
 
     },
@@ -52,5 +63,6 @@ export const {
     handleChange,
     handleAddressChange,
     handleItemChange,
-    deleteItem
+    deleteItem,
+    createItem
 } = formSlice.actions;
