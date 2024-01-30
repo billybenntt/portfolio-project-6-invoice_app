@@ -15,10 +15,20 @@ const initialState = {
     ...defaultData
 }
 
+
+
+
+
+
+
+
+
 const formSlice = createSlice({
     name: 'form',
     initialState,
     reducers: {
+
+
         handleChange: (state, {payload}) => {
             const {inputName, inputValue} = payload
             state[inputName] = inputValue
@@ -27,15 +37,33 @@ const formSlice = createSlice({
             const {inputName, inputValue, inputCaller} = payload
             if (inputCaller === 'client') {
                 state.clientAddress[inputName] = inputValue
-                console.log("updated client address")
             } else {
                 state.senderAddress[inputName] = inputValue
-                console.log("updated sender address")
             }
         },
         handleItemChange: (state, {payload}) => {
             const {inputName, inputValue, index} = payload
-            state.items[index][inputName] = inputValue
+
+            // Check that our value is a number or not
+            const isValidNumber = !isNaN(inputValue)
+
+            //  Item name Allows Strings and Numbers
+            //  Other fields are numeric only.
+            if (inputName === 'name' || isValidNumber) {
+                // Update Total if Changing Price or Quantity
+                if (inputName === 'quantity') {
+                    const quantity = +inputValue
+                    const price = +state.items[index]['price']
+                    state.items[index]['total'] = (quantity * price).toString()
+                }
+                if (inputName === 'price') {
+                    const price = +inputValue
+                    const quantity = +state.items[index]['quantity']
+                    state.items[index]['total'] = (quantity * price).toString()
+                }
+                state.items[index][inputName] = inputValue
+            }
+
         },
         deleteItem: (state, {payload}) => {
             const {index} = payload
@@ -46,10 +74,9 @@ const formSlice = createSlice({
             const newItem = {
                 "name": "New Item",
                 "quantity": 1,
-                "price": 0,
-                "total": 0
+                "price": 1,
+                "total": 1
             }
-
             state.items.push(newItem)
         }
 

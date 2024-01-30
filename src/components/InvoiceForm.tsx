@@ -26,7 +26,7 @@ function InvoiceForm() {
 
 
     // CLOSE FORM
-    const handleFormClose = () => {
+    const onFormClose = () => {
         dispatch(closeForm())
     }
 
@@ -52,15 +52,21 @@ function InvoiceForm() {
         dispatch(handleChange({inputName: name, inputValue: value}))
     }
 
+    const onFormSubmit = (e:any) => {
+        e.preventDefault()
+        console.log("submit form")
+    }
+
+
 
     return (
-        <div className={`invoice-form ${showForm ? "show" : ""}`}>
+        <form className={`invoice-form ${showForm ? "show" : ""}`} onSubmit={onFormSubmit}>
             <div className="invoice-form-center">
                 <div className="invoice-form-status">
                     <p>{isEditing ? `Edit #${id}` : "New Invoice"}</p>
                 </div>
 
-                <div className="invoice-form-return mobile" onClick={handleFormClose}>
+                <div className="invoice-form-return mobile" onClick={onFormClose}>
                     <span>
                         <img src={IconArrowLeft} alt="icon-back"/>
                     </span>
@@ -189,7 +195,7 @@ function InvoiceForm() {
             {/*BUTTONS */}
             <div className="invoice-form__controls">
                 {isEditing ? (<div className="controls__edit">
-                        <button className="btn btn-accent-1" onClick={handleFormClose}>
+                        <button className="btn btn-accent-1" onClick={onFormClose}>
                             <span className="text-lg">Cancel</span>
                         </button>
                         <button className="btn btn-primary-2">
@@ -197,19 +203,19 @@ function InvoiceForm() {
                         </button>
                     </div>) :
                     <div className="controls__create">
-                        <button className="btn btn-accent-1" onClick={handleFormClose}>
+                        <button className="btn btn-accent-1" onClick={onFormClose}>
                             <span className="text-lg">Discard</span>
                         </button>
                         <button className="btn btn-accent-2">
                             <span className="text-lg">Save as Draft</span>
                         </button>
-                        <button className="btn btn-primary-2">
+                        <button className="btn btn-primary-2" type="submit" onClick={onFormSubmit}>
                             <span className="text-lg">Save and Send</span>
                         </button>
                     </div>
                 }
             </div>
-        </div>
+        </form>
     )
 }
 

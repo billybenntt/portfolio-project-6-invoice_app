@@ -38,8 +38,9 @@ function FormListItem(props: any) {
                 <div>
                     <label htmlFor={quantity} className="form__label">Qty</label>
                     <input type="text"
+                        inputMode="numeric"
                         className="form__input"
-                        name={`quantity`}
+                        name="quantity"
                         value={quantity}
                         id={quantity}
                         onChange={onItemChange}
@@ -51,8 +52,10 @@ function FormListItem(props: any) {
                     <input type="text"
                         className="form__input"
                         name={`price`}
+                        inputMode="numeric"
                         value={price}
                         id={price}
+                        required={true}
                         onChange={onItemChange}
                     />
                 </div>
