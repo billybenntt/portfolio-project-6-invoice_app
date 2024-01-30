@@ -17,6 +17,8 @@ function InvoiceForm() {
         clientName,
         clientEmail,
         description,
+        paymentTerms,
+        paymentDue,
         clientAddress,
         senderAddress,
         items
@@ -43,6 +45,11 @@ function InvoiceForm() {
 
     const onItemCreate = () => {
         dispatch(createItem())
+    }
+
+    const onOptionChange = (propData: any) => {
+        const {name, value} = propData
+        dispatch(handleChange({inputName: name, inputValue: value}))
     }
 
 
@@ -120,7 +127,6 @@ function InvoiceForm() {
                             onChange={onAddressChange}
                             value={senderAddress.city}
                         />
-
                         <FormRow label="Post Code"
                             name="postCode"
                             onChange={onAddressChange}
@@ -137,8 +143,16 @@ function InvoiceForm() {
                 {/*BILL DATE*/}
                 <div>
                     <div className="invoice-group">
-                        <FormRowDate label="Invoice Date"/>
-                        <FormRowSelect label="Payment Terms"/>
+                        <FormRowDate label="Invoice Due Date"
+                            name="paymentDue"
+                            value={paymentDue}
+                            onChange={onChange}
+                        />
+                        <FormRowSelect label="Payment Terms"
+                            name="paymentTerms"
+                            value={paymentTerms}
+                            onChange={onOptionChange}
+                        />
                     </div>
                     <div>
                         <FormRow label="Project Description"

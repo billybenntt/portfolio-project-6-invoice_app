@@ -1,47 +1,44 @@
 import IconImg from '../../assets/icon-arrow-down.svg'
-import React, {useState} from "react";
-
-type formRow = {
-    label: string
-}
+import {useState} from "react";
 
 
-function FormRowSelect(props:    formRow) {
+function FormRowSelect(props: any) {
 
-    const [value, setValue] = useState("First Option");
+    const {label, name, onChange, value} = props
+
+    // Local State Value
+    const [currentValue, setCurrentValue] = useState(value);
+
+    // Show/Hide Option Control
     const [show, setShow] = useState("hide");
 
-
-    const {label} = props
-
-    const handleToggle = () => {
-        setShow("show");
-    };
-
-    const handleOption = (value: string) => {
-        setValue(value)
-        setShow("");
+    // Update value with Central and Local State & Close Option
+    const sendValue = (newValue: number) => {
+        setCurrentValue(newValue);
+        onChange({ name, value: newValue});
+        setShow("hide")
     }
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        // Update the state when the input value changes
-        console.log(e.target.value)
-        setShow("");
-    };
 
 
     return (
         <div className="form__row-select">
-            <label htmlFor="" className="form__label">{label}</label>
-            <input type="text" value={value} className="form__input" onClick={handleToggle} onChange={handleChange}/>
+            <label htmlFor={name} className="form__label">{label}</label>
+            <input type="text"
+                className="form__input"
+                id={name}
+                name={name}
+                onChange={() => sendValue}
+                value={currentValue}
+                onClick={() => setShow("show")}
+            />
             <span className="form__input-icon">
                 <img src={IconImg} alt="form__input-icon"/>
             </span>
             <ul className={`form__select ${show}`} onMouseLeave={() => setShow("")}>
-                <li className="form__select-item" onClick={() => handleOption("option 1")}>option 1</li>
-                <li className="form__select-item" onClick={() => handleOption("option 2")}>option 2</li>
-                <li className="form__select-item" onClick={() => handleOption("option 3")}>option 3</li>
-                <li className="form__select-item" onClick={() => handleOption("option 4")}>option 4</li>
+                <li className="form__select-item" onClick={() => sendValue(1)}>Option 1</li>
+                <li className="form__select-item" onClick={() => sendValue(2)}>Option 2</li>
+                <li className="form__select-item" onClick={() => sendValue(3)}>Option 3</li>
+                <li className="form__select-item" onClick={() => sendValue(4)}>Option 4</li>
             </ul>
         </div>
 

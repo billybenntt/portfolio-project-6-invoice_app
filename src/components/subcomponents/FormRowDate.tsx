@@ -1,17 +1,19 @@
-type formRow = {
-    label: string
-}
 
 
-function FormRowDate(props: formRow) {
+function FormRowDate(props: any) {
 
-    const {label} = props
-
+    const {label, name, value, onChange} = props
 
     return (
         <div className="form__row">
-            <label htmlFor="" className="form__label">{label}</label>
-            <input type="date" className="form__input" disabled={true}/>
+            <label htmlFor={name} className="form__label">{label}</label>
+            <input type="date"
+                className="form__input"
+                id={name}
+                name={name}
+                value={value}
+                onChange={onChange}
+                disabled={false}/>
         </div>
 
     )

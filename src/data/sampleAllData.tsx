@@ -4,7 +4,7 @@ const sampleAllData = [
         "createdAt": "2021-08-18",
         "paymentDue": "2021-08-19",
         "description": "Re-branding",
-        "paymentTerms": 1,
+        "paymentTerms": 4,
         "clientName": "Jensen Huang",
         "clientEmail": "jensenh@mail.com",
         "status": "paid",
