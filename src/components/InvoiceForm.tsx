@@ -9,20 +9,11 @@ import {closeForm} from "../features/Invoice/invoiceSlice.tsx";
 import {createItem, handleAddressChange, handleChange} from "../features/Form/formSlice.tsx";
 
 function InvoiceForm() {
-
+    
     const dispatch = useAppDispatch()
     const {showForm, isEditing} = useAppSelector(store => store.invoice)
-    const {
-        id,
-        clientName,
-        clientEmail,
-        description,
-        paymentTerms,
-        paymentDue,
-        clientAddress,
-        senderAddress,
-        items
-    } = useAppSelector(store => store.form.invoice)
+    const invoice = useAppSelector(store => store.form.invoice)
+
 
 
     // CLOSE FORM
@@ -63,7 +54,7 @@ function InvoiceForm() {
         <form className={`invoice-form ${showForm ? "show" : ""}`} onSubmit={onFormSubmit}>
             <div className="invoice-form-center">
                 <div className="invoice-form-status">
-                    <p>{isEditing ? `Edit #${id}` : "New Invoice"}</p>
+                    <p>{isEditing ? `Edit #${invoice.id}` : "New Invoice"}</p>
                 </div>
 
                 <div className="invoice-form-return mobile" onClick={onFormClose}>
@@ -81,26 +72,26 @@ function InvoiceForm() {
                         name="street"
                         type="client"
                         onChange={onAddressChange}
-                        value={clientAddress.street}
+                        value={invoice.clientAddress.street}
                     />
                     <div className="invoice-group">
                         <FormRow label="City"
                             name="city"
                             type="client"
                             onChange={onAddressChange}
-                            value={clientAddress.city}
+                            value={invoice.clientAddress.city}
                         />
                         <FormRow label="Post Code"
                             name="postCode"
                             type="client"
                             onChange={onAddressChange}
-                            value={clientAddress.postCode}
+                            value={invoice.clientAddress.postCode}
                         />
                         <FormRow label="Country"
                             name="country"
                             type="client"
                             onChange={onAddressChange}
-                            value={clientAddress.country}
+                            value={invoice.clientAddress.country}
                         />
                     </div>
                 </div>
@@ -111,12 +102,12 @@ function InvoiceForm() {
                     <FormRow label="Client’s Name"
                         name="clientName"
                         onChange={onChange}
-                        value={clientName}
+                        value={invoice.clientName}
                     />
                     <FormRow label="Client’s Email"
                         name="clientEmail"
                         onChange={onChange}
-                        value={clientEmail}
+                        value={invoice.clientEmail}
                     />
 
 
@@ -124,24 +115,24 @@ function InvoiceForm() {
                         name="street"
                         type="sender"
                         onChange={onAddressChange}
-                        value={senderAddress.street}
+                        value={invoice.senderAddress.street}
                     />
 
                     <div className="invoice-group">
                         <FormRow label="City"
                             name="city"
                             onChange={onAddressChange}
-                            value={senderAddress.city}
+                            value={invoice.senderAddress.city}
                         />
                         <FormRow label="Post Code"
                             name="postCode"
                             onChange={onAddressChange}
-                            value={senderAddress.postCode}
+                            value={invoice.senderAddress.postCode}
                         />
                         <FormRow label="Country"
                             name="country"
                             onChange={onAddressChange}
-                            value={senderAddress.country}
+                            value={invoice.senderAddress.country}
                         />
                     </div>
                 </div>
@@ -151,12 +142,12 @@ function InvoiceForm() {
                     <div className="invoice-group">
                         <FormRowDate label="Invoice Due Date"
                             name="paymentDue"
-                            value={paymentDue}
+                            value={invoice.paymentDue}
                             onChange={onChange}
                         />
                         <FormRowSelect label="Payment Terms"
                             name="paymentTerms"
-                            value={paymentTerms}
+                            value={invoice.paymentTerms}
                             onChange={onOptionChange}
                         />
                     </div>
@@ -164,7 +155,7 @@ function InvoiceForm() {
                         <FormRow label="Project Description"
                             name="description"
                             onChange={onChange}
-                            value={description}
+                            value={invoice.description}
                         />
                     </div>
                 </div>
@@ -174,7 +165,7 @@ function InvoiceForm() {
                 <h4 className="text-lg-alt text-light-1">Item List</h4>
                 <div>
                     <div>
-                        {items.map((item: any, index: number) => (
+                        {invoice.items.map((item: any, index: number) => (
                             <FormListItem
                                 key={index}
                                 index={index}

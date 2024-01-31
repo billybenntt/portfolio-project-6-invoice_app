@@ -37,7 +37,6 @@ function InvoiceCard() {
     return (
         <section className="invoice-card">
             <div className="invoice-card-center">
-
                 <div className="invoice-card__return">
                     <span>
                         <img src={IconArrowLeft} alt="icon-back"/>
@@ -130,7 +129,6 @@ function InvoiceCard() {
                     <div className="card-group">
 
                         {/*MOBILE */}
-
                         <div className="invoice__subtotal mobile">
                             {/*DYNAMIC SIZE*/}
                             <div className="subtotal__item">
@@ -148,9 +146,7 @@ function InvoiceCard() {
                                 </div>
                                 <h4>£ 156.00</h4>
                             </div>
-
                         </div>
-
 
                         {/*DESKTOP */}
                         <div className="invoice__subtotal desktop">
@@ -160,7 +156,6 @@ function InvoiceCard() {
                                 <p>Price</p>
                                 <p>Total</p>
                             </div>
-
                             {/*DYNAMIC SIZE*/}
 
                             <div className="subtotal__item">
@@ -169,7 +164,6 @@ function InvoiceCard() {
                                 <h4>£156.00</h4>
                                 <h4>£312.00</h4>
                             </div>
-
                             <div className="subtotal__item">
                                 <h4>Banner Design</h4>
                                 <h4>2</h4>
@@ -177,7 +171,6 @@ function InvoiceCard() {
                                 <h4>£312.00</h4>
                             </div>
                         </div>
-
 
                         <div className="invoice__total">
                             <p className="mobile text-xl">Grand Total</p>

@@ -1,4 +1,3 @@
-import {InvoiceState} from "../../types/global";
 import {AddressChangePayload} from "../../types/redux";
 import data from "../../data/sampleAllData.tsx";
 import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit';
@@ -8,7 +7,7 @@ const defaultData = JSON.parse(JSON.stringify(data))[0]
 
 // INITIAL STATE
 const initialState = {
-    invoice:  {...defaultData}
+    invoice: {...defaultData}
 }
 
 
@@ -16,10 +15,8 @@ const setFormInvoice = createAsyncThunk(
     'form/setFormInvoice',
     async (payloadInfo: string, thunkAPI: any) => {
         try {
-
             console.log(payloadInfo)
-            const {singleInvoice} = thunkAPI.getState()['invoice'] as InvoiceState
-
+            const {singleInvoice} = thunkAPI.getState()['invoice']
             // thunkAPI.dispatch(openModal());
             return singleInvoice
         } catch (error) {
@@ -56,13 +53,13 @@ const formSlice = createSlice({
             if (inputName === 'name' || isValidNumber) {
                 // Update Total if Changing Price or Quantity
                 if (inputName === 'quantity') {
-                    const quantity = +inputValue
-                    const price = +state.invoice.items[index]['price']
+                    const quantity: number = +inputValue
+                    const price: number = +state.invoice.items[index]['price']
                     state.invoice.items[index]['total'] = (quantity * price).toString()
                 }
                 if (inputName === 'price') {
-                    const price = +inputValue
-                    const quantity = +state.invoice.items[index]['quantity']
+                    const price: number = +inputValue
+                    const quantity: number = +state.invoice.items[index]['quantity']
                     state.invoice.items[index]['total'] = (quantity * price).toString()
                 }
                 state.invoice.items[index][inputName] = inputValue
