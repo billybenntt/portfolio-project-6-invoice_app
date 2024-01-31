@@ -9,7 +9,7 @@ import {closeForm} from "../features/Invoice/invoiceSlice.tsx";
 import {createItem, handleAddressChange, handleChange} from "../features/Form/formSlice.tsx";
 
 function InvoiceForm() {
-    
+
     const dispatch = useAppDispatch()
     const {showForm, isEditing} = useAppSelector(store => store.invoice)
     const invoice = useAppSelector(store => store.form.invoice)
