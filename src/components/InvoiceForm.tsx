@@ -22,7 +22,7 @@ function InvoiceForm() {
         clientAddress,
         senderAddress,
         items
-    } = useAppSelector(store => store.form)
+    } = useAppSelector(store => store.form.invoice)
 
 
     // CLOSE FORM

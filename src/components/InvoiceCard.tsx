@@ -5,6 +5,7 @@ import {useAppDispatch, useAppSelector} from '../store/hooks.ts';
 import {openForm, openModal, getSingleInvoice} from "../features/Invoice/invoiceSlice.tsx";
 import {useEffect} from "react";
 import {Invoice} from "../types/global";
+import {setFormInvoice} from "../features/Form/formSlice.tsx";
 
 
 function InvoiceCard() {
@@ -21,6 +22,7 @@ function InvoiceCard() {
     // EDIT INVOICE
     const handleFormEdit = (id: string | undefined) => {
         dispatch(openForm({isEditing: true, id: id}))
+        dispatch(setFormInvoice("Edit Invoice"))
     }
 
     // DELETE INVOICE AND OPEN MODAL

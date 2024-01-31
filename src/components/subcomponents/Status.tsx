@@ -1,4 +1,4 @@
-import {PropStatus} from "../../types/components";
+import {PropStatus} from "../../types/redux";
 
 function Status(props: PropStatus) {
 

@@ -1,44 +1,48 @@
-import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import {InvoiceState} from "../../types/global";
+import {AddressChangePayload} from "../../types/redux";
 import data from "../../data/sampleAllData.tsx";
-
+import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit';
 
 const defaultData = JSON.parse(JSON.stringify(data))[0]
 
-type AddressChangePayload = {
-    inputName: string;  // Assuming inputName is an array of strings
-    inputValue: string;
-    inputCaller: string// Change 'any' to the appropriate type if possible
-};
 
 // INITIAL STATE
 const initialState = {
-    ...defaultData
+    invoice:  {...defaultData}
 }
 
 
+const setFormInvoice = createAsyncThunk(
+    'form/setFormInvoice',
+    async (payloadInfo: string, thunkAPI: any) => {
+        try {
 
+            console.log(payloadInfo)
+            const {singleInvoice} = thunkAPI.getState()['invoice'] as InvoiceState
 
-
-
-
+            // thunkAPI.dispatch(openModal());
+            return singleInvoice
+        } catch (error) {
+            return thunkAPI.rejectWithValue('something went wrong');
+        }
+    }
+);
 
 
 const formSlice = createSlice({
     name: 'form',
     initialState,
     reducers: {
-
-
         handleChange: (state, {payload}) => {
             const {inputName, inputValue} = payload
-            state[inputName] = inputValue
+            state.invoice[inputName] = inputValue
         },
         handleAddressChange: (state, {payload}: PayloadAction<AddressChangePayload>) => {
             const {inputName, inputValue, inputCaller} = payload
             if (inputCaller === 'client') {
-                state.clientAddress[inputName] = inputValue
+                state.invoice.clientAddress[inputName] = inputValue
             } else {
-                state.senderAddress[inputName] = inputValue
+                state.invoice.senderAddress[inputName] = inputValue
             }
         },
         handleItemChange: (state, {payload}) => {
@@ -53,39 +57,50 @@ const formSlice = createSlice({
                 // Update Total if Changing Price or Quantity
                 if (inputName === 'quantity') {
                     const quantity = +inputValue
-                    const price = +state.items[index]['price']
-                    state.items[index]['total'] = (quantity * price).toString()
+                    const price = +state.invoice.items[index]['price']
+                    state.invoice.items[index]['total'] = (quantity * price).toString()
                 }
                 if (inputName === 'price') {
                     const price = +inputValue
-                    const quantity = +state.items[index]['quantity']
-                    state.items[index]['total'] = (quantity * price).toString()
+                    const quantity = +state.invoice.items[index]['quantity']
+                    state.invoice.items[index]['total'] = (quantity * price).toString()
                 }
-                state.items[index][inputName] = inputValue
+                state.invoice.items[index][inputName] = inputValue
             }
 
         },
         deleteItem: (state, {payload}) => {
             const {index} = payload
-            state.items.splice(index, 1)
+            state.invoice.items.splice(index, 1)
         },
         createItem: (state) => {
-
             const newItem = {
                 "name": "New Item",
                 "quantity": 1,
                 "price": 1,
                 "total": 1
             }
-            state.items.push(newItem)
+            state.invoice.items.push(newItem)
         }
 
     },
-
+    extraReducers: (builder) => {
+        builder
+            .addCase(setFormInvoice.pending, (state) => {
+                console.log("pending", state);
+            })
+            .addCase(setFormInvoice.fulfilled, (state, action) => {
+                state.invoice = action.payload
+            })
+            .addCase(setFormInvoice.rejected, (state) => {
+                console.log("rejected", state);
+            });
+    },
 
 });
 
 export default formSlice.reducer;
+export {setFormInvoice}
 export const {
     handleChange,
     handleAddressChange,
@@ -93,3 +108,4 @@ export const {
     deleteItem,
     createItem
 } = formSlice.actions;
+
