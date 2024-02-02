@@ -12,6 +12,7 @@
     "scss:watch": "sass src/styles/scss/input.scss src/styles/output.css --no-source-map --watch"
   },
   "dependencies": {
+    "@radix-ui/react-select": "^2.0.0",
     "@reduxjs/toolkit": "^2.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
