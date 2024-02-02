@@ -33,85 +33,6 @@
 
 }
 
-.form__row-select {
-  width: 100%;
-  margin-bottom: 1rem;
-  display: flex;
-  row-gap: 0.563rem;
-  position: relative;
-  flex-direction: column;
-
-  .form__label {
-    color: $accent-light-400;
-    @extend .text-base
-  }
-
-  .form__input {
-    @extend .text-lg;
-    outline: none;
-    font-family: inherit;
-    width: 100%;
-    height: 48px;
-    border: 1px solid $accent-light-200;
-    border-radius: $rounded-sm;
-    padding: 1rem;
-
-    &:focus {
-      border: 1px solid $primary-100;
-    }
-  }
-
-  .form__input-icon {
-    position: absolute;
-    top: 52%;
-    right: 20px;
-  }
-
-  .form__input-icon:hover {
-    transition: 200ms all linear;
-    transform: rotate(-90deg);
-  }
-
-
-  .form__select {
-    border-radius: $rounded-lg;
-    border: 1px solid $accent-light-200;
-    cursor: pointer;
-    overflow: hidden;
-    display: none;
-    background-color: white;
-    box-shadow: $box-shadow-1;
-    position: absolute;
-    width: 100%;
-    top: -80px;
-    z-index: 5;
-
-    &.show {
-      display: flex;
-      flex-direction: column;
-    }
-
-  }
-
-
-  &:hover {
-    display: flex;
-  }
-
-
-  .form__select-item {
-    height: 39px;
-    padding: 1rem;
-    border-bottom: 1px dotted $accent-light-200;
-
-    &:hover {
-      color: $primary-200;
-    }
-
-  }
-
-
-}
 
 .form__list-item {
   width: 100%;
@@ -179,19 +100,19 @@
 }
 
 
-.form_row_radix {
-  width: 500px;
-  overflow: hidden;
+
+
+.form__row-select {
+  width: $max-w-sm;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.5rem;
   user-select: none;
 
   .form__label {
     color: $accent-light-400;
     @extend .text-base
   }
-
 
   .form_row_input {
     width: 100%;
@@ -202,7 +123,7 @@
     @extend .text-lg;
     border: 1px solid $accent-light-200;
     border-radius: $rounded-sm;
-    padding: 1rem;
+    padding: 0.72rem;
     background-color: #fff;
     display: flex;
     justify-content: space-between;
@@ -215,8 +136,10 @@
 
 }
 
-.form_row_box {
+.form__row-select_menu {
   color: black;
+  border-radius: $rounded-sm;
+z-index: 999;
   @extend .text-lg;
   cursor: pointer;
   background-color: white;

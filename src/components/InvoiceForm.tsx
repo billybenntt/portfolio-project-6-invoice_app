@@ -15,7 +15,6 @@ function InvoiceForm() {
     const invoice = useAppSelector(store => store.form.invoice)
 
 
-
     // CLOSE FORM
     const onFormClose = () => {
         dispatch(closeForm())
@@ -43,11 +42,10 @@ function InvoiceForm() {
         dispatch(handleChange({inputName: name, inputValue: value}))
     }
 
-    const onFormSubmit = (e:any) => {
+    const onFormSubmit = (e: any) => {
         e.preventDefault()
         console.log("submit form")
     }
-
 
 
     return (
@@ -145,11 +143,13 @@ function InvoiceForm() {
                             value={invoice.paymentDue}
                             onChange={onChange}
                         />
-                        <FormRowSelect label="Payment Terms"
-                            name="paymentTerms"
-                            value={invoice.paymentTerms}
+
+                        <FormRowSelect
+                            label="Payment Terms"
                             onChange={onOptionChange}
+
                         />
+
                     </div>
                     <div>
                         <FormRow label="Project Description"
