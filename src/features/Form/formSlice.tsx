@@ -1,6 +1,7 @@
 import {AddressChangePayload} from "../../types/redux";
 import data from "../../data/sampleAllData.tsx";
 import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit';
+import {InvoiceCreator} from "../../data/InvoiceCreator.ts";
 
 const defaultData = JSON.parse(JSON.stringify(data))[0]
 
@@ -15,10 +16,16 @@ const setFormInvoice = createAsyncThunk(
     'form/setFormInvoice',
     async (payloadInfo: string, thunkAPI: any) => {
         try {
-            console.log(payloadInfo)
-            const {singleInvoice} = thunkAPI.getState()['invoice']
-            // thunkAPI.dispatch(openModal());
-            return singleInvoice
+
+            const dummyInvoice = new InvoiceCreator("").createInvoice()
+
+
+            if (payloadInfo === 'edit') {
+                return thunkAPI.getState()['invoice']['singleInvoice']
+            }
+
+
+            return dummyInvoice
         } catch (error) {
             return thunkAPI.rejectWithValue('something went wrong');
         }

@@ -3,38 +3,33 @@ const sampleAllData = [
         "id": "RT3080",
         "createdAt": "2021-08-18",
         "paymentDue": "2021-08-19",
-        "description": "Re-branding",
+        "description": "New Invoice",
         "paymentTerms": 4,
-        "clientName": "Jensen Huang",
-        "clientEmail": "jensenh@mail.com",
-        "status": "paid",
+        "clientName": "",
+        "clientEmail": "",
+        "status": "draft",
         "senderAddress": {
-            "street": "19 Union Terrace",
-            "city": "London",
-            "postCode": "E1 3EZ",
-            "country": "United Kingdom"
+            "street": "",
+            "city": "",
+            "postCode": "",
+            "country": ""
         },
         "clientAddress": {
-            "street": "106 Kendell Street",
-            "city": "Sharrington",
-            "postCode": "NR24 5WQ",
-            "country": "United Kingdom"
+            "street": "",
+            "city": "",
+            "postCode": "",
+            "country": ""
         },
         "items": [
             {
-                "name": "Brand Guidelines",
-                "quantity": 1,
-                "price": 1800,
-                "total": 1800
+                "name": "",
+                "quantity": 0,
+                "price": 0,
+                "total": 0
             },
-            {
-                "name": "Extra Invoice",
-                "quantity": 2,
-                "price": 1800,
-                "total": 3600
-            }
+
         ],
-        "total": 1800.9
+        "total": 0
     },
     {
         "id": "XM9141",

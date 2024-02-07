@@ -22,7 +22,7 @@ function InvoiceCard() {
     // EDIT INVOICE
     const handleFormEdit = (id: string | undefined) => {
         dispatch(openForm({isEditing: true, id: id}))
-        dispatch(setFormInvoice("Edit Invoice"))
+        dispatch(setFormInvoice("edit"))
     }
 
     // DELETE INVOICE AND OPEN MODAL

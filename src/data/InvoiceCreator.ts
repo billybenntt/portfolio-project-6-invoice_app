@@ -2,7 +2,7 @@ import {Item, Invoice, Address} from "../types/global";
 
 
 export class InvoiceCreator {
-    private invoice: Invoice;
+    private readonly invoice: Invoice;
 
     // Get Data from Outside
     constructor(invoiceData: any) {
@@ -11,7 +11,7 @@ export class InvoiceCreator {
             createdAt: invoiceData.createdAt || "",
             paymentDue: invoiceData.paymentDue || "",
             description: invoiceData.description || "",
-            paymentTerms: invoiceData.paymentTerms || 0,
+            paymentTerms: invoiceData.paymentTerms || 1,
             clientName: invoiceData.clientName || "",
             clientEmail: invoiceData.clientEmail || "",
             status: invoiceData.status || "draft",
@@ -52,8 +52,11 @@ export class InvoiceCreator {
 
     // method to generate an invoice id for new invoices
     private generateInvoiceID() {
-        const sequenceNumber = Math.floor(Math.random() * 9999) + 1000
-        return `AB${sequenceNumber}`
+        const letters: string = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const firstPart: string = letters.charAt(Math.floor(Math.random() * letters.length));
+        const secondPart: string = letters.charAt(Math.floor(Math.random() * letters.length));
+        const thirdPart: number = Math.floor(Math.random() * 9999) + 1000
+        return `${firstPart}${secondPart}${thirdPart}`
     }
 
 
@@ -63,9 +66,12 @@ export class InvoiceCreator {
         this.invoice.total = this.calculateTotal(this.invoice.items)
     }
 
-    // Method to get the current items array
-    public getAllItems(): Item[] {
-        return this.invoice.items;
+    // Create a Valid Invoice
+    public createInvoice() {
+
+        this.invoice.createdAt = new Date().toISOString().substring(0, 10)
+        this.invoice.paymentDue = new Date().toISOString().substring(0, 10);
+        return this.invoice;
     }
 
 }

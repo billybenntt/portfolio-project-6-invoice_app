@@ -2,7 +2,6 @@ import EmptyPage from "./pages/EmptyPage.tsx";
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import InvoicesMainPage from "./pages/InvoicesMainPage.tsx";
 import InvoicesSinglePage from "./pages/invoicesSinglePage.tsx";
-// import InvoiceForm from "./components/InvoiceForm.tsx";
 import Navbar from "./components/Navbar.tsx";
 
 function App() {

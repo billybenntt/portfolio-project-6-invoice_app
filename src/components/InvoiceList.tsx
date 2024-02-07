@@ -5,6 +5,8 @@ import ImgNoInvoice from '../assets/illustration-empty.svg'
 import {openForm} from "../features/Invoice/invoiceSlice.tsx";
 import InvoiceListItem from "./subcomponents/InvoiceListItem.tsx";
 import {Invoice} from "../types/global";
+import {setFormInvoice} from "../features/Form/formSlice.tsx";
+
 
 
 function InvoiceList() {
@@ -16,6 +18,7 @@ function InvoiceList() {
 
     const handleFormCreate = () => {
         dispatch(openForm({isEditing: false}))
+        dispatch(setFormInvoice("new"))
     }
 
 

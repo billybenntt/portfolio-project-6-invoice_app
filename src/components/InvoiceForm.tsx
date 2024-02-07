@@ -54,14 +54,12 @@ function InvoiceForm() {
                 <div className="invoice-form-status">
                     <p>{isEditing ? `Edit #${invoice.id}` : "New Invoice"}</p>
                 </div>
-
                 <div className="invoice-form-return mobile" onClick={onFormClose}>
                     <span>
                         <img src={IconArrowLeft} alt="icon-back"/>
                     </span>
                     <h4>Go back</h4>
                 </div>
-
 
                 <h3>Bill From</h3>
                 {/*BILL FROM*/}
@@ -147,7 +145,6 @@ function InvoiceForm() {
                         <FormRowSelect
                             label="Payment Terms"
                             onChange={onOptionChange}
-
                         />
 
                     </div>
