@@ -39,8 +39,19 @@ const invoiceSlice = createSlice({
             const {id} = payload
             state.singleInvoice = state.allInvoices.find((item) => item.id === id) as Invoice
         },
+        addSingleInvoice(state, {payload}) {
+            const {invoice} = payload
+
+            const currentIndex = state.allInvoices.findIndex((item) => item.id === invoice.id)
+
+            if (currentIndex >= 0) {
+                state.allInvoices[currentIndex] = invoice
+            } else {
+                state.allInvoices.push(invoice)
+            }
 
 
+        }
     },
 
     extraReducers: (_) => {
@@ -57,7 +68,8 @@ export const {
     closeForm,
     openModal,
     closeModal,
-    getSingleInvoice
+    getSingleInvoice,
+    addSingleInvoice
 }
     = invoiceSlice.actions
 

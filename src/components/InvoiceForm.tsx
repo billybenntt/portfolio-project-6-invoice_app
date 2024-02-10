@@ -5,7 +5,7 @@ import FormRowDate from "./ui/FormRowDate.tsx";
 import FormRowSelect from "./ui/FormRowSelect.tsx";
 import FormListItem from "./ui/FormListItem.tsx";
 import {useAppSelector, useAppDispatch} from '../store/hooks.ts';
-import {closeForm} from "../features/Invoice/invoiceSlice.tsx";
+import {addSingleInvoice, closeForm} from "../features/Invoice/invoiceSlice.tsx";
 import {createItem, handleAddressChange, handleChange} from "../features/Form/formSlice.tsx";
 
 function InvoiceForm() {
@@ -44,7 +44,10 @@ function InvoiceForm() {
 
     const onFormSubmit = (e: any) => {
         e.preventDefault()
-        console.log("submit form")
+        dispatch(addSingleInvoice({invoice}))
+
+
+        dispatch(closeForm())
     }
 
 
@@ -172,7 +175,7 @@ function InvoiceForm() {
                     </div>
 
                     {/*ADD MORE ITEMS */}
-                    <button className="btn btn-accent-3" onClick={onItemCreate}>
+                    <button className="btn btn-accent-3" type="button" onClick={onItemCreate}>
                         <img src={IconPlus} alt="icon"/>
                         <span className="text-lg">Add New Item</span>
                     </button>
@@ -183,7 +186,7 @@ function InvoiceForm() {
             {/*BUTTONS */}
             <div className="invoice-form__controls">
                 {isEditing ? (<div className="controls__edit">
-                        <button className="btn btn-accent-1" onClick={onFormClose}>
+                        <button className="btn btn-accent-1" type="button" onClick={onFormClose}>
                             <span className="text-lg">Cancel</span>
                         </button>
                         <button className="btn btn-primary-2">

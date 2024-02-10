@@ -8,7 +8,8 @@ const defaultData = JSON.parse(JSON.stringify(data))[0]
 
 // INITIAL STATE
 const initialState = {
-    invoice: {...defaultData}
+    invoice: {...defaultData},
+    isError: false
 }
 
 
@@ -61,12 +62,16 @@ const formSlice = createSlice({
                     const quantity: number = +inputValue
                     const price: number = +state.invoice.items[index]['price']
                     state.invoice.items[index]['total'] = (quantity * price).toString()
+                    state.invoice.total += (quantity * price)
                 }
                 if (inputName === 'price') {
                     const price: number = +inputValue
                     const quantity: number = +state.invoice.items[index]['quantity']
                     state.invoice.items[index]['total'] = (quantity * price).toString()
+                    state.invoice.total += (quantity * price)
                 }
+
+
                 state.invoice.items[index][inputName] = inputValue
             }
 
