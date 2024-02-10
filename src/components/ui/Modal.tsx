@@ -1,5 +1,5 @@
-import {closeModal} from "../features/Invoice/invoiceSlice.tsx";
-import {useAppSelector, useAppDispatch} from '../store/hooks.ts';
+import {closeModal} from "../../features/Invoice/invoiceSlice.tsx";
+import {useAppSelector, useAppDispatch} from '../../store/hooks.ts';
 
 
 function Modal() {

@@ -1,5 +1,5 @@
 import IconArrowLeft from '../assets/icon-arrow-left.svg'
-import Status from "./subcomponents/Status.tsx";
+import Status from "./ui/Status.tsx";
 import {Link, useParams} from "react-router-dom";
 import {useAppDispatch, useAppSelector} from '../store/hooks.ts';
 import {openForm, openModal, getSingleInvoice} from "../features/Invoice/invoiceSlice.tsx";

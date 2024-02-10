@@ -1,9 +1,9 @@
-import FormRow from "./subcomponents/FormRow.tsx";
+import FormRow from "./ui/FormRow.tsx";
 import IconArrowLeft from '../assets/icon-arrow-left.svg'
 import IconPlus from '../assets/icon-plus.svg'
-import FormRowDate from "./subcomponents/FormRowDate.tsx";
-import FormRowSelect from "./subcomponents/FormRowSelect.tsx";
-import FormListItem from "./subcomponents/FormListItem.tsx";
+import FormRowDate from "./ui/FormRowDate.tsx";
+import FormRowSelect from "./ui/FormRowSelect.tsx";
+import FormListItem from "./ui/FormListItem.tsx";
 import {useAppSelector, useAppDispatch} from '../store/hooks.ts';
 import {closeForm} from "../features/Invoice/invoiceSlice.tsx";
 import {createItem, handleAddressChange, handleChange} from "../features/Form/formSlice.tsx";
@@ -191,10 +191,10 @@ function InvoiceForm() {
                         </button>
                     </div>) :
                     <div className="controls__create">
-                        <button className="btn btn-accent-1" onClick={onFormClose}>
+                        <button className="btn btn-accent-1" type="button" onClick={onFormClose}>
                             <span className="text-lg">Discard</span>
                         </button>
-                        <button className="btn btn-accent-2">
+                        <button className="btn btn-accent-2" type="submit" onClick={onFormSubmit}>
                             <span className="text-lg">Save as Draft</span>
                         </button>
                         <button className="btn btn-primary-2" type="submit" onClick={onFormSubmit}>
