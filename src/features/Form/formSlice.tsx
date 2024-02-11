@@ -9,7 +9,9 @@ const defaultData = JSON.parse(JSON.stringify(data))[0]
 // INITIAL STATE
 const initialState = {
     invoice: {...defaultData},
-    isError: false
+    isError: false,
+    isEditing: false,
+    showForm: false,
 }
 
 
@@ -17,13 +19,10 @@ const setFormInvoice = createAsyncThunk(
     'form/setFormInvoice',
     async (payloadInfo: string, thunkAPI: any) => {
         try {
-
             const dummyInvoice = new InvoiceCreator("").createInvoice()
-
             if (payloadInfo === 'edit') {
                 return thunkAPI.getState()['invoice']['singleInvoice']
             }
-
             return dummyInvoice
         } catch (error) {
             return thunkAPI.rejectWithValue('something went wrong');
@@ -36,6 +35,14 @@ const formSlice = createSlice({
     name: 'form',
     initialState,
     reducers: {
+        openForm: (state, {payload}) => {
+            state.isEditing = payload.isEditing
+            state.showForm = true
+        },
+        closeForm: (state) => {
+            state.showForm = false
+        },
+
         handleChange: (state, {payload}) => {
             const {inputName, inputValue} = payload
             state.invoice[inputName] = inputValue
@@ -62,33 +69,45 @@ const formSlice = createSlice({
                     const quantity: number = +inputValue
                     const price: number = +state.invoice.items[index]['price']
                     state.invoice.items[index]['total'] = (quantity * price).toString()
-                    state.invoice.total += (quantity * price)
+
                 }
                 if (inputName === 'price') {
                     const price: number = +inputValue
                     const quantity: number = +state.invoice.items[index]['quantity']
                     state.invoice.items[index]['total'] = (quantity * price).toString()
-                    state.invoice.total += (quantity * price)
                 }
-
-
                 state.invoice.items[index][inputName] = inputValue
             }
+
+            state.invoice.total = state.invoice.items.reduce((total, item) => {
+                    return total + +item.total
+                }, 0
+            )
 
         },
         deleteItem: (state, {payload}) => {
             const {index} = payload
             state.invoice.items.splice(index, 1)
+            state.invoice.total = state.invoice.items.reduce((total, item) => {
+                    return total + +item.total
+                }, 0
+            )
         },
         createItem: (state) => {
             const newItem = {
                 "name": "New Item",
                 "quantity": 1,
-                "price": 1,
-                "total": 1
+                "price": 100,
+                "total": 100
             }
+
             state.invoice.items.push(newItem)
-        }
+
+            state.invoice.total = state.invoice.items.reduce((total, item) => {
+                    return total + +item.total
+                }, 0
+            )
+        },
 
     },
     extraReducers: (builder) => {
@@ -113,6 +132,8 @@ export const {
     handleAddressChange,
     handleItemChange,
     deleteItem,
-    createItem
+    createItem,
+    openForm,
+    closeForm
 } = formSlice.actions;
 

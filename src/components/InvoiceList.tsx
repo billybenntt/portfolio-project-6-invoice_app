@@ -2,10 +2,9 @@ import Filter from "./ui/Filter.tsx";
 import Button from './ui/Button.tsx'
 import {useAppDispatch, useAppSelector} from '../store/hooks.ts';
 import ImgNoInvoice from '../assets/illustration-empty.svg'
-import {openForm} from "../features/Invoice/invoiceSlice.tsx";
 import InvoiceListItem from "./ui/InvoiceListItem.tsx";
 import {Invoice} from "../types/global";
-import {setFormInvoice} from "../features/Form/formSlice.tsx";
+import {setFormInvoice, openForm} from "../features/Form/formSlice.tsx";
 
 
 

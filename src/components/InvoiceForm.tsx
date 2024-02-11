@@ -5,14 +5,13 @@ import FormRowDate from "./ui/FormRowDate.tsx";
 import FormRowSelect from "./ui/FormRowSelect.tsx";
 import FormListItem from "./ui/FormListItem.tsx";
 import {useAppSelector, useAppDispatch} from '../store/hooks.ts';
-import {addSingleInvoice, closeForm} from "../features/Invoice/invoiceSlice.tsx";
-import {createItem, handleAddressChange, handleChange} from "../features/Form/formSlice.tsx";
+import {createItem, handleAddressChange, handleChange, closeForm} from "../features/Form/formSlice.tsx";
+import {addInvoice} from "../features/Invoice/invoiceSlice.tsx";
 
 function InvoiceForm() {
 
     const dispatch = useAppDispatch()
-    const {showForm, isEditing} = useAppSelector(store => store.invoice)
-    const invoice = useAppSelector(store => store.form.invoice)
+    const {showForm, isEditing, invoice} = useAppSelector(store => store.form)
 
 
     // CLOSE FORM
@@ -44,9 +43,7 @@ function InvoiceForm() {
 
     const onFormSubmit = (e: any) => {
         e.preventDefault()
-        dispatch(addSingleInvoice({invoice}))
-
-
+        dispatch(addInvoice())
         dispatch(closeForm())
     }
 
@@ -108,15 +105,12 @@ function InvoiceForm() {
                         onChange={onChange}
                         value={invoice.clientEmail}
                     />
-
-
                     <FormRow label="Street Address"
                         name="street"
                         type="sender"
                         onChange={onAddressChange}
                         value={invoice.senderAddress.street}
                     />
-
                     <div className="invoice-group">
                         <FormRow label="City"
                             name="city"
@@ -144,12 +138,10 @@ function InvoiceForm() {
                             value={invoice.paymentDue}
                             onChange={onChange}
                         />
-
                         <FormRowSelect
                             label="Payment Terms"
                             onChange={onOptionChange}
                         />
-
                     </div>
                     <div>
                         <FormRow label="Project Description"

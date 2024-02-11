@@ -2,7 +2,8 @@ import IconArrowLeft from '../assets/icon-arrow-left.svg'
 import Status from "./ui/Status.tsx";
 import {Link, useParams} from "react-router-dom";
 import {useAppDispatch, useAppSelector} from '../store/hooks.ts';
-import {openForm, openModal, getSingleInvoice} from "../features/Invoice/invoiceSlice.tsx";
+import {openModal, getSingleInvoice} from "../features/Invoice/invoiceSlice.tsx";
+import {openForm} from "../features/Form/formSlice.tsx";
 import {useEffect} from "react";
 import {Invoice} from "../types/global";
 import {setFormInvoice} from "../features/Form/formSlice.tsx";
