@@ -3,10 +3,9 @@ import Status from "./ui/Status.tsx";
 import {Link, useParams} from "react-router-dom";
 import {useAppDispatch, useAppSelector} from '../store/hooks.ts';
 import {openModal, getSingleInvoice} from "../features/Invoice/invoiceSlice.tsx";
-import {openForm} from "../features/Form/formSlice.tsx";
 import {useEffect} from "react";
 import {Invoice} from "../types/global";
-import {setFormInvoice} from "../features/Form/formSlice.tsx";
+import {setFormInvoice, openForm} from "../features/Form/formSlice.tsx";
 
 
 function InvoiceCard() {
@@ -17,7 +16,7 @@ function InvoiceCard() {
     // LOAD CURRENT INVOICE ON COMPONENT START
     useEffect(() => {
         dispatch(getSingleInvoice({id}))
-    }, [id]);
+    }, [dispatch, id]);
 
 
     // EDIT INVOICE

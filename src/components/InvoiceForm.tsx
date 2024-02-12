@@ -6,7 +6,7 @@ import FormRowSelect from "./ui/FormRowSelect.tsx";
 import FormListItem from "./ui/FormListItem.tsx";
 import {useAppSelector, useAppDispatch} from '../store/hooks.ts';
 import {createItem, handleAddressChange, handleChange, closeForm} from "../features/Form/formSlice.tsx";
-import {addInvoice} from "../features/Invoice/invoiceSlice.tsx";
+import {addInvoice, updateInvoice} from "../features/Invoice/invoiceSlice.tsx";
 
 function InvoiceForm() {
 
@@ -41,9 +41,16 @@ function InvoiceForm() {
         dispatch(handleChange({inputName: name, inputValue: value}))
     }
 
+
     const onFormSubmit = (e: any) => {
         e.preventDefault()
-        dispatch(addInvoice())
+
+        if (isEditing) {
+            dispatch(updateInvoice())
+        } else {
+            dispatch(addInvoice())
+        }
+
         dispatch(closeForm())
     }
 

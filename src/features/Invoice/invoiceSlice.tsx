@@ -17,8 +17,32 @@ const initialState: any = {
 const addInvoice = createAsyncThunk(
     'invoice/addInvoice',
     async (_, thunkAPI: any) => {
-
         try {
+            return thunkAPI.getState()['form']['invoice']
+
+        } catch (error) {
+            return thunkAPI.rejectWithValue('something went wrong');
+        }
+    }
+);
+
+const updateInvoice = createAsyncThunk(
+    'invoice/updateInvoice',
+    async (_, thunkAPI: any) => {
+        try {
+            return thunkAPI.getState()['form']['invoice']
+
+        } catch (error) {
+            return thunkAPI.rejectWithValue('something went wrong');
+        }
+    }
+);
+
+const deleteInvoice = createAsyncThunk(
+    'invoice/deleteInvoice',
+    async (_, thunkAPI: any) => {
+        try {
+
             return thunkAPI.getState()['form']['invoice']
 
         } catch (error) {
@@ -31,13 +55,14 @@ const addInvoice = createAsyncThunk(
 
 
 
+
+
 // ACTIONS LOCAL
 
 const invoiceSlice = createSlice({
     name: 'invoice',
     initialState,
     reducers: {
-
         openModal: (state) => {
             state.showModal = true
         },
@@ -53,30 +78,28 @@ const invoiceSlice = createSlice({
 
     extraReducers: (builder) => {
         builder
-            .addCase(addInvoice.pending, (state) => {
-                console.log("pending", state);
-            })
             .addCase(addInvoice.fulfilled, (state, {payload}) => {
                 const dummyInvoice = {...payload, status: "pending"}
-
+                state.allInvoices.push(dummyInvoice)
+            })
+            .addCase(updateInvoice.fulfilled, (state, {payload}) => {
+                const dummyInvoice = {...payload, status: "paid"}
                 const currentIndex = state.allInvoices.findIndex((item) => item.id === dummyInvoice.id)
                 if (currentIndex >= 0) {
                     state.allInvoices[currentIndex] = dummyInvoice
-                } else {
-                    state.allInvoices.push(dummyInvoice)
+                    state.singleInvoice = dummyInvoice
                 }
 
             })
-            .addCase(addInvoice.rejected, (state) => {
-                console.log("rejected", state);
-            });
+
+
     },
 
 });
 
 // STORE SLICE
 export default invoiceSlice.reducer;
-export {addInvoice}
+export {addInvoice, updateInvoice, deleteInvoice}
 
 // STORE ACTIONS
 export const {

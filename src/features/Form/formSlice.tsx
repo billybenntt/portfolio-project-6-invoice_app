@@ -41,6 +41,7 @@ const formSlice = createSlice({
         },
         closeForm: (state) => {
             state.showForm = false
+            state.isEditing = false
         },
 
         handleChange: (state, {payload}) => {

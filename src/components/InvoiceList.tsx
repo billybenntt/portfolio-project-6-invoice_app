@@ -15,6 +15,7 @@ function InvoiceList() {
     const dispatch = useAppDispatch()
 
 
+    // CREATE NEW INVOICE
     const handleFormCreate = () => {
         dispatch(openForm({isEditing: false}))
         dispatch(setFormInvoice("new"))

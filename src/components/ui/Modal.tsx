@@ -1,15 +1,20 @@
 import {closeModal} from "../../features/Invoice/invoiceSlice.tsx";
 import {useAppSelector, useAppDispatch} from '../../store/hooks.ts';
-
+import {useNavigate} from "react-router-dom";
 
 function Modal() {
     const dispatch = useAppDispatch()
 
     const {showModal, singleInvoice} = useAppSelector(store => store.invoice)
 
+    const navigate = useNavigate()
+
     const handleModalClose = () => {
         dispatch(closeModal())
+        navigate("/")
     }
+
+
 
 
     return (
