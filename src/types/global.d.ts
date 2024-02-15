@@ -1,5 +1,5 @@
 export interface Invoice {
-    id: string
+    invoice_id: string
     createdAt: string
     paymentDue: string
     description: string

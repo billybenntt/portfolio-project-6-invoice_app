@@ -6,14 +6,14 @@ import {Link} from 'react-router-dom'
 
 function InvoiceListItem(props: Partial<Invoice>) {
 
-    const {id, paymentDue, clientName, total, status} = props
+    const {invoice_id, paymentDue, clientName, total, status} = props
 
     return (
-        <li tabIndex={0} key={id}>
-            <Link to={`/invoice/${id}`} className="invoice-list__item">
+        <li tabIndex={0} key={invoice_id}>
+            <Link to={`/invoice/${invoice_id}`} className="invoice-list__item">
                 <div className="item__group">
                     <h4>
-                        <span className="text-light-1">#</span>{id}
+                        <span className="text-light-1">#</span>{invoice_id}
                     </h4>
                     <p>{paymentDue && "Due  19 Aug 2021"}</p>
                     <p className="desktop">{clientName}</p>

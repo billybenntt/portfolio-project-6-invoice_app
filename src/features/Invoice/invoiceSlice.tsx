@@ -14,6 +14,22 @@ const initialState: any = {
     showModal: false,
 };
 
+const getAllInvoices = createAsyncThunk(
+    'invoice/getAllInvoices',
+    async (_, thunkAPI: any) => {
+        try {
+
+            const {data} = await fetchData.get("invoices?select=*")
+
+            return data
+
+
+        } catch (error) {
+            return thunkAPI.rejectWithValue('something went wrong');
+        }
+    }
+);
+
 
 const addInvoice = createAsyncThunk(
     'invoice/addInvoice',
@@ -43,19 +59,12 @@ const deleteInvoice = createAsyncThunk(
     'invoice/deleteInvoice',
     async (_, thunkAPI: any) => {
         try {
-
             return thunkAPI.getState()['form']['invoice']
-
         } catch (error) {
             return thunkAPI.rejectWithValue('something went wrong');
         }
     }
 );
-
-
-
-
-
 
 
 // ACTIONS LOCAL
@@ -72,20 +81,24 @@ const invoiceSlice = createSlice({
         },
         getSingleInvoice: (state, {payload}) => {
             const {id} = payload
-            state.singleInvoice = state.allInvoices.find((item) => item.id === id) as Invoice
+            state.singleInvoice = state.allInvoices.find((item) => item.invoice_id === id) as Invoice
         },
 
     },
 
     extraReducers: (builder) => {
         builder
+            .addCase(getAllInvoices.fulfilled, (state, {payload}) => {
+                console.log(payload)
+                state.allInvoices = payload
+            })
             .addCase(addInvoice.fulfilled, (state, {payload}) => {
                 const dummyInvoice = {...payload, status: "pending"}
                 state.allInvoices.push(dummyInvoice)
             })
             .addCase(updateInvoice.fulfilled, (state, {payload}) => {
                 const dummyInvoice = {...payload, status: "paid"}
-                const currentIndex = state.allInvoices.findIndex((item) => item.id === dummyInvoice.id)
+                const currentIndex = state.allInvoices.findIndex((item: any) => item.invoice_id === dummyInvoice.invoice_id)
                 if (currentIndex >= 0) {
                     state.allInvoices[currentIndex] = dummyInvoice
                     state.singleInvoice = dummyInvoice
@@ -99,7 +112,7 @@ const invoiceSlice = createSlice({
 
 // STORE SLICE
 export default invoiceSlice.reducer;
-export {addInvoice, updateInvoice, deleteInvoice}
+export {addInvoice, updateInvoice, deleteInvoice, getAllInvoices}
 
 // STORE ACTIONS
 export const {

@@ -1,17 +1,17 @@
 import axios from 'axios'
 
+const BASEURL_TEST=`http://localhost:3100/rest/v1/`
+const BASEURL_PROD=`https://tyocskttozwepxepaqdw.supabase.co/rest/v1/`
+
 const fetchData = axios.create({
-    baseURL: 'https://tyocskttozwepxepaqdw.supabase.co/auth/v1/',
+    baseURL: BASEURL_TEST,
 })
-
-
-const token = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR5b2Nza3R0b3p3ZXB4ZXBhcWR3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDE1MTc1MjAsImV4cCI6MjAxNzA5MzUyMH0.3Mn1JEh5YtcJrQduaBAm1hkqlnZ8poKb142uF-IAOig`
 
 
 fetchData.interceptors.request.use((request) => {
 
-
-    request.headers['authorization'] = `Bearer ${token}`
+    request.headers['apikey'] = `${import.meta.env.VITE_API_KEY}`
+    request.headers['authorization'] = `Bearer ${import.meta.env.VITE_API_KEY}`
 
     return request
 }, (error) => {

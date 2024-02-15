@@ -80,7 +80,7 @@ const formSlice = createSlice({
                 state.invoice.items[index][inputName] = inputValue
             }
 
-            state.invoice.total = state.invoice.items.reduce((total, item) => {
+            state.invoice.total = state.invoice.items.reduce((total: number, item: { total: string }) => {
                     return total + +item.total
                 }, 0
             )
@@ -89,7 +89,7 @@ const formSlice = createSlice({
         deleteItem: (state, {payload}) => {
             const {index} = payload
             state.invoice.items.splice(index, 1)
-            state.invoice.total = state.invoice.items.reduce((total, item) => {
+            state.invoice.total = state.invoice.items.reduce((total: number, item: { total: string }) => {
                     return total + +item.total
                 }, 0
             )
@@ -104,7 +104,7 @@ const formSlice = createSlice({
 
             state.invoice.items.push(newItem)
 
-            state.invoice.total = state.invoice.items.reduce((total, item) => {
+            state.invoice.total = state.invoice.items.reduce((total: number, item: { total: string }) => {
                     return total + +item.total
                 }, 0
             )

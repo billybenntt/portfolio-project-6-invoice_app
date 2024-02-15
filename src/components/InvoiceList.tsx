@@ -5,7 +5,8 @@ import ImgNoInvoice from '../assets/illustration-empty.svg'
 import InvoiceListItem from "./ui/InvoiceListItem.tsx";
 import {Invoice} from "../types/global";
 import {setFormInvoice, openForm} from "../features/Form/formSlice.tsx";
-
+import {useEffect} from "react";
+import {getAllInvoices} from "../features/Invoice/invoiceSlice.tsx";
 
 
 function InvoiceList() {
@@ -13,6 +14,11 @@ function InvoiceList() {
     const {allInvoices} = useAppSelector(store => store.invoice)
     const showInvoices = allInvoices.length > 0
     const dispatch = useAppDispatch()
+
+
+    useEffect(() => {
+        dispatch(getAllInvoices())
+    }, []);
 
 
     // CREATE NEW INVOICE

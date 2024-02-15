@@ -82,7 +82,7 @@ function InvoiceCard() {
                                 <span className="text-light-1">
                                     #
                                 </span>
-                                {singleInvoice.id}
+                                {singleInvoice.invoice_id}
                             </h4>
                             <p>{singleInvoice.description}</p>
                         </div>

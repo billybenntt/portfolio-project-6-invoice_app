@@ -7,7 +7,7 @@ export class InvoiceCreator {
     // Get Data from Outside
     constructor(invoiceData: any) {
         this.invoice = {
-            id: invoiceData.id || this.generateInvoiceID(),
+            invoice_id: invoiceData.id || this.generateInvoiceID(),
             createdAt: invoiceData.createdAt || "",
             paymentDue: invoiceData.paymentDue || "",
             description: invoiceData.description || "",

@@ -59,7 +59,7 @@ function InvoiceForm() {
         <form className={`invoice-form ${showForm ? "show" : ""}`} onSubmit={onFormSubmit}>
             <div className="invoice-form-center">
                 <div className="invoice-form-status">
-                    <p>{isEditing ? `Edit #${invoice.id}` : "New Invoice"}</p>
+                    <p>{isEditing ? `Edit #${invoice.invoice_id}` : "New Invoice"}</p>
                 </div>
                 <div className="invoice-form-return mobile" onClick={onFormClose}>
                     <span>

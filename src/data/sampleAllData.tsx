@@ -1,6 +1,6 @@
 const sampleAllData = [
     {
-        "id": "RT3080",
+        "invoice_id": "RT3080",
         "createdAt": "2021-08-18",
         "paymentDue": "2021-08-19",
         "description": "New Invoice",
@@ -32,7 +32,7 @@ const sampleAllData = [
         "total": 0
     },
     {
-        "id": "XM9141",
+        "invoice_id": "XM9141",
         "createdAt": "2021-08-21",
         "paymentDue": "2021-09-20",
         "description": "Graphic Design",
@@ -69,14 +69,14 @@ const sampleAllData = [
         "total": 556
     },
     {
-        "id": "RG0314",
+        "invoice_id": "RG0314",
         "createdAt": "2021-09-24",
         "paymentDue": "2021-10-01",
         "description": "Website Redesign",
         "paymentTerms": 7,
         "clientName": "John Morrison",
         "clientEmail": "jm@myco.com",
-        "status": "paid",
+        "status": "painvoice_id",
         "senderAddress": {
             "street": "19 Union Terrace",
             "city": "London",
@@ -100,7 +100,7 @@ const sampleAllData = [
         "total": 14002.33
     },
     {
-        "id": "RT2080",
+        "invoice_id": "RT2080",
         "createdAt": "2021-10-11",
         "paymentDue": "2021-10-12",
         "description": "Logo Concept",
@@ -131,7 +131,7 @@ const sampleAllData = [
         "total": 102.04
     },
     {
-        "id": "AA1449",
+        "invoice_id": "AA1449",
         "createdAt": "2021-10-7",
         "paymentDue": "2021-10-14",
         "description": "Re-branding",
@@ -147,7 +147,7 @@ const sampleAllData = [
         },
         "clientAddress": {
             "street": "46 Abbey Row",
-            "city": "Cambridge",
+            "city": "Cambrinvoice_idge",
             "postCode": "CB5 6EG",
             "country": "United Kingdom"
         },
@@ -159,7 +159,7 @@ const sampleAllData = [
                 "total": 1532.33
             },
             {
-                "name": "Brand Guidelines",
+                "name": "Brand Guinvoice_idelines",
                 "quantity": 1,
                 "price": 2500,
                 "total": 2500
@@ -168,7 +168,7 @@ const sampleAllData = [
         "total": 4032.33
     },
     {
-        "id": "TY9141",
+        "invoice_id": "TY9141",
         "createdAt": "2021-10-01",
         "paymentDue": "2021-10-31",
         "description": "Landing Page Design",
@@ -199,7 +199,7 @@ const sampleAllData = [
         "total": 6155.91
     },
     {
-        "id": "FV2353",
+        "invoice_id": "FV2353",
         "createdAt": "2021-11-05",
         "paymentDue": "2021-11-12",
         "description": "Logo Re-design",
