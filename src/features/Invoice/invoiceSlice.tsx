@@ -1,6 +1,7 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
 import {Invoice} from "../../types/global";
 import data from "../../data/sampleAllData.tsx";
+import fetchData from "../../utils/axios/FetchData.ts";
 
 const defaultData = data as Invoice[]
 
@@ -89,7 +90,6 @@ const invoiceSlice = createSlice({
                     state.allInvoices[currentIndex] = dummyInvoice
                     state.singleInvoice = dummyInvoice
                 }
-
             })
 
 
