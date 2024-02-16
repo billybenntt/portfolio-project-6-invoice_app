@@ -15,7 +15,6 @@ function InvoiceList() {
     const showInvoices = allInvoices.length > 0
     const dispatch = useAppDispatch()
 
-
     useEffect(() => {
         dispatch(getAllInvoices())
     }, []);
@@ -29,7 +28,7 @@ function InvoiceList() {
 
 
     const invoiceListItems = allInvoices.map((item: Invoice) => {
-        return <InvoiceListItem key={item.id} {...item}/>
+        return <InvoiceListItem key={item.invoice_id} {...item}/>
     })
 
     return (

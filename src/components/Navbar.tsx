@@ -1,6 +1,7 @@
 import pageLogo from '../assets/logo.svg'
 import iconSun from '../assets/icon-sun.svg'
 import iconMoon from '../assets/icon-moon.svg'
+import {Link} from "react-router-dom";
 
 function Navbar() {
 
@@ -9,13 +10,16 @@ function Navbar() {
     return (
         <nav className="navbar">
             <div className="navbar-center">
-                <div className="logo" onClick={()=> console.log("logo")}>
-                    <div className="logo-center">
+
+                <Link to={"/"}>
+                    <div className="logo" onClick={() => console.log("logo")}>
+                        <div className="logo-center">
                            <span className="logo-img">
                            <img src={pageLogo} alt="page-logo" className="logo-icon"/>
                          </span>
+                        </div>
                     </div>
-                </div>
+                </Link>
 
                 <div className="navbar__control">
                     <div className="theme">

@@ -76,7 +76,7 @@ const sampleAllData = [
         "paymentTerms": 7,
         "clientName": "John Morrison",
         "clientEmail": "jm@myco.com",
-        "status": "painvoice_id",
+        "status": "paid",
         "senderAddress": {
             "street": "19 Union Terrace",
             "city": "London",
@@ -93,11 +93,11 @@ const sampleAllData = [
             {
                 "name": "Website Redesign",
                 "quantity": 1,
-                "price": 14002.33,
-                "total": 14002.33
+                "price": 14002,
+                "total": 14002
             }
         ],
-        "total": 14002.33
+        "total": 14002
     },
     {
         "invoice_id": "RT2080",

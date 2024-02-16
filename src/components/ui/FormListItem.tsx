@@ -23,12 +23,12 @@ function FormListItem(props: any) {
     return (
         <div className="form__list-item">
             <div>
-                <label htmlFor={name} className="form__label">Item Name</label>
+                <label htmlFor={`item-name-${index}`} className="form__label">Item Name</label>
                 <input type="text"
                     className="form__input"
                     name={`name`}
                     value={name}
-                    id={name}
+                    id={`item-name-${index}`}
                     onChange={onItemChange}
                 />
             </div>
@@ -36,33 +36,33 @@ function FormListItem(props: any) {
 
             <div className="form__group">
                 <div>
-                    <label htmlFor={quantity} className="form__label">Qty</label>
+                    <label htmlFor={`item-quantity-${index}`} className="form__label">Qty</label>
                     <input type="text"
                         inputMode="numeric"
                         className="form__input"
                         name="quantity"
                         value={quantity}
-                        id={quantity}
+                        id={`item-quantity-${index}`}
                         onChange={onItemChange}
                     />
 
                 </div>
                 <div>
-                    <label htmlFor={price} className="form__label">Price</label>
+                    <label htmlFor={`item-price-${index}`} className="form__label">Price</label>
                     <input type="text"
                         className="form__input"
                         name={`price`}
                         inputMode="numeric"
                         value={price}
-                        id={price}
+                        id={`item-price-${index}`}
                         required={true}
                         onChange={onItemChange}
                     />
                 </div>
 
                 <div>
-                    <label htmlFor={total} className="form__label">Total</label>
-                    <h4 className="item__total" id={total}>{total}</h4>
+                    <label htmlFor={`item-total-${index}`} className="form__label">Total</label>
+                    <h4 className="item__total" id={`item-total-${index}`}>{total}</h4>
                 </div>
 
                 <div className="form__item-delete"
