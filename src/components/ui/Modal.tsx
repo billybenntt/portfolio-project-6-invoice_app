@@ -1,4 +1,4 @@
-import {closeModal} from "../../features/Invoice/invoiceSlice.tsx";
+import {closeModal, deleteInvoice} from "../../features/Invoice/invoiceSlice.tsx";
 import {useAppSelector, useAppDispatch} from '../../store/hooks.ts';
 import {useNavigate} from "react-router-dom";
 
@@ -11,10 +11,14 @@ function Modal() {
 
     const handleModalClose = () => {
         dispatch(closeModal())
-        navigate("/")
     }
 
 
+    const handleFormDelete = (id: string) => {
+        dispatch(deleteInvoice(id))
+        dispatch(closeModal())
+        navigate("/")
+    }
 
 
     return (
@@ -22,7 +26,8 @@ function Modal() {
             <div className="modal">
                 <div className="modal-center">
                     <h2 className="text-xl">Confirm Deletion</h2>
-                    <p className="text-base text-light-1">Are you sure you want to delete invoice #{singleInvoice.id}?
+                    <p className="text-base text-light-1">Are you sure you want to delete invoice
+                        #{singleInvoice.invoice_id}?
                         This action
                         cannot be undone.</p>
 
@@ -31,7 +36,7 @@ function Modal() {
                             <span className="text-lg">Cancel</span>
                         </button>
 
-                        <button className="btn btn-danger-1" onClick={handleModalClose}>
+                        <button className="btn btn-danger-1" onClick={() => handleFormDelete(singleInvoice.invoice_id)}>
                             <span className="text-lg">Delete</span>
                         </button>
 

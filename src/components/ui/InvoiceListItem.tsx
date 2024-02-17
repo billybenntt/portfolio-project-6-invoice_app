@@ -15,7 +15,7 @@ function InvoiceListItem(props: Partial<Invoice>) {
                     <h4>
                         <span className="text-light-1">#</span>{invoice_id}
                     </h4>
-                    <p>{paymentDue && "Due  19 Aug 2021"}</p>
+                    <p>{paymentDue}</p>
                     <p className="desktop">{clientName}</p>
                     <h4 className="mobile">NTD {total}</h4>
                 </div>

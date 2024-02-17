@@ -19,7 +19,6 @@ const getAllInvoices = createAsyncThunk(
     'invoice/getAllInvoices',
     async (_, thunkAPI: any) => {
         const storedData = getDataFromLocalStorage("invoices");
-
         try {
             if (!storedData) {
                 const {data} = await fetchData.get("invoices?select=*")
@@ -27,9 +26,8 @@ const getAllInvoices = createAsyncThunk(
                 return data;
             }
             return storedData
-
         } catch (error) {
-            return thunkAPI.rejectWithValue('something went wrong');
+            return thunkAPI.rejectWithValue('Failed to load Invoices', error);
         }
     }
 );
@@ -40,13 +38,11 @@ const addInvoice = createAsyncThunk(
     async (_, thunkAPI: any) => {
         try {
             const newInvoice = thunkAPI.getState()['form']['invoice']
-            const response = await fetchData.post("invoices", newInvoice)
+            const {data: [invoice]} = await fetchData.post("invoices", newInvoice)
             removeDataFromLocalStorage("invoices")
-            console.log("New Invoice", newInvoice)
-            console.log("New Invoice", response)
-            return newInvoice
+            return invoice
         } catch (error) {
-            return thunkAPI.rejectWithValue('something went wrong');
+            return thunkAPI.rejectWithValue('Failed to Add New Invoice', error);
         }
     }
 );
@@ -55,23 +51,25 @@ const updateInvoice = createAsyncThunk(
     'invoice/updateInvoice',
     async (_, thunkAPI: any) => {
         try {
-            const changedInvoice = thunkAPI.getState()['form']['invoice']
-            const response = await fetchData.patch(`invoices?invoice_id=eq.${changedInvoice.invoice_id}`, changedInvoice)
+            const updatedInvoice = thunkAPI.getState()['form']['invoice']
+            const {data: [invoice]} = await fetchData.patch(`invoices?invoice_id=eq.${updatedInvoice.invoice_id}`,
+                updatedInvoice)
             removeDataFromLocalStorage("invoices")
-            return changedInvoice
+            return invoice
         } catch (error) {
-            return thunkAPI.rejectWithValue('something went wrong');
+            return thunkAPI.rejectWithValue('Failed to Modify Invoice', error);
         }
     }
 );
 
 const deleteInvoice = createAsyncThunk(
     'invoice/deleteInvoice',
-    async (_, thunkAPI: any) => {
+    async (id: string, thunkAPI: any) => {
         try {
-            return thunkAPI.getState()['form']['invoice']
+            const {data: [invoice]} = await fetchData.delete(`invoices?invoice_id=eq.${id}`)
+            return invoice
         } catch (error) {
-            return thunkAPI.rejectWithValue('something went wrong');
+            return thunkAPI.rejectWithValue('Failed to Delete Invoice', error);
         }
     }
 );
@@ -90,9 +88,8 @@ const invoiceSlice = createSlice({
         },
         getSingleInvoice: (state, {payload}) => {
             const {id} = payload
-            state.singleInvoice = state.allInvoices.find((item) => item.invoice_id === id) as Invoice
+            state.singleInvoice = state.allInvoices.find((item: any) => item.invoice_id === id) as Invoice
         },
-
     },
 
     extraReducers: (builder) => {
@@ -101,21 +98,19 @@ const invoiceSlice = createSlice({
                 state.allInvoices = payload
             })
             .addCase(addInvoice.fulfilled, (state, {payload}) => {
-                const dummyInvoice = {...payload}
-                state.allInvoices.push(dummyInvoice)
+                state.allInvoices.append(payload)
             })
             .addCase(updateInvoice.fulfilled, (state, {payload}) => {
-                const dummyInvoice = {...payload, status: "paid"}
-                const currentIndex = state.allInvoices.findIndex((item: any) => item.invoice_id === dummyInvoice.invoice_id)
+                const currentIndex = state.allInvoices.findIndex((item: any) => item.invoice_id === payload.invoice_id)
                 if (currentIndex >= 0) {
-                    state.allInvoices[currentIndex] = dummyInvoice
-                    state.singleInvoice = dummyInvoice
+                    state.allInvoices[currentIndex] = payload
+                    state.singleInvoice = payload
                 }
             })
-
-
+            .addCase(deleteInvoice.fulfilled, (state, {payload}) => {
+                state.allInvoices = state.allInvoices.filter((item: any) => item.invoice_id !== payload.invoice_id)
+            })
     },
-
 });
 
 // STORE SLICE
@@ -127,6 +122,5 @@ export const {
     openModal,
     closeModal,
     getSingleInvoice,
-}
-    = invoiceSlice.actions
+} = invoiceSlice.actions
 
