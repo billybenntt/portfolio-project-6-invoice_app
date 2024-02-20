@@ -98,7 +98,7 @@ const invoiceSlice = createSlice({
                 state.allInvoices = payload
             })
             .addCase(addInvoice.fulfilled, (state, {payload}) => {
-                state.allInvoices.append(payload)
+                state.allInvoices.push(payload)
             })
             .addCase(updateInvoice.fulfilled, (state, {payload}) => {
                 const currentIndex = state.allInvoices.findIndex((item: any) => item.invoice_id === payload.invoice_id)

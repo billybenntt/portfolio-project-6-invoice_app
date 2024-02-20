@@ -49,12 +49,15 @@ input[type=number] {
 .form__label {
   color: #7E88C3;
 }
+.form__label.error {
+  color: #EC5757;
+}
 
 .form__row {
   width: 100%;
   margin-bottom: 1rem;
   display: flex;
-  row-gap: 0.563rem;
+  row-gap: 0.3rem;
   flex-direction: column;
 }
 .form__row .form__input {
@@ -68,6 +71,9 @@ input[type=number] {
 }
 .form__row .form__input:focus {
   border: 1px solid #9277FF;
+}
+.form__row .form__input.error {
+  border: 1px solid #EC5757;
 }
 
 .form__list-item {
@@ -115,6 +121,17 @@ input[type=number] {
 }
 .form__list-item .form__input:focus {
   border: 1px solid #9277FF;
+}
+
+.row_header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.form__error {
+  color: #EC5757;
+  font-size: 0.7rem;
 }
 
 .form__row-select {

@@ -1,7 +1,7 @@
 import Navbar from "../components/Navbar.tsx";
 import {InvoiceCreator} from "../data/InvoiceCreator.ts";
 import SampleAllData from "../data/sampleAllData.tsx";
-import FormRowRadix from "../components/ui/FormRowSelect.tsx";
+import FormRowRadix from "../components/ui/FormRowAlt.tsx";
 
 
 function InvoicesMainPage() {
