@@ -1,34 +1,42 @@
 import * as Form from '@radix-ui/react-form';
 
 
-function FormRowAlt() {
+function FormRowAlt(props: any) {
 
+    const {label, inputType, onChange, addressType, name, value} = props
 
     return (
-        <Form.Root>
-            <Form.Field name="text" className="form__row">
+        <Form.Root asChild={true}>
+            <Form.Field name={inputType} className="form__row">
                 <Form.ValidityState>
                     {(validity) => (
                         <div>
-                            <div className="row_header">
+                            <div className="form__header">
                                 <Form.Label className={validity?.valid ? "form__label" : "form__label error"}>
-                                    Email
+                                    {label}
                                 </Form.Label>
 
-                                {/* ERROR MESSAGES */}
+                                {/*{console.log(validity)}*/}
                                 <Form.Message match="valueMissing" className="form__error">
                                     Can't be empty
                                 </Form.Message>
-                                <Form.Message match="typeMismatch" className="form__error">
-                                    Please provide a valid email
-                                </Form.Message>
 
+                                <Form.Message match="typeMismatch" className="form__error">
+                                   Format incorrect
+                                </Form.Message>
                             </div>
+
                             <Form.Control asChild>
                                 <input className={validity?.valid ? "form__input" : "form__input error"}
-                                    type="email"
+                                    onChange={(e) => onChange(e, addressType)}
+                                    name={name}
+                                    value={value}
+                                    id={name}
+                                    type={inputType}
+                                    disabled={false}
                                     required/>
                             </Form.Control>
+
                         </div>
                     )}
                 </Form.ValidityState>

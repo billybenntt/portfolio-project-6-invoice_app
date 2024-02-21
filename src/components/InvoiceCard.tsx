@@ -13,6 +13,7 @@ function InvoiceCard() {
     const {id} = useParams()
     const dispatch = useAppDispatch()
 
+
     // LOAD CURRENT INVOICE ON COMPONENT START
     useEffect(() => {
         dispatch(getSingleInvoice({id}))
@@ -76,7 +77,6 @@ function InvoiceCard() {
 
                 <div className="invoice-card__body">
                     <div className="card-group">
-
                         <div className="invoice__id">
                             <h4>
                                 <span className="text-light-1">

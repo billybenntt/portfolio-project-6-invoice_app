@@ -9,7 +9,7 @@ const defaultData = data as Invoice[]
 
 // INITIAL STATE
 const initialState: any = {
-    allInvoices: defaultData,
+    allInvoices: getDataFromLocalStorage("invoices") || [],
     singleInvoice: defaultData[0],
     isLoading: true,
     showModal: false,
@@ -88,7 +88,11 @@ const invoiceSlice = createSlice({
         },
         getSingleInvoice: (state, {payload}) => {
             const {id} = payload
-            state.singleInvoice = state.allInvoices.find((item: any) => item.invoice_id === id) as Invoice
+
+            state.singleInvoice = state.allInvoices.find((item: any) => {
+
+                return item.invoice_id === id
+            })
         },
     },
 

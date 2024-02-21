@@ -1,6 +1,5 @@
 @import "variables";
 
-
 body {
   font-family: $font-sans;
   background-color: $accent-light-100;
@@ -392,7 +391,7 @@ body {
 
   }
 
-  .invoice-form-status{
+  .invoice-form-status {
     font-size: 20px;
     font-weight: bold;
   }
@@ -422,15 +421,13 @@ body {
   }
 
 
-
-
 }
 
 .invoice-form.show {
   opacity: 1;
-    z-index: 4;
-
+  z-index: 4;
 }
+
 
 
 // MEDIA QUERIES
