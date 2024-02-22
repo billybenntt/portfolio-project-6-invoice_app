@@ -1,7 +1,7 @@
-//  BASIC TYPES
-
 import React from "react";
 
+
+//  BASE TYPES
 export interface Invoice {
     invoice_id: string
     createdAt: string
@@ -34,7 +34,7 @@ export interface Item {
 type InvoiceStatus = "pending" | "paid" | "draft"
 
 
-// EVENTS
+// EVENT LISTENERS
 export type UpdateFormEvent = React.ChangeEvent<HTMLInputElement>
 export type SubmitFormEvent = React.MouseEvent<HTMLButtonElement, MouseEvent> | React.FormEvent<HTMLFormElement>;
 
@@ -54,6 +54,10 @@ export interface FormRowProps {
     addressType?: "client" | "sender"
     name: string,
     value: string | number
+}
+
+export interface StatusTagProps {
+    invoiceStatus: InvoiceStatus
 }
 
 

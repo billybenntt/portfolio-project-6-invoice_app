@@ -11,11 +11,6 @@ function InvoiceForm() {
     const {showForm, isEditing, invoice} = useAppSelector(store => store.form)
 
 
-    // CLOSE FORM
-    const onFormClose = (): void => {
-        dispatch(closeForm())
-    }
-
     const onChange = (event: UpdateFormEvent): void => {
         const inputName = event.target.name;
         const inputValue = event.target.value
@@ -28,14 +23,18 @@ function InvoiceForm() {
         dispatch(handleAddressChange({inputName, inputValue, addressType}))
     }
 
-    const onItemCreate = (): void => {
-        dispatch(createItem())
-    }
-
     const onOptionChange = (propData: any): void => {
         const inputName = "paymentTerms";
         const inputValue = propData
         dispatch(handleChange({inputName, inputValue}))
+    }
+
+    const onItemCreate = (): void => {
+        dispatch(createItem())
+    }
+
+    const onFormClose = (): void => {
+        dispatch(closeForm())
     }
 
     const onFormSubmit = (event: SubmitFormEvent) => {

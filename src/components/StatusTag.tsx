@@ -1,4 +1,6 @@
-function Status(props: any) {
+import {StatusTagProps} from "../types/app";
+
+function StatusTag(props: StatusTagProps) {
 
     const {invoiceStatus} = props
 
@@ -10,4 +12,4 @@ function Status(props: any) {
     )
 }
 
-export default Status
+export default StatusTag

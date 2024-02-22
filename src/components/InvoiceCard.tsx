@@ -1,5 +1,5 @@
 import {useEffect} from "react";
-import {Status} from "./";
+import {StatusTag} from "./";
 import {Invoice} from "../types/app";
 import {Link, useParams} from "react-router-dom";
 import {IconArrowLeft} from '../assets'
@@ -14,19 +14,19 @@ function InvoiceCard() {
     const dispatch = useAppDispatch()
 
     // LOAD CURRENT INVOICE ON COMPONENT START
-    useEffect(() => {
+    useEffect((): void => {
         dispatch(getSingleInvoice({id}))
     }, [dispatch, id]);
 
 
     // EDIT INVOICE
-    const handleFormEdit = (id: string | undefined) => {
+    const handleFormEdit = (id: string): void => {
         dispatch(openForm({isEditing: true, id: id}))
         dispatch(setFormInvoice("edit"))
     }
 
     // DELETE INVOICE AND OPEN MODAL
-    const handleFormDelete = () => {
+    const handleFormDelete = (): void => {
         dispatch(openModal())
     }
 
@@ -49,14 +49,14 @@ function InvoiceCard() {
                 <div className="invoice-card__header">
                     <div className="invoice-card__status">
                         <p>Status</p>
-                        <Status invoiceStatus={singleInvoice.status}/>
+                        <StatusTag invoiceStatus={singleInvoice.status}/>
                     </div>
 
                     {/* CARD CONTROLS DESKTOP*/}
                     <div className="invoice-card__controls desktop">
                         <div className="controls__center">
                             <div>
-                                <button className="btn btn-accent-1" onClick={() => handleFormEdit(id)}>
+                                <button className="btn btn-accent-1" onClick={() => handleFormEdit(id!)}>
                                     <span className="text-lg">Edit</span>
                                 </button>
                             </div>

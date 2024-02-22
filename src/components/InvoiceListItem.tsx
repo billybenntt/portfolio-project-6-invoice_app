@@ -1,4 +1,4 @@
-import {Status} from "./";
+import {StatusTag} from "./";
 import {Invoice} from "../types/app";
 import {Link} from 'react-router-dom'
 import {IconArrowRight} from '../assets'
@@ -22,7 +22,7 @@ function InvoiceListItem(props: Partial<Invoice>) {
                 <div className="item__group">
                     <h4 className="desktop">NTD {total}</h4>
                     <p className="mobile">{clientName}</p>
-                    <Status invoiceStatus={status!}/>
+                    <StatusTag invoiceStatus={status!}/>
                     <div className="desktop">
                     <span>
                         <img src={IconArrowRight} alt="right"/>

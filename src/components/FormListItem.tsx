@@ -1,6 +1,7 @@
 import {IconDelete} from '../assets'
 import {handleItemChange, deleteItem} from "../features/Form/formSlice.tsx";
 import {useAppDispatch} from '../store/hooks.ts';
+import {UpdateFormEvent} from "../types/app";
 
 
 function FormListItem(props: any) {
@@ -9,12 +10,12 @@ function FormListItem(props: any) {
 
     const {name, quantity, price, total, index} = props
 
-    const onItemChange = (e: any) => {
+    const onItemChange = (e: UpdateFormEvent): void => {
         const inputName = e.target.name
         const inputValue = e.target.value
         dispatch(handleItemChange({inputName, inputValue, index}))
     }
-    const onItemDelete = () => {
+    const onItemDelete = (): void => {
         dispatch(deleteItem({index}))
     }
 

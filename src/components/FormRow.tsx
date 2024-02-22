@@ -27,7 +27,7 @@ function FormRow(props: FormRowProps) {
 
                             <Form.Control asChild>
                                 <input className={validity?.valid ? "form__input" : "form__input error"}
-                                    onChange={(e) => onChange(e, addressType)}
+                                    onChange={(event) => onChange(event, addressType)}
                                     name={name}
                                     value={value}
                                     id={name}

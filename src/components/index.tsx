@@ -10,13 +10,13 @@ import InvoiceList from "./InvoiceList.tsx";
 import InvoiceListItem from "./InvoiceListItem.tsx";
 import Modal from "./Modal.tsx";
 import Navbar from "./Navbar.tsx";
-import Status from "./Status.tsx";
+import StatusTag from "./StatusTag.tsx";
 
 export {
     Button,
     Modal,
     Navbar,
-    Status,
+    StatusTag,
     Filter,
     FormListItem,
     FormRow,
