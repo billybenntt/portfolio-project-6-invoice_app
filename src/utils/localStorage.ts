@@ -7,13 +7,10 @@ const removeDataFromLocalStorage = (key: string) => {
 }
 
 const getDataFromLocalStorage = (key: string) => {
-
-    const result = localStorage.getItem(key) || ""
-
+    const result = localStorage.getItem(key)!
     if (result) {
         return JSON.parse(result)
     }
-
     return null
 }
 

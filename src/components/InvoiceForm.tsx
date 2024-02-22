@@ -1,11 +1,11 @@
 import IconArrowLeft from '../assets/icon-arrow-left.svg'
 import IconPlus from '../assets/icon-plus.svg'
 import FormRowSelect from "./ui/FormRowSelect.tsx";
-import FormListItem from "./ui/FormListItem.tsx";
+import FormRowItem from "./ui/FormRowItem.tsx";
 import {useAppSelector, useAppDispatch} from '../store/hooks.ts';
 import {createItem, handleAddressChange, handleChange, closeForm} from "../features/Form/formSlice.tsx";
 import {addInvoice, updateInvoice} from "../features/Invoice/invoiceSlice.tsx";
-import FormRowAlt from "./ui/FormRowAlt.tsx";
+import FormRowAlt from "./ui/FormRow.tsx";
 
 function InvoiceForm() {
 
@@ -69,9 +69,7 @@ function InvoiceForm() {
 
 
                     {/*BILL FROM*/}
-
                     <div className="invoice-form__from">
-
                         <FormRowAlt
                             label="Street Address"
                             inputType="text"
@@ -80,7 +78,6 @@ function InvoiceForm() {
                             onChange={onAddressChange}
                             value={invoice.clientAddress.street}
                         />
-
 
                         <div className="invoice-group">
                             <FormRowAlt
@@ -200,26 +197,25 @@ function InvoiceForm() {
                         </div>
                     </div>
 
-                    {/*ITEM LIST*/}
 
                     <h4 className="text-lg-alt text-light-1">Item List</h4>
                     <div>
-                        <div>
-                            {invoice.items.map((item: any, index: number) => (
-                                <FormListItem
-                                    key={index}
-                                    index={index}
-                                    {...item}
-                                />
-                            ))}
-                        </div>
+                        {/*ITEM LIST*/}
+                        {invoice.items.map((item: any, index: number) => (
+                            <FormRowItem
+                                key={index}
+                                index={index}
+                                {...item}
+                            />
+                        ))}
 
-                        {/*ADD MORE ITEMS */}
                         <button className="btn btn-accent-3" type="button" onClick={onItemCreate}>
                             <img src={IconPlus} alt="icon"/>
                             <span className="text-lg">Add New Item</span>
                         </button>
                     </div>
+
+
                 </div>
 
 

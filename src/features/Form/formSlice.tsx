@@ -50,7 +50,7 @@ const formSlice = createSlice({
         },
         handleAddressChange: (state, {payload}: PayloadAction<AddressChangePayload>) => {
             const {inputName, inputValue, addressType} = payload
-            console.log("addressType",addressType)
+            console.log("addressType", addressType)
             if (addressType === 'client') {
                 state.invoice.clientAddress[inputName] = inputValue
             } else {

@@ -1,8 +1,10 @@
 import InvoiceList from "../components/InvoiceList.tsx";
 import InvoiceForm from "../components/InvoiceForm.tsx";
 
-function InvoicesMainPage() {
 
+
+
+function InvoicesMainPage() {
 
     return (
         <>

@@ -12,10 +12,8 @@ const fetchData = axios.create({
 
 
 fetchData.interceptors.request.use((request) => {
-
     request.headers['apikey'] = `${import.meta.env.VITE_API_KEY}`
     request.headers['authorization'] = `Bearer ${import.meta.env.VITE_API_KEY}`
-
     return request
 }, (error) => {
     return Promise.reject(error)

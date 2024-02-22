@@ -1,18 +1,19 @@
-import IconArrowLeft from '../assets/icon-arrow-left.svg'
-import Status from "./ui/Status.tsx";
-import {Link, useParams} from "react-router-dom";
-import {useAppDispatch, useAppSelector} from '../store/hooks.ts';
-import {openModal, getSingleInvoice} from "../features/Invoice/invoiceSlice.tsx";
 import {useEffect} from "react";
+import Status from "./ui/Status.tsx";
 import {Invoice} from "../types/global";
+import {Link, useParams} from "react-router-dom";
+import IconArrowLeft from '../assets/icon-arrow-left.svg'
+import {useAppDispatch, useAppSelector} from '../store/hooks.ts';
 import {setFormInvoice, openForm} from "../features/Form/formSlice.tsx";
+import {openModal, getSingleInvoice} from "../features/Invoice/invoiceSlice.tsx";
+
+
 
 
 function InvoiceCard() {
 
     const {id} = useParams()
     const dispatch = useAppDispatch()
-
 
     // LOAD CURRENT INVOICE ON COMPONENT START
     useEffect(() => {

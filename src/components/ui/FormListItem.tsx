@@ -5,7 +5,6 @@ import {useAppDispatch} from '../../store/hooks.ts';
 
 function FormListItem(props: any) {
 
-
     const dispatch = useAppDispatch()
 
     const {name, quantity, price, total, index} = props

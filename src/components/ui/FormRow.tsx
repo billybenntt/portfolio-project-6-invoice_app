@@ -1,7 +1,7 @@
 import * as Form from '@radix-ui/react-form';
 
 
-function FormRowAlt(props: any) {
+function FormRow(props: any) {
 
     const {label, inputType, onChange, addressType, name, value} = props
 
@@ -15,7 +15,6 @@ function FormRowAlt(props: any) {
                                 <Form.Label className={validity?.valid ? "form__label" : "form__label error"}>
                                     {label}
                                 </Form.Label>
-
                                 {/*{console.log(validity)}*/}
                                 <Form.Message match="valueMissing" className="form__error">
                                     Can't be empty
@@ -47,4 +46,4 @@ function FormRowAlt(props: any) {
     )
 }
 
-export default FormRowAlt
+export default FormRow
