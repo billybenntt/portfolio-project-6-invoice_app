@@ -1,6 +1,4 @@
-import InvoiceCard from "../components/InvoiceCard.tsx";
-import InvoiceForm from "../components/InvoiceForm.tsx";
-import Modal from "../components/ui/Modal.tsx";
+import {InvoiceCard, InvoiceForm, Modal} from "../components/";
 
 
 function InvoicesSinglePage() {

@@ -1,4 +1,4 @@
-import {Item, Invoice, Address} from "../types/global";
+import {Item, Invoice, Address} from "../types/app";
 
 
 export class InvoiceCreator {

@@ -1,7 +1,6 @@
-import Navbar from "../components/Navbar.tsx";
-import {InvoiceCreator} from "../data/InvoiceCreator.ts";
-import SampleAllData from "../data/sampleAllData.tsx";
-import FormRowRadix from "../components/ui/FormRowItem.tsx";
+import {FormRowItem, Navbar} from "../components/";
+import {InvoiceCreator} from "../utils/InvoiceCreator.ts";
+import SampleAllData from "../utils/placeholderData.ts";
 
 
 function InvoicesMainPage() {
@@ -30,7 +29,7 @@ function InvoicesMainPage() {
 
                 <div className="containers">
 
-                    <FormRowRadix/>
+                    <FormRowItem/>
 
 
                 </div>

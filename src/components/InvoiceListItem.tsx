@@ -1,7 +1,7 @@
-import {Invoice} from "../../types/global";
-import Status from "./Status.tsx";
-import IconArrowRight from '../../assets/icon-arrow-right.svg'
+import {Status} from "./";
+import {Invoice} from "../types/app";
 import {Link} from 'react-router-dom'
+import {IconArrowRight} from '../assets'
 
 
 function InvoiceListItem(props: Partial<Invoice>) {

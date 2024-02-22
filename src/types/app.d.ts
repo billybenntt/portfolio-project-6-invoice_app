@@ -1,3 +1,5 @@
+//  BASIC TYPES
+
 export interface Invoice {
     invoice_id: string
     createdAt: string
@@ -30,7 +32,11 @@ export interface Item {
 type InvoiceStatus = "pending" | "paid" | "draft"
 
 
-// REDUX
+// EVENTS
+
+
+
+// STORE
 export interface InvoiceState {
     allInvoices: Array<Invoice>
     singleInvoice: Invoice
@@ -40,3 +46,8 @@ export interface InvoiceState {
     isEditing: boolean
 }
 
+export type AddressChangePayload = {
+    inputName: string;  // Assuming inputName is an array of strings
+    inputValue: string;
+    addressType: string// Change 'any' to the appropriate type if possible
+};

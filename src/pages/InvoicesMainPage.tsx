@@ -1,7 +1,4 @@
-import InvoiceList from "../components/InvoiceList.tsx";
-import InvoiceForm from "../components/InvoiceForm.tsx";
-
-
+import {InvoiceList, InvoiceForm} from "../components/";
 
 
 function InvoicesMainPage() {

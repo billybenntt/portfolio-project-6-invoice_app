@@ -1,11 +1,9 @@
-import Filter from "./ui/Filter.tsx";
-import Button from './ui/Button.tsx'
-import {useAppDispatch, useAppSelector} from '../store/hooks.ts';
-import ImgNoInvoice from '../assets/illustration-empty.svg'
-import InvoiceListItem from "./ui/InvoiceListItem.tsx";
-import {Invoice} from "../types/global";
-import {setFormInvoice, openForm} from "../features/Form/formSlice.tsx";
 import {useEffect} from "react";
+import {Invoice} from "../types/app";
+import {ImageNoInvoices} from '../assets/'
+import {Filter, Button, InvoiceListItem} from "./";
+import {useAppDispatch, useAppSelector} from '../store/hooks.ts';
+import {setFormInvoice, openForm} from "../features/Form/formSlice.tsx";
 import {getAllInvoices} from "../features/Invoice/invoiceSlice.tsx";
 
 
@@ -54,7 +52,7 @@ function InvoiceList() {
                     </ul>
                 ) : (
                     <div className="invoice-list__empty">
-                        <img src={ImgNoInvoice} alt="img-no_invoice"/>
+                        <img src={ImageNoInvoices} alt="img-no_invoice"/>
                         <h2>There is nothing here</h2>
                         <p> Create an invoice by clicking the New Invoice button and get started</p>
                     </div>

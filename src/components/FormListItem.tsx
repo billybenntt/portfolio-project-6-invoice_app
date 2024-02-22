@@ -1,6 +1,6 @@
-import IconDelete from '../../assets/icon-delete.svg'
-import {handleItemChange, deleteItem} from "../../features/Form/formSlice.tsx";
-import {useAppDispatch} from '../../store/hooks.ts';
+import {IconDelete} from '../assets'
+import {handleItemChange, deleteItem} from "../features/Form/formSlice.tsx";
+import {useAppDispatch} from '../store/hooks.ts';
 
 
 function FormListItem(props: any) {

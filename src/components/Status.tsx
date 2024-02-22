@@ -1,6 +1,4 @@
-import {PropStatus} from "../../types/redux";
-
-function Status(props: PropStatus) {
+function Status(props: any) {
 
     const {invoiceStatus} = props
 

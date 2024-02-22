@@ -1,5 +1,4 @@
-import IconArrowDown from '../../assets/icon-arrow-down.svg'
-import IconArrowRight from '../../assets/icon-arrow-right.svg'
+import {IconArrowDown, IconArrowRight} from '../assets'
 import {useState} from "react";
 
 

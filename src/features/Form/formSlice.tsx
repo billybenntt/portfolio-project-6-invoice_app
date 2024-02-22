@@ -1,7 +1,7 @@
-import {AddressChangePayload} from "../../types/redux";
-import data from "../../data/sampleAllData.tsx";
+import {AddressChangePayload} from "../../types/app";
+import data from "../../utils/placeholderData.ts";
 import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit';
-import {InvoiceCreator} from "../../data/InvoiceCreator.ts";
+import {InvoiceCreator} from "../../utils/InvoiceCreator.ts";
 
 const defaultData = JSON.parse(JSON.stringify(data))[0]
 

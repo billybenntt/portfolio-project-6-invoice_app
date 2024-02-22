@@ -1,4 +1,4 @@
-const addDataToLocalStorage = (key: string, data: any) => {
+const addDataToLocalStorage = (key: string, data: object) => {
     localStorage.setItem(key, JSON.stringify(data))
 }
 

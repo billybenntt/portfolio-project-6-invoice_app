@@ -1,4 +1,4 @@
-import IconPlus from '../../assets/icon-plus.svg'
+import {IconPlus} from '../assets'
 
 export interface Button {
     text: string

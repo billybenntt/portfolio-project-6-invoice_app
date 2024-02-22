@@ -1,5 +1,5 @@
-import {closeModal, deleteInvoice} from "../../features/Invoice/invoiceSlice.tsx";
-import {useAppSelector, useAppDispatch} from '../../store/hooks.ts';
+import {closeModal, deleteInvoice} from "../features/Invoice/invoiceSlice.tsx";
+import {useAppSelector, useAppDispatch} from '../store/hooks.ts';
 import {useNavigate} from "react-router-dom";
 
 function Modal() {

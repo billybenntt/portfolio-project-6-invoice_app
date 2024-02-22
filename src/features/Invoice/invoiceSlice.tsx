@@ -1,6 +1,6 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
-import {Invoice} from "../../types/global";
-import data from "../../data/sampleAllData.tsx";
+import {Invoice} from "../../types/app";
+import data from "../../utils/placeholderData.ts";
 import fetchData from "../../utils/axios/FetchData.ts";
 import {addDataToLocalStorage, getDataFromLocalStorage, removeDataFromLocalStorage} from "../../utils/localStorage.ts";
 
@@ -88,9 +88,7 @@ const invoiceSlice = createSlice({
         },
         getSingleInvoice: (state, {payload}) => {
             const {id} = payload
-
             state.singleInvoice = state.allInvoices.find((item: any) => {
-
                 return item.invoice_id === id
             })
         },

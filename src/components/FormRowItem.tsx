@@ -1,7 +1,7 @@
 import * as Form from '@radix-ui/react-form';
-import {handleItemChange, deleteItem} from "../../features/Form/formSlice.tsx";
+import {deleteItem} from "../features/Form/formSlice.tsx";
 import {TrashIcon} from '@radix-ui/react-icons'
-import {useAppDispatch} from '../../store/hooks.ts';
+import {useAppDispatch} from '../store/hooks.ts';
 
 
 function FormRowItem(props: any) {
@@ -10,9 +10,9 @@ function FormRowItem(props: any) {
 
     const {name, quantity, price, total, index} = props
 
-    const onItemChange = (e: any) => {
-        // dispatch(handleItemChange({inputName, inputValue, index}))
-    }
+    // const onItemChange = (e: any) => {
+    //     // dispatch(handleItemChange({inputName, inputValue, index}))
+    // }
 
     const onItemDelete = () => {
         dispatch(deleteItem({index}))

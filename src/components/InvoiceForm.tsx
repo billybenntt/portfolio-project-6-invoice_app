@@ -1,11 +1,8 @@
-import IconArrowLeft from '../assets/icon-arrow-left.svg'
-import IconPlus from '../assets/icon-plus.svg'
-import FormRowSelect from "./ui/FormRowSelect.tsx";
-import FormRowItem from "./ui/FormRowItem.tsx";
+import {FormRowSelect, FormRow, FormRowItem} from "./";
+import {IconArrowLeft, IconPlus} from '../assets/'
 import {useAppSelector, useAppDispatch} from '../store/hooks.ts';
 import {createItem, handleAddressChange, handleChange, closeForm} from "../features/Form/formSlice.tsx";
 import {addInvoice, updateInvoice} from "../features/Invoice/invoiceSlice.tsx";
-import FormRowAlt from "./ui/FormRow.tsx";
 
 function InvoiceForm() {
 
@@ -14,7 +11,7 @@ function InvoiceForm() {
 
 
     // CLOSE FORM
-    const onFormClose = () => {
+    const onFormClose = (): void => {
         dispatch(closeForm())
     }
 
@@ -70,7 +67,7 @@ function InvoiceForm() {
 
                     {/*BILL FROM*/}
                     <div className="invoice-form__from">
-                        <FormRowAlt
+                        <FormRow
                             label="Street Address"
                             inputType="text"
                             name="street"
@@ -80,7 +77,7 @@ function InvoiceForm() {
                         />
 
                         <div className="invoice-group">
-                            <FormRowAlt
+                            <FormRow
                                 label="City"
                                 inputType="text"
                                 name="city"
@@ -89,7 +86,7 @@ function InvoiceForm() {
                                 value={invoice.clientAddress.city}
                             />
 
-                            <FormRowAlt
+                            <FormRow
                                 label="Post Code"
                                 inputType="text"
                                 name="postCode"
@@ -98,7 +95,7 @@ function InvoiceForm() {
                                 value={invoice.clientAddress.postCode}
                             />
 
-                            <FormRowAlt
+                            <FormRow
                                 label="Country"
                                 inputType="text"
                                 name="country"
@@ -113,14 +110,14 @@ function InvoiceForm() {
                     {/*BILL TO*/}
                     <h3>Bill to</h3>
                     <div className="invoice-form__to">
-                        <FormRowAlt
+                        <FormRow
                             label="Client’s Name"
                             inputType="text"
                             name="clientName"
                             onChange={onChange}
                             value={invoice.clientName}
                         />
-                        <FormRowAlt
+                        <FormRow
                             label="Client’s Email"
                             inputType="email"
                             name="clientEmail"
@@ -128,7 +125,7 @@ function InvoiceForm() {
                             value={invoice.clientEmail}
                         />
 
-                        <FormRowAlt
+                        <FormRow
                             label="Street Address"
                             inputType="text"
                             name="street"
@@ -139,7 +136,7 @@ function InvoiceForm() {
 
 
                         <div className="invoice-group">
-                            <FormRowAlt
+                            <FormRow
                                 label="City"
                                 inputType="text"
                                 name="city"
@@ -148,7 +145,7 @@ function InvoiceForm() {
                                 value={invoice.senderAddress.city}
                             />
 
-                            <FormRowAlt
+                            <FormRow
                                 label="Post Code"
                                 inputType="text"
                                 name="postCode"
@@ -157,7 +154,7 @@ function InvoiceForm() {
                                 value={invoice.senderAddress.postCode}
                             />
 
-                            <FormRowAlt
+                            <FormRow
                                 label="Country"
                                 inputType="text"
                                 name="country"
@@ -172,7 +169,7 @@ function InvoiceForm() {
                     {/*BILL DATE*/}
                     <div>
                         <div className="invoice-group">
-                            <FormRowAlt
+                            <FormRow
                                 label="Invoice Due Date"
                                 inputType="date"
                                 name="paymentDue"
@@ -187,7 +184,7 @@ function InvoiceForm() {
                             />
                         </div>
                         <div>
-                            <FormRowAlt
+                            <FormRow
                                 label="Description"
                                 inputType="text"
                                 name="description"
