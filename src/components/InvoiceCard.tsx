@@ -1,5 +1,5 @@
 import {useEffect} from "react";
-import Status from "./Status.tsx";
+import {Status} from "./";
 import {Invoice} from "../types/app";
 import {Link, useParams} from "react-router-dom";
 import {IconArrowLeft} from '../assets'

@@ -2,7 +2,6 @@ import * as Select from '@radix-ui/react-select';
 import {ChevronDownIcon, CheckCircledIcon} from '@radix-ui/react-icons';
 
 
-
 function FormRowSelect(props: any) {
 
     const {label, name, value, onChange} = props

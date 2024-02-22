@@ -1,13 +1,8 @@
 import {IconPlus} from '../assets'
+import {ButtonProps} from "../types/app";
 
-export interface Button {
-    text: string
-    style: "accent" | "primary"
-    type: "1" | "2" | "3"
-    show?: "mobile" | "desktop"
-}
 
-function Button(props: Button) {
+function Button(props: ButtonProps) {
 
     const {text, type, show, style} = props
 

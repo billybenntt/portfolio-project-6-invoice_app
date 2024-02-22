@@ -14,7 +14,7 @@ function FormRowItem(props: any) {
     //     // dispatch(handleItemChange({inputName, inputValue, index}))
     // }
 
-    const onItemDelete = () => {
+    const onItemDelete = (): void => {
         dispatch(deleteItem({index}))
     }
 

@@ -3,11 +3,11 @@ import {useAppSelector, useAppDispatch} from '../store/hooks.ts';
 import {useNavigate} from "react-router-dom";
 
 function Modal() {
-    const dispatch = useAppDispatch()
 
+    const dispatch = useAppDispatch()
+    const navigate = useNavigate()
     const {showModal, singleInvoice} = useAppSelector(store => store.invoice)
 
-    const navigate = useNavigate()
 
     const handleModalClose = () => {
         dispatch(closeModal())
@@ -20,7 +20,6 @@ function Modal() {
         navigate("/")
     }
 
-
     return (
         <div className={`modal-background ${showModal ? "show" : ""}`}>
             <div className="modal">
@@ -30,18 +29,14 @@ function Modal() {
                         #{singleInvoice.invoice_id}?
                         This action
                         cannot be undone.</p>
-
                     <div className="modal__control">
                         <button className="btn btn-accent-1" onClick={handleModalClose}>
                             <span className="text-lg">Cancel</span>
                         </button>
-
                         <button className="btn btn-danger-1" onClick={() => handleFormDelete(singleInvoice.invoice_id)}>
                             <span className="text-lg">Delete</span>
                         </button>
-
                     </div>
-
                 </div>
             </div>
         </div>

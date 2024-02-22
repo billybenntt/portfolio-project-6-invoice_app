@@ -3,6 +3,7 @@ import {IconArrowLeft, IconPlus} from '../assets/'
 import {useAppSelector, useAppDispatch} from '../store/hooks.ts';
 import {createItem, handleAddressChange, handleChange, closeForm} from "../features/Form/formSlice.tsx";
 import {addInvoice, updateInvoice} from "../features/Invoice/invoiceSlice.tsx";
+import {UpdateFormEvent, SubmitFormEvent, Item} from "../types/app";
 
 function InvoiceForm() {
 
@@ -15,30 +16,30 @@ function InvoiceForm() {
         dispatch(closeForm())
     }
 
-    const onChange = (e: any) => {
-        const inputName = e.target.name;
-        const inputValue = e.target.value
+    const onChange = (event: UpdateFormEvent): void => {
+        const inputName = event.target.name;
+        const inputValue = event.target.value
         dispatch(handleChange({inputName, inputValue}))
     }
 
-    const onAddressChange = (e: any, addressType: string) => {
-        const inputName = e.target.name;
-        const inputValue = e.target.value
+    const onAddressChange = (event: UpdateFormEvent, addressType: string): void => {
+        const inputName = event.target.name;
+        const inputValue = event.target.value
         dispatch(handleAddressChange({inputName, inputValue, addressType}))
     }
 
-    const onItemCreate = () => {
+    const onItemCreate = (): void => {
         dispatch(createItem())
     }
 
-    const onOptionChange = (propData: any) => {
+    const onOptionChange = (propData: any): void => {
         const inputName = "paymentTerms";
         const inputValue = propData
         dispatch(handleChange({inputName, inputValue}))
     }
 
-    const onFormSubmit = (e: any) => {
-        e.preventDefault()
+    const onFormSubmit = (event: SubmitFormEvent) => {
+        event.preventDefault()
         if (isEditing) {
             dispatch(updateInvoice())
         } else {
@@ -61,9 +62,7 @@ function InvoiceForm() {
                     </span>
                         <h4>Go back</h4>
                     </div>
-
                     <h3>Bill From</h3>
-
 
                     {/*BILL FROM*/}
                     <div className="invoice-form__from">
@@ -198,7 +197,7 @@ function InvoiceForm() {
                     <h4 className="text-lg-alt text-light-1">Item List</h4>
                     <div>
                         {/*ITEM LIST*/}
-                        {invoice.items.map((item: any, index: number) => (
+                        {invoice.items.map((item: Item, index: number) => (
                             <FormRowItem
                                 key={index}
                                 index={index}

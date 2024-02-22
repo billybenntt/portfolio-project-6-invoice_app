@@ -1,7 +1,7 @@
 import * as Form from '@radix-ui/react-form';
+import {FormRowProps} from "../types/app";
 
-
-function FormRow(props: any) {
+function FormRow(props: FormRowProps) {
 
     const {label, inputType, onChange, addressType, name, value} = props
 
@@ -21,7 +21,7 @@ function FormRow(props: any) {
                                 </Form.Message>
 
                                 <Form.Message match="typeMismatch" className="form__error">
-                                   Format incorrect
+                                    Format incorrect
                                 </Form.Message>
                             </div>
 

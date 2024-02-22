@@ -1,8 +1,6 @@
-import EmptyPage from "./pages/EmptyPage.tsx";
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import InvoicesMainPage from "./pages/InvoicesMainPage.tsx";
-import InvoicesSinglePage from "./pages/InvoicesSinglePage.tsx";
-import Navbar from "./components/Navbar.tsx";
+import {EmptyPage, InvoicesMainPage, InvoicesSinglePage} from "./pages";
+import {Navbar} from "./components";
 
 function App() {
 

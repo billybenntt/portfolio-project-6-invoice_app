@@ -13,13 +13,13 @@ function InvoiceList() {
     const showInvoices = allInvoices.length > 0
     const dispatch = useAppDispatch()
 
-    useEffect(() => {
+    useEffect((): void => {
         dispatch(getAllInvoices())
     }, []);
 
 
     // CREATE NEW INVOICE
-    const handleFormCreate = () => {
+    const handleFormCreate = (): void => {
         dispatch(openForm({isEditing: false}))
         dispatch(setFormInvoice("new"))
     }
