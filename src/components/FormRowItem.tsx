@@ -1,7 +1,7 @@
 import * as Form from '@radix-ui/react-form';
 import {deleteItem} from "../features/Form/formSlice.tsx";
 import {useAppDispatch} from '../store/hooks.ts';
-import {IconDelete, IconSun} from "../assets";
+import {IconDelete} from "../assets";
 
 function FormRowItem(props: any) {
 
@@ -58,7 +58,6 @@ function FormRowItem(props: any) {
 
                 {/*PRICE */}
                 <Form.Field name="item" className="item">
-
                     <Form.Label className="form__label mobile">
                         Item Name
                     </Form.Label>

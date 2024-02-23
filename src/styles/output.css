@@ -83,7 +83,8 @@ input[type=number] {
 .form__row-items .items_header {
   display: none;
   color: #7E88C3;
-  text-align: center;
+  text-align: start;
+  padding-left: 0.7rem;
 }
 .form__row-items .form__row-items-center {
   display: grid;
@@ -221,6 +222,7 @@ input[type=number] {
   background-color: #F8F8FB;
   border-radius: 50%;
   display: grid;
+  color: #7C5DFA;
   place-content: center;
   margin-right: 0.5rem;
 }
@@ -270,7 +272,7 @@ input[type=number] {
   background-color: #F8F8FB;
   color: #7E88C3;
 }
-.btn-accent-3 img {
+.btn-accent-3 svg {
   margin-right: 0.3rem;
 }
 .btn-accent-3:hover {
@@ -291,7 +293,7 @@ input[type=number] {
   letter-spacing: -0.75px;
 }
 
-.text-lg, .invoice-card .invoice-card-center h4, .invoice-list .invoice-list__empty p, .invoice-list .invoice-list-center .item__group h4, .control__filter h3, .control__filter label, .form__row .form__input, .form__row-items .form__input, .form__row-select .form_row_input, .form__row-select_menu {
+.text-lg, .invoice-form .invoice-form-center h3, .invoice-card .invoice-card-center h4, .invoice-list .invoice-list__empty p, .invoice-list .invoice-list-center .item__group h4, .control__filter h3, .control__filter label, .form__row .form__input, .form__row-items .form__input, .form__row-select .form_row_input, .form__row-select_menu {
   font-weight: 700;
   font-size: 0.938rem;
   letter-spacing: -0.25px;
@@ -771,6 +773,10 @@ body {
 .invoice-form .invoice-form-center {
   margin: 0 auto;
   max-width: 327px;
+}
+.invoice-form .invoice-form-center h3 {
+  color: #7C5DFA;
+  padding: 1rem 0;
 }
 .invoice-form .invoice-form-status {
   font-size: 20px;

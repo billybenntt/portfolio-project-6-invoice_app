@@ -56,7 +56,7 @@ function InvoiceForm() {
                     </div>
                     <div className="invoice-form-return mobile" onClick={onFormClose}>
                     <span>
-                        <img src={IconArrowLeft} alt="icon-back"/>
+                        <IconArrowLeft/>
                     </span>
                         <h4>Go back</h4>
                     </div>
@@ -191,7 +191,7 @@ function InvoiceForm() {
 
 
                     <div className="form__row-items">
-                    <h4 className="items_title">Item List</h4>
+                        <h4 className="items_title">Item List</h4>
                         {/*ITEM LIST*/}
 
                         <div className="items_header">
@@ -214,7 +214,7 @@ function InvoiceForm() {
 
 
                     <button className="btn btn-accent-3" type="button" onClick={onItemCreate}>
-                        <img src={IconPlus} alt="icon"/>
+                        <IconPlus/>
                         <span className="text-lg">Add New Item</span>
                     </button>
                 </div>

@@ -9,7 +9,7 @@ function Button(props: ButtonProps) {
     return (
         <button className={`btn btn-${style}-${type} ${show}`}>
             <span className="btn-img">
-            <img src={IconPlus} alt="icon-button"/>
+             <IconPlus/>
             </span>
             <span className="text-lg">
               {text}

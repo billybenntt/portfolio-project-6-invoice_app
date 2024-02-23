@@ -12,15 +12,15 @@ function FormRow(props: FormRowProps) {
                     {(validity) => (
                         <div>
                             <div className="form__header">
-                                <Form.Label className={validity?.valid ? "form__label" : "form__label error"}>
+                                <Form.Label className="form__label">
                                     {label}
                                 </Form.Label>
                                 {/*{console.log(validity)}*/}
-                                <Form.Message match="valueMissing" className="form__error">
+                                <Form.Message match="valueMissing">
                                     Can't be empty
                                 </Form.Message>
 
-                                <Form.Message match="typeMismatch" className="form__error">
+                                <Form.Message match="typeMismatch" >
                                     Format incorrect
                                 </Form.Message>
                             </div>

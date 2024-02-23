@@ -31,6 +31,7 @@
     background-color: $accent-light-100;
     border-radius: $rounded-full;
     display: grid;
+    color: $primary-200;
     place-content: center;
     margin-right: 0.5rem;
   }
@@ -93,7 +94,7 @@
   background-color: $accent-light-100;
   color: $accent-light-400;
 
-  img {
+  svg {
     margin-right: 0.3rem;
   }
 

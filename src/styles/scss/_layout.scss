@@ -365,8 +365,13 @@ body {
 
   .invoice-form-center {
     margin: 0 auto;
-
     max-width: $max-w-sm;
+
+    h3 {
+      @extend .text-lg;
+      color: $primary-200;
+      padding: 1rem 0;
+    }
 
   }
 
@@ -496,6 +501,7 @@ body {
   .invoice-form {
     .invoice-form-center {
       max-width: $max-w-md;
+
 
     }
   }

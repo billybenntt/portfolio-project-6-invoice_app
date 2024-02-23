@@ -54,7 +54,8 @@
     display: none;
     @extend .text-base;
     color: $accent-light-400;
-    text-align: center;
+    text-align: start;
+    padding-left: 0.7rem;
   }
 
   .form__row-items-center {

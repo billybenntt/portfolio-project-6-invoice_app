@@ -25,7 +25,7 @@ function InvoiceListItem(props: Partial<Invoice>) {
                     <StatusTag invoiceStatus={status!}/>
                     <div className="desktop">
                     <span>
-                        <img src={IconArrowRight} alt="right"/>
+                        <IconArrowRight/>
                     </span>
                     </div>
                 </div>

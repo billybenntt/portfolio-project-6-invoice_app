@@ -18,8 +18,8 @@ function Filter() {
             <h3 className="text-lg desktop">Filter by status</h3>
             <span className="filter-icon">
                 {showFilter ?
-                    <img src={IconArrowDown} alt="icon-arrow"/> :
-                    <img src={IconArrowRight} alt="icon-right"/>
+                    <IconArrowDown/> :
+                    <IconArrowRight/>
                 }
             </span>
 

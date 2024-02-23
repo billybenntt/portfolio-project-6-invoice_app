@@ -39,7 +39,7 @@ function InvoiceCard() {
             <div className="invoice-card-center">
                 <div className="invoice-card__return">
                     <span>
-                        <img src={IconArrowLeft} alt="icon-back"/>
+                       <IconArrowLeft/>
                     </span>
                     <Link to={`/`}>
                         <h4>Go back</h4>
