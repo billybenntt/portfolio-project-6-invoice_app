@@ -22,8 +22,12 @@ function Navbar() {
                 <div className="navbar__control">
                     <div className="theme">
                         {theme === "light" ?
-                            <span className="theme-img"><img src={IconMoon} alt="page-logo"/></span> :
-                            <span className="theme-img"><img src={IconSun} alt="page-logo"/></span>}
+                            <span className="theme-img">
+                                <IconMoon/>
+                            </span> :
+                            <span className="theme-img">
+                                <IconSun/>
+                            </span>}
                     </div>
                     <div className="avatar">
                         <span>😺</span>

@@ -23,9 +23,9 @@ function InvoiceForm() {
         dispatch(handleAddressChange({inputName, inputValue, addressType}))
     }
 
-    const onOptionChange = (propData: any): void => {
+    const onOptionChange = (option: string): void => {
         const inputName = "paymentTerms";
-        const inputValue = propData
+        const inputValue = option
         dispatch(handleChange({inputName, inputValue}))
     }
 
@@ -37,7 +37,7 @@ function InvoiceForm() {
         dispatch(closeForm())
     }
 
-    const onFormSubmit = (event: SubmitFormEvent) => {
+    const onFormSubmit = (event: SubmitFormEvent): void => {
         event.preventDefault()
         if (isEditing) {
             dispatch(updateInvoice())
@@ -46,7 +46,6 @@ function InvoiceForm() {
         }
         dispatch(closeForm())
     }
-
 
     return (
         <div>
@@ -165,37 +164,45 @@ function InvoiceForm() {
                     </div>
 
                     {/*BILL DATE*/}
+                    <div className="invoice-group">
+                        <FormRow
+                            label="Invoice Due Date"
+                            inputType="date"
+                            name="paymentDue"
+                            onChange={onChange}
+                            value={invoice.paymentDue}
+                        />
+                        <FormRowSelect
+                            label="Payment Terms"
+                            name="paymentTerms"
+                            value={invoice.paymentTerms}
+                            onChange={onOptionChange}
+                        />
+                    </div>
                     <div>
-                        <div className="invoice-group">
-                            <FormRow
-                                label="Invoice Due Date"
-                                inputType="date"
-                                name="paymentDue"
-                                onChange={onChange}
-                                value={invoice.paymentDue}
-                            />
-                            <FormRowSelect
-                                label="Payment Terms"
-                                name="paymentTerms"
-                                value={invoice.paymentTerms}
-                                onChange={onOptionChange}
-                            />
-                        </div>
-                        <div>
-                            <FormRow
-                                label="Description"
-                                inputType="text"
-                                name="description"
-                                onChange={onChange}
-                                value={invoice.description}
-                            />
-                        </div>
+                        <FormRow
+                            label="Description"
+                            inputType="text"
+                            name="description"
+                            onChange={onChange}
+                            value={invoice.description}
+                        />
                     </div>
 
 
-                    <h4 className="text-lg-alt text-light-1">Item List</h4>
-                    <div>
+                    <div className="form__row-items">
+                    <h4 className="items_title">Item List</h4>
                         {/*ITEM LIST*/}
+
+                        <div className="items_header">
+                            <p>Item Name</p>
+                            <p>Qty.</p>
+                            <p>Price</p>
+                            <p>Total</p>
+                            <p></p>
+                        </div>
+
+
                         {invoice.items.map((item: Item, index: number) => (
                             <FormRowItem
                                 key={index}
@@ -203,16 +210,14 @@ function InvoiceForm() {
                                 {...item}
                             />
                         ))}
-
-                        <button className="btn btn-accent-3" type="button" onClick={onItemCreate}>
-                            <img src={IconPlus} alt="icon"/>
-                            <span className="text-lg">Add New Item</span>
-                        </button>
                     </div>
 
 
+                    <button className="btn btn-accent-3" type="button" onClick={onItemCreate}>
+                        <img src={IconPlus} alt="icon"/>
+                        <span className="text-lg">Add New Item</span>
+                    </button>
                 </div>
-
 
                 {/*BUTTONS */}
                 <div className="invoice-form__controls">

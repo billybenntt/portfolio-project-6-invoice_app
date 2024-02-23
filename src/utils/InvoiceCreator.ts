@@ -68,7 +68,6 @@ export class InvoiceCreator {
 
     // Create a Valid Invoice
     public createInvoice() {
-
         this.invoice.createdAt = new Date().toISOString().substring(0, 10)
         this.invoice.paymentDue = new Date().toISOString().substring(0, 10);
         return this.invoice;

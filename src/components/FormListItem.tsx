@@ -1,8 +1,7 @@
-import {IconDelete} from '../assets'
 import {handleItemChange, deleteItem} from "../features/Form/formSlice.tsx";
 import {useAppDispatch} from '../store/hooks.ts';
 import {UpdateFormEvent} from "../types/app";
-
+import {IconSun} from "../assets";
 
 function FormListItem(props: any) {
 
@@ -67,9 +66,9 @@ function FormListItem(props: any) {
 
                 <div className="form__item-delete"
                     onClick={onItemDelete}>
-                    <span>
-                        <img src={IconDelete} alt=""/>
-                    </span>
+                    <div>
+                        <IconSun/>
+                    </div>
                 </div>
             </div>
         </div>
