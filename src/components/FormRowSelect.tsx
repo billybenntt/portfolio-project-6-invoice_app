@@ -1,5 +1,5 @@
 import * as Select from '@radix-ui/react-select';
-import {ChevronDownIcon, CheckCircledIcon} from '@radix-ui/react-icons';
+import {IconArrowDown, IconArrowLeft} from '../assets';
 
 
 function FormRowSelect(props: any) {
@@ -13,7 +13,7 @@ function FormRowSelect(props: any) {
                 <Select.Trigger className="form_row_input">
                     <Select.Value defaultValue={value} placeholder="Pick an option"/>
                     <Select.Icon>
-                        <ChevronDownIcon/>
+                        <IconArrowDown/>
                     </Select.Icon>
                 </Select.Trigger>
                 <Select.Portal>
@@ -26,28 +26,28 @@ function FormRowSelect(props: any) {
                                 <Select.Item value="1" className="form_row_item">
                                     <Select.ItemText>Net 1 Day</Select.ItemText>
                                     <Select.ItemIndicator>
-                                        <CheckCircledIcon/>
+                                        <IconArrowLeft/>
                                     </Select.ItemIndicator>
                                 </Select.Item>
 
                                 <Select.Item value="7" className="form_row_item">
                                     <Select.ItemText>Net 7 Days</Select.ItemText>
                                     <Select.ItemIndicator>
-                                        <CheckCircledIcon/>
+                                        <IconArrowLeft/>
                                     </Select.ItemIndicator>
                                 </Select.Item>
 
                                 <Select.Item value="14" className="form_row_item">
                                     <Select.ItemText>Net 14 Days</Select.ItemText>
                                     <Select.ItemIndicator>
-                                        <CheckCircledIcon/>
+                                        <IconArrowLeft/>
                                     </Select.ItemIndicator>
                                 </Select.Item>
 
                                 <Select.Item value="30" className="form_row_item">
                                     <Select.ItemText>Net 30 Days</Select.ItemText>
                                     <Select.ItemIndicator>
-                                        <CheckCircledIcon/>
+                                        <IconArrowLeft/>
                                     </Select.ItemIndicator>
                                 </Select.Item>
 

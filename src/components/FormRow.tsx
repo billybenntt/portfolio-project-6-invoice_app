@@ -12,25 +12,32 @@ function FormRow(props: FormRowProps) {
                     {(validity) => (
                         <div>
                             <div className="form__header">
+                                {console.log(validity?.valueMissing)}
                                 <Form.Label className="form__label">
                                     {label}
                                 </Form.Label>
-                                {/*{console.log(validity)}*/}
                                 <Form.Message match="valueMissing">
                                     Can't be empty
                                 </Form.Message>
 
-                                <Form.Message match="typeMismatch" >
+                                <Form.Message match="tooShort">
+                                    Too Short
+                                </Form.Message>
+
+                                <Form.Message match="typeMismatch">
                                     Format incorrect
                                 </Form.Message>
                             </div>
 
                             <Form.Control asChild>
-                                <input className={validity?.valid ? "form__input" : "form__input error"}
+                                <input className="form__input"
                                     onChange={(event) => onChange(event, addressType)}
                                     name={name}
                                     value={value}
                                     id={name}
+                                    placeholder={label}
+                                    minLength={4}
+                                    maxLength={30}
                                     type={inputType}
                                     disabled={false}
                                     required/>

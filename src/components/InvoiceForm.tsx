@@ -37,14 +37,23 @@ function InvoiceForm() {
         dispatch(closeForm())
     }
 
-    const onFormSubmit = (event: SubmitFormEvent): void => {
-        event.preventDefault()
-        if (isEditing) {
-            dispatch(updateInvoice())
-        } else {
-            dispatch(addInvoice())
+    const onFormSubmit = (event: any): void => {
+
+
+        const validity = event.target.validity
+
+
+        if (validity) {
+            event.preventDefault()
+            if (isEditing) {
+                dispatch(updateInvoice())
+            } else {
+                dispatch(addInvoice())
+            }
+            // dispatch(closeForm())
+
         }
-        dispatch(closeForm())
+
     }
 
     return (
@@ -52,12 +61,13 @@ function InvoiceForm() {
             <form className={`invoice-form ${showForm ? "show" : ""} invoice-form-overlay`} onSubmit={onFormSubmit}>
                 <div className="invoice-form-center">
                     <div className="invoice-form-status">
-                        <p>{isEditing ? `Edit #${invoice.invoice_id}` : "New Invoice"}</p>
+                        {isEditing ?
+                            <p>Edit <span>#</span>{invoice.invoice_id}</p> :
+                            <p>New Invoice</p>
+                        }
                     </div>
                     <div className="invoice-form-return mobile" onClick={onFormClose}>
-                    <span>
                         <IconArrowLeft/>
-                    </span>
                         <h4>Go back</h4>
                     </div>
                     <h3>Bill From</h3>

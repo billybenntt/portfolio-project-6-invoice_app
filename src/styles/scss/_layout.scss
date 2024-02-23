@@ -376,8 +376,12 @@ body {
   }
 
   .invoice-form-status {
-    font-size: 20px;
-    font-weight: bold;
+    @extend .text-xl;
+    padding: 1.2rem 0;
+
+    span{
+      color: $accent-light-400;
+    }
   }
 
 

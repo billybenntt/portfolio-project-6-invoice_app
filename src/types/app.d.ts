@@ -36,7 +36,7 @@ type InvoiceStatus = "pending" | "paid" | "draft"
 
 // EVENT LISTENERS
 export type UpdateFormEvent = React.ChangeEvent<HTMLInputElement>
-export type SubmitFormEvent = React.MouseEvent<HTMLButtonElement, MouseEvent> | React.FormEvent<HTMLFormElement>;
+export type SubmitFormEvent = React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement, MouseEvent> ;
 
 
 // COMPONENT PROPS
