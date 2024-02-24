@@ -36,7 +36,7 @@ type InvoiceStatus = "pending" | "paid" | "draft"
 
 // EVENT LISTENERS
 export type UpdateFormEvent = React.ChangeEvent<HTMLInputElement>
-export type SubmitFormEvent = React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement, MouseEvent> ;
+export type SubmitFormEvent = React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement, MouseEvent>;
 
 
 // COMPONENT PROPS
@@ -50,11 +50,16 @@ export interface ButtonProps {
 export interface FormRowProps {
     label: string
     inputType: string
-    onChange: Function
+    onChange: (value: UpdateFormEvent, addressType?) => void;
     addressType?: "client" | "sender"
     name: string,
     value: string | number
 }
+
+export interface FormRowItemProps extends Item{
+    index: number;
+}
+
 
 export interface StatusTagProps {
     invoiceStatus: InvoiceStatus

@@ -59,13 +59,14 @@ const formSlice = createSlice({
         handleItemChange: (state, {payload}) => {
             const {inputName, inputValue, index} = payload
 
+
             // Check that our value is a number or not
             const isValidNumber = !isNaN(inputValue)
 
             //  Item name Allows Strings and Numbers
             //  Other fields are numeric only.
             if (inputName === 'name' || isValidNumber) {
-                // Update Total if Changing Price or Quantity
+                // Update Total when Changing Price or Quantity
                 if (inputName === 'quantity') {
                     const quantity: number = +inputValue
                     const price: number = +state.invoice.items[index]['price']
@@ -96,10 +97,10 @@ const formSlice = createSlice({
         },
         createItem: (state) => {
             const newItem = {
-                "name": "New Item",
-                "quantity": 1,
-                "price": 100,
-                "total": 100
+                "name": "",
+                "quantity": "",
+                "price": "",
+                "total": 0
             }
 
             state.invoice.items.push(newItem)

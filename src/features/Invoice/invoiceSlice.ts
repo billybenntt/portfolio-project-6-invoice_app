@@ -88,7 +88,7 @@ const invoiceSlice = createSlice({
         },
         getSingleInvoice: (state, {payload}) => {
             const {id} = payload
-            state.singleInvoice = state.allInvoices.find((item: any) => {
+            state.singleInvoice = state.allInvoices.find((item: Invoice) => {
                 return item.invoice_id === id
             })
         },
@@ -103,14 +103,14 @@ const invoiceSlice = createSlice({
                 state.allInvoices.push(payload)
             })
             .addCase(updateInvoice.fulfilled, (state, {payload}) => {
-                const currentIndex = state.allInvoices.findIndex((item: any) => item.invoice_id === payload.invoice_id)
+                const currentIndex = state.allInvoices.findIndex((item: Invoice) => item.invoice_id === payload.invoice_id)
                 if (currentIndex >= 0) {
                     state.allInvoices[currentIndex] = payload
                     state.singleInvoice = payload
                 }
             })
             .addCase(deleteInvoice.fulfilled, (state, {payload}) => {
-                state.allInvoices = state.allInvoices.filter((item: any) => item.invoice_id !== payload.invoice_id)
+                state.allInvoices = state.allInvoices.filter((item: Invoice) => item.invoice_id !== payload.invoice_id)
             })
     },
 });

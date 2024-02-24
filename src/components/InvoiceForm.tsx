@@ -1,13 +1,11 @@
-import {FormRowSelect, FormRow, FormRowItem} from "./";
-import {IconArrowLeft, IconPlus} from '../assets/'
-import {useAppSelector, useAppDispatch} from '../store/hooks.ts';
-import {createItem, handleAddressChange, handleChange, closeForm} from "../features/Form/formSlice.ts";
-import {addInvoice, updateInvoice} from "../features/Invoice/invoiceSlice.ts";
-import {UpdateFormEvent, Item} from "../types/app";
-
 import * as Form from '@radix-ui/react-form';
+import {IconArrowLeft, IconPlus} from '../assets/'
+import {FormRowSelect, FormRow, FormRowItem} from "./";
+import {useAppSelector, useAppDispatch} from '../store/hooks.ts';
+import {UpdateFormEvent, Item, SubmitFormEvent} from "../types/app";
+import {addInvoice, updateInvoice} from "../features/Invoice/invoiceSlice.ts";
+import {createItem, handleAddressChange, handleChange, closeForm} from "../features/Form/formSlice.ts";
 
-import React from "react";
 
 function InvoiceForm() {
 
@@ -41,7 +39,7 @@ function InvoiceForm() {
         dispatch(closeForm())
     }
 
-    const onFormSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
+    const onFormSubmit = (event: SubmitFormEvent): void => {
         event.preventDefault()
 
         const formElement = event.target as HTMLFormElement
@@ -223,7 +221,6 @@ function InvoiceForm() {
 
 
                         {invoice.items.map((item: Item, index: number) => (
-
                             <FormRowItem
                                 key={index}
                                 index={index}

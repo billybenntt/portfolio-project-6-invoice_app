@@ -16,7 +16,6 @@ function FormRow(props: FormRowProps) {
                                 <Form.Message match="valueMissing">
                                     Can't be empty
                                 </Form.Message>
-
                                 <Form.Message match="tooShort">
                                     Too Short
                                 </Form.Message>

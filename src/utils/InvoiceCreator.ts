@@ -5,16 +5,16 @@ export class InvoiceCreator {
     private readonly invoice: Invoice;
 
     // Get Data from Outside
-    constructor(invoiceData: any) {
+    constructor(invoiceData: Invoice) {
         this.invoice = {
-            invoice_id: invoiceData.id || this.generateInvoiceID(),
+            invoice_id: invoiceData.invoice_id || this.generateInvoiceID(),
             createdAt: invoiceData.createdAt || "",
             paymentDue: invoiceData.paymentDue || "",
             description: invoiceData.description || "",
             paymentTerms: invoiceData.paymentTerms || 1,
             clientName: invoiceData.clientName || "",
             clientEmail: invoiceData.clientEmail || "",
-            status: invoiceData.status || "draft",
+            status: invoiceData.status || "pending",
             senderAddress: this.verifyAddress(invoiceData.senderAddress),
             clientAddress: this.verifyAddress(invoiceData.clientAddress),
             items: this.verifyItems(invoiceData.items),
@@ -24,7 +24,7 @@ export class InvoiceCreator {
 
 
     // If Address fields are valid copy them else initialize to empty ""
-    private verifyAddress(addressData: any): Address {
+    private verifyAddress(addressData: Address): Address {
         return {
             street: addressData?.street || "",
             city: addressData?.city || "",
@@ -34,7 +34,7 @@ export class InvoiceCreator {
     }
 
     // If Incoming Data is valid copy it else initialize an empty array.
-    private verifyItems(itemsData: any): Item[] {
+    private verifyItems(itemsData: Item[]): Item[] {
         return Array.isArray(itemsData) ? [...itemsData] : [];
     }
 

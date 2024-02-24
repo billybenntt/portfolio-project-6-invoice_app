@@ -1,6 +1,5 @@
 import Button from "./Button.tsx";
 import Filter from "./Filter.tsx";
-import FormListItem from "./FormListItem.tsx";
 import FormRow from "./FormRow.tsx";
 import FormRowItem from "./FormRowItem.tsx";
 import FormRowSelect from "./FormRowSelect.tsx";
@@ -18,7 +17,6 @@ export {
     Navbar,
     StatusTag,
     Filter,
-    FormListItem,
     FormRow,
     FormRowItem,
     FormRowSelect,

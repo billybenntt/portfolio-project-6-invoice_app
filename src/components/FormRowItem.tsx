@@ -2,16 +2,17 @@ import * as Form from '@radix-ui/react-form';
 import {deleteItem, handleItemChange} from "../features/Form/formSlice.ts";
 import {useAppDispatch} from '../store/hooks.ts';
 import {IconDelete} from "../assets";
-import {UpdateFormEvent} from "../types/app";
+import {UpdateFormEvent, FormRowItemProps} from "../types/app";
 
-function FormRowItem(props: any) {
+function FormRowItem(props: FormRowItemProps) {
 
     const dispatch = useAppDispatch()
 
-    const {name, quantity, price, total, index, inputName, inputValue} = props
+    const {name, quantity, price, total, index} = props
 
-    const onItemChange = (e: UpdateFormEvent) => {
-        console.log(e)
+    const onItemChange = (event: UpdateFormEvent): void => {
+        const inputName = event.target.name
+        const inputValue = event.target.value
         dispatch(handleItemChange({inputName, inputValue, index}))
     }
 
@@ -29,12 +30,13 @@ function FormRowItem(props: any) {
                 </Form.Label>
                 <Form.Control asChild>
                     <input className="form__input"
-                        name={`name-${index}`}
-                        value={inputValue}
-                        id={`name-${index}`}
                         type="text"
-                        placeholder="Enter Item Name"
+                        name="name"
+                        value={name}
                         maxLength={20}
+                        placeholder="Enter the item's name"
+                        onChange={onItemChange}
+                        id={`name-${index}`}
                         disabled={false}
                         required/>
                 </Form.Control>
@@ -43,17 +45,18 @@ function FormRowItem(props: any) {
 
             {/*QUANTITY */}
             <Form.Field name="item" className="item">
-                <Form.Label className="form__label mobile" htmlFor={`qty-${index}`}>
+                <Form.Label className="form__label mobile" htmlFor={`quantity-${index}`}>
                     Qty
                 </Form.Label>
                 <Form.Control asChild>
                     <input className="form__input"
-                        name={`qty-${index}`}
-                        value={inputValue}
-                        id={`qty-${index}`}
                         type="text"
-                        placeholder="0"
+                        name="quantity"
+                        value={quantity}
                         maxLength={3}
+                        placeholder="0"
+                        onChange={onItemChange}
+                        id={`quantity-${index}`}
                         disabled={false}
                         required/>
                 </Form.Control>
@@ -66,18 +69,19 @@ function FormRowItem(props: any) {
                 </Form.Label>
                 <Form.Control asChild>
                     <input className="form__input"
-                        name={`${inputName}-${index}`}
-                        value={inputValue}
-                        id={`price-${index}`}
-                        type="number"
+                        type="text"
+                        name="price"
+                        value={price}
+                        maxLength={3}
                         placeholder="0"
-                        maxLength={4}
+                        onChange={onItemChange}
+                        id={`price-${index}`}
                         disabled={false}
                         required/>
                 </Form.Control>
             </Form.Field>
 
-
+            {/*TOTAL */}
             <div className="item">
                 <div className="form__label mobile">
                     <span>
