@@ -1,4 +1,4 @@
-import IconLogo from "./logo.svg";
+import IconLogo from "./LogoIcon.tsx";
 import IconPlus from "./IconPlus.tsx";
 import IconArrowRight from "./IconArrowRight.tsx";
 import IconArrowLeft from "./IconArrowLeft.tsx";

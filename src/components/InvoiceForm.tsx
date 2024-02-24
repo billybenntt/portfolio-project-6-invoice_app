@@ -1,9 +1,13 @@
 import {FormRowSelect, FormRow, FormRowItem} from "./";
 import {IconArrowLeft, IconPlus} from '../assets/'
 import {useAppSelector, useAppDispatch} from '../store/hooks.ts';
-import {createItem, handleAddressChange, handleChange, closeForm} from "../features/Form/formSlice.tsx";
-import {addInvoice, updateInvoice} from "../features/Invoice/invoiceSlice.tsx";
-import {UpdateFormEvent, SubmitFormEvent, Item} from "../types/app";
+import {createItem, handleAddressChange, handleChange, closeForm} from "../features/Form/formSlice.ts";
+import {addInvoice, updateInvoice} from "../features/Invoice/invoiceSlice.ts";
+import {UpdateFormEvent, Item} from "../types/app";
+
+import * as Form from '@radix-ui/react-form';
+
+import React from "react";
 
 function InvoiceForm() {
 
@@ -37,28 +41,33 @@ function InvoiceForm() {
         dispatch(closeForm())
     }
 
-    const onFormSubmit = (event: any): void => {
+    const onFormSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
+        event.preventDefault()
+
+        const formElement = event.target as HTMLFormElement
+        const isValid = formElement.checkValidity()
 
 
-        const validity = event.target.validity
-
-
-        if (validity) {
-            event.preventDefault()
+        if (isValid) {
+            console.log("Valid Form")
             if (isEditing) {
                 dispatch(updateInvoice())
             } else {
                 dispatch(addInvoice())
             }
-            // dispatch(closeForm())
-
+            dispatch(closeForm())
         }
+        console.log("Invalid Form")
 
     }
 
     return (
         <div>
-            <form className={`invoice-form ${showForm ? "show" : ""} invoice-form-overlay`} onSubmit={onFormSubmit}>
+            <Form.Root
+                asChild={false}
+                className={`invoice-form ${showForm ? "show" : ""}`}
+                onSubmit={onFormSubmit}>
+
                 <div className="invoice-form-center">
                     <div className="invoice-form-status">
                         {isEditing ?
@@ -214,6 +223,7 @@ function InvoiceForm() {
 
 
                         {invoice.items.map((item: Item, index: number) => (
+
                             <FormRowItem
                                 key={index}
                                 index={index}
@@ -243,16 +253,16 @@ function InvoiceForm() {
                             <button className="btn btn-accent-1" type="button" onClick={onFormClose}>
                                 <span className="text-lg">Discard</span>
                             </button>
-                            <button className="btn btn-accent-2" type="submit" onClick={onFormSubmit}>
+                            <button className="btn btn-accent-2" type="submit">
                                 <span className="text-lg">Save as Draft</span>
                             </button>
-                            <button className="btn btn-primary-2" type="submit" onClick={onFormSubmit}>
+                            <button className="btn btn-primary-2" type="submit">
                                 <span className="text-lg">Save and Send</span>
                             </button>
                         </div>
                     }
                 </div>
-            </form>
+            </Form.Root>
         </div>
 
 

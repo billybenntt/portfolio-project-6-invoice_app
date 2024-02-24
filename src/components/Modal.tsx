@@ -1,4 +1,4 @@
-import {closeModal, deleteInvoice} from "../features/Invoice/invoiceSlice.tsx";
+import {closeModal, deleteInvoice} from "../features/Invoice/invoiceSlice.ts";
 import {useAppSelector, useAppDispatch} from '../store/hooks.ts';
 import {useNavigate} from "react-router-dom";
 

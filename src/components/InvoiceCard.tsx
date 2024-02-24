@@ -4,8 +4,8 @@ import {Invoice} from "../types/app";
 import {Link, useParams} from "react-router-dom";
 import {IconArrowLeft} from '../assets'
 import {useAppDispatch, useAppSelector} from '../store/hooks.ts';
-import {setFormInvoice, openForm} from "../features/Form/formSlice.tsx";
-import {openModal, getSingleInvoice} from "../features/Invoice/invoiceSlice.tsx";
+import {setFormInvoice, openForm} from "../features/Form/formSlice.ts";
+import {openModal, getSingleInvoice} from "../features/Invoice/invoiceSlice.ts";
 
 
 function InvoiceCard() {

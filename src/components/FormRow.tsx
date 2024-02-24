@@ -8,11 +8,8 @@ function FormRow(props: FormRowProps) {
     return (
         <Form.Root asChild={true}>
             <Form.Field name={inputType} className="form__row">
-                <Form.ValidityState>
-                    {(validity) => (
                         <div>
                             <div className="form__header">
-                                {console.log(validity?.valueMissing)}
                                 <Form.Label className="form__label">
                                     {label}
                                 </Form.Label>
@@ -42,11 +39,7 @@ function FormRow(props: FormRowProps) {
                                     disabled={false}
                                     required/>
                             </Form.Control>
-
                         </div>
-                    )}
-                </Form.ValidityState>
-
             </Form.Field>
         </Form.Root>
 

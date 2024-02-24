@@ -71,18 +71,23 @@ body {
         border-start-start-radius: $rounded-xl;
         border-end-end-radius: $rounded-xl;
       }
+
+
+      .logo-img {
+        transition: $transition;
+
+      }
     }
 
+
   }
+
 
   // GO
-  .logo-icon:hover {
-    transition: 500ms all linear;
-    transform: rotate(90deg);
-  }
+
 
   // RETURN
-  .logo-icon:not(:hover) {
+  .logo-img:not(:hover) {
     transition: 300ms all linear;
     transform: rotate(0deg);
   }
@@ -379,7 +384,7 @@ body {
     @extend .text-xl;
     padding: 1.2rem 0;
 
-    span{
+    span {
       color: $accent-light-400;
     }
   }
@@ -534,7 +539,9 @@ body {
         border-start-end-radius: 0;
 
         .logo-img {
-          transform: scale(1.5);
+          transform: scale(1.5) rotate(90deg);
+
+
         }
       }
 

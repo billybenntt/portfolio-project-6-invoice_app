@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
-import FormSlice from "../features/Form/formSlice.tsx";
-import invoicesSlice from "../features/Invoice/invoiceSlice.tsx";
+import FormSlice from "../features/Form/formSlice.ts";
+import invoicesSlice from "../features/Invoice/invoiceSlice.ts";
 
 export const store = configureStore({
   reducer: {

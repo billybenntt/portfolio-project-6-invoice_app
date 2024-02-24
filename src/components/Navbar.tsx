@@ -8,13 +8,12 @@ function Navbar() {
     return (
         <nav className="navbar">
             <div className="navbar-center">
-
                 <Link to={"/"}>
                     <div className="logo" onClick={() => console.log("logo")}>
                         <div className="logo-center">
-                           <span className="logo-img">
-                           <img src={IconLogo} alt="page-logo" className="logo-icon"/>
-                         </span>
+                           <div className="logo-img">
+                             <IconLogo className="icon"/>
+                             </div>
                         </div>
                     </div>
                 </Link>

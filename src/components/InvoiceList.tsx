@@ -3,8 +3,8 @@ import {Invoice} from "../types/app";
 import {ImageNoInvoices} from '../assets/'
 import {Filter, Button, InvoiceListItem} from "./";
 import {useAppDispatch, useAppSelector} from '../store/hooks.ts';
-import {setFormInvoice, openForm} from "../features/Form/formSlice.tsx";
-import {getAllInvoices} from "../features/Invoice/invoiceSlice.tsx";
+import {setFormInvoice, openForm} from "../features/Form/formSlice.ts";
+import {getAllInvoices} from "../features/Invoice/invoiceSlice.ts";
 
 
 function InvoiceList() {

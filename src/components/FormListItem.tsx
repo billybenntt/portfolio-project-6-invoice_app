@@ -1,4 +1,4 @@
-import {handleItemChange, deleteItem} from "../features/Form/formSlice.tsx";
+import {handleItemChange, deleteItem} from "../features/Form/formSlice.ts";
 import {useAppDispatch} from '../store/hooks.ts';
 import {UpdateFormEvent} from "../types/app";
 import {IconSun} from "../assets";

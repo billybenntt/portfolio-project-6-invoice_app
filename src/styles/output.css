@@ -594,11 +594,10 @@ body {
   border-start-start-radius: 24px;
   border-end-end-radius: 24px;
 }
-.navbar .logo-icon:hover {
-  transition: 500ms all linear;
-  transform: rotate(90deg);
+.navbar .logo .logo-center .logo-img {
+  transition: 0.3s ease-in-out all;
 }
-.navbar .logo-icon:not(:hover) {
+.navbar .logo-img:not(:hover) {
   transition: 300ms all linear;
   transform: rotate(0deg);
 }
@@ -891,7 +890,7 @@ body {
     border-start-end-radius: 0;
   }
   .navbar .navbar-center .logo-center .logo-img {
-    transform: scale(1.5);
+    transform: scale(1.5) rotate(90deg);
   }
   .navbar .navbar-center .navbar__control {
     flex-direction: column;
