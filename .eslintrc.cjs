@@ -9,10 +9,19 @@ module.exports = {
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
   plugins: ['react-refresh'],
+
+  'overrides': [
+    {
+      'files': ['*.tsx'],
+
+    }
+  ],
   rules: {
     'react-refresh/only-export-components': [
       'warn',
       { allowConstantExport: true },
     ],
+    'semi': ['off', 'always'],
+    'quotes': ['error', 'double']
   },
 }

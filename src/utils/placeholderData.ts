@@ -1,13 +1,13 @@
 const sampleAllData = [
     {
-        "invoice_id": "RT3080",
-        "createdAt": "2021-08-18",
-        "paymentDue": "2021-08-19",
-        "description": "New Invoice",
-        "paymentTerms": 4,
+        "invoice_id": "",
+        "createdAt": "",
+        "paymentDue": "",
+        "description": "",
+        "paymentTerms": 1,
         "clientName": "",
         "clientEmail": "",
-        "status": "draft",
+        "status": "pending",
         "senderAddress": {
             "street": "",
             "city": "",
@@ -23,8 +23,8 @@ const sampleAllData = [
         "items": [
             {
                 "name": "",
-                "quantity": 0,
-                "price": 0,
+                "quantity": "",
+                "price": "",
                 "total": 0
             },
 

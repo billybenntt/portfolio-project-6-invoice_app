@@ -94,9 +94,9 @@ function FormRowItem(props: FormRowItemProps) {
             </div>
 
             {/*DELETE BUTTON*/}
-            <span className="item icon" onClick={onItemDelete}>
+            <div className="item icon" onClick={onItemDelete}>
                     <IconDelete/>
-                </span>
+            </div>
         </div>
     )
 }

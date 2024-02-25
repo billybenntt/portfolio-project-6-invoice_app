@@ -19,7 +19,7 @@ const setFormInvoice = createAsyncThunk(
     'form/setFormInvoice',
     async (payloadInfo: string, thunkAPI: any) => {
         try {
-            const dummyInvoice = new InvoiceCreator("").createInvoice()
+            const dummyInvoice = new InvoiceCreator(defaultData).createInvoice()
             if (payloadInfo === 'edit') {
                 return thunkAPI.getState()['invoice']['singleInvoice']
             }
