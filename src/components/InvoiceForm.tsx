@@ -3,7 +3,7 @@ import {IconArrowLeft} from '../assets/'
 import {FormRowSelect, FormRow, FormRowItem, Button} from "./";
 import {useAppSelector, useAppDispatch} from '../store/hooks.ts';
 import {UpdateFormEvent, Item, SubmitFormEvent} from "../types/app";
-// import {addInvoice, updateInvoice} from "../features/Invoice/invoiceSlice.ts";
+import {addInvoice, updateInvoice} from "../features/Invoice/invoiceSlice.ts";
 import {createItem, handleAddressChange, handleChange, closeForm} from "../features/Form/formSlice.ts";
 
 
@@ -42,19 +42,19 @@ function InvoiceForm() {
     const onFormSubmit = (event: SubmitFormEvent): void => {
         event.preventDefault()
         const formElement = event.target as HTMLFormElement
-        const isValid = formElement.checkValidity()
-        //
-        console.log(isValid)
+        const isFormValid = formElement.checkValidity()
+        console.log(isFormValid)
 
 
-        //
-        // if (isEditing) {
-        //     dispatch(updateInvoice())
-        // } else {
-        //     dispatch(addInvoice())
-        // }
-        // dispatch(closeForm())
-        //
+        if (isFormValid) {
+            if (isEditing) {
+                dispatch(updateInvoice())
+            } else {
+                dispatch(addInvoice())
+            }
+            dispatch(closeForm())
+
+        }
 
 
     }
@@ -239,7 +239,6 @@ function InvoiceForm() {
                 {/*BUTTONS */}
                 <div className="invoice-form-control">
                     {isEditing ? (<div className="controls__edit">
-
                             <Button text="cancel"
                                 variation="light"
                                 type="button"
@@ -247,8 +246,8 @@ function InvoiceForm() {
 
                             <Button text="save changes"
                                 variation="primary"
-                                type="button"
-                                onClick={onFormClose}/>
+                                type="submit"
+                                onClick={() => console.log("Edit and save")}/>
                         </div>) :
                         <div className="controls__create">
                             <Button text="discard"

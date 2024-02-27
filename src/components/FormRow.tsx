@@ -9,7 +9,7 @@ function FormRow(props: FormRowProps) {
     const isOldInvoice = isEditing && inputType == 'date';
 
     return (
-        <Form.Field name={inputType} className="form__row">
+        <Form.Field name={label + addressType} className="form__row">
             <div>
                 <div className="form__header">
                     <Form.Label className="form__label">
