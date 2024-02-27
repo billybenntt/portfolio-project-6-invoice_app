@@ -53,9 +53,7 @@ function InvoiceForm() {
                 dispatch(addInvoice())
             }
             dispatch(closeForm())
-
         }
-
 
     }
 

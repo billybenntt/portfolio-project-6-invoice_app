@@ -7,7 +7,7 @@ function Modal() {
 
     const dispatch = useAppDispatch()
     const navigate = useNavigate()
-    const {showModal, singleInvoice} = useAppSelector(store => store.invoice)
+    const {showModal, singleInvoice: {invoice_id}} = useAppSelector(store => store.invoice)
 
 
     const handleModalClose = () => {
@@ -27,20 +27,21 @@ function Modal() {
                 <div className="modal-center">
                     <h2 className="text-xl">Confirm Deletion</h2>
                     <p className="text-base text-light-1">Are you sure you want to delete invoice
-                        #{singleInvoice.invoice_id}?
+                        #{invoice_id}?
                         This action
-                        cannot be undone.</p>
+                        cannot be undone.
+                    </p>
                     <div className="modal__control">
 
-                        <Button text="Cancel"
+                        <Button text="cancel"
                             variation="light"
                             type="button"
                             onClick={handleModalClose}/>
 
-                        <Button text="Delete"
+                        <Button text="delete"
                             variation="danger"
                             type="button"
-                            onClick={() => handleFormDelete(singleInvoice.invoice_id)}/>
+                            onClick={() => handleFormDelete(invoice_id)}/>
 
                     </div>
                 </div>

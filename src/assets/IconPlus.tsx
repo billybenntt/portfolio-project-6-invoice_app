@@ -3,14 +3,19 @@ import * as React from "react"
 function IconPlus(props: React.SVGProps<SVGSVGElement>) {
     return (
         <svg
-            width="1em"
-            height="1em"
             xmlns="http://www.w3.org/2000/svg"
-            {...props}>
-            <path
-                d="M6.313 10.023v-3.71h3.71v-2.58h-3.71V.023h-2.58v3.71H.023v2.58h3.71v3.71z"
-                fill={"currentColor"}
-            />
+            width={24}
+            height={24}
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            {...props}
+        >
+            <path d="M4 22h14a2 2 0 002-2V7l-5-5H6a2 2 0 00-2 2v4"/>
+            <path d="M14 2v4a2 2 0 002 2h4M3 15h6M6 12v6"/>
         </svg>
     )
 }
