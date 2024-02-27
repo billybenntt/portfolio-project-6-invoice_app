@@ -56,16 +56,16 @@ function InvoiceCard() {
                     <div className="invoice-card__controls desktop">
                         <div className="controls__center">
                             <Button text="Edit"
-                                variation="accent-1"
+                                variation="light"
                                 type="button"
                                 onClick={() => handleFormEdit(id!)}/>
                             <Button text="Delete"
-                                variation="danger-1"
+                                variation="danger"
                                 type="button"
                                 onClick={() => handleFormDelete()}/>
 
                             <Button text="Mark as paid"
-                                variation="primary-1"
+                                variation="primary"
                                 type="button"
                                 onClick={() => console.log("Mark as paid")}/>
 
@@ -182,17 +182,17 @@ function InvoiceCard() {
             {/* CARD CONTROLS MOBILE*/}
             <div className="invoice-card__controls mobile">
                 <div className="controls__center">
-                    <Button text="Edit"
-                        variation="accent-1"
+                    <Button text="edit"
+                        variation="light"
                         type="button"
                         onClick={() => handleFormEdit(id!)}/>
-                    <Button text="Delete"
-                        variation="danger-1"
+                    <Button text="delete"
+                        variation="danger"
                         type="button"
                         onClick={() => handleFormDelete()}/>
 
-                    <Button text="Mark as paid"
-                        variation="primary-1"
+                    <Button text="mark as paid"
+                        variation="primary"
                         type="button"
                         onClick={() => console.log("Mark as paid")}/>
 

@@ -1,9 +1,9 @@
 import * as Form from '@radix-ui/react-form';
-import {IconArrowLeft, IconPlus} from '../assets/'
+import {IconArrowLeft} from '../assets/'
 import {FormRowSelect, FormRow, FormRowItem, Button} from "./";
 import {useAppSelector, useAppDispatch} from '../store/hooks.ts';
 import {UpdateFormEvent, Item, SubmitFormEvent} from "../types/app";
-import {addInvoice, updateInvoice} from "../features/Invoice/invoiceSlice.ts";
+// import {addInvoice, updateInvoice} from "../features/Invoice/invoiceSlice.ts";
 import {createItem, handleAddressChange, handleChange, closeForm} from "../features/Form/formSlice.ts";
 
 
@@ -41,28 +41,27 @@ function InvoiceForm() {
 
     const onFormSubmit = (event: SubmitFormEvent): void => {
         event.preventDefault()
-
         const formElement = event.target as HTMLFormElement
         const isValid = formElement.checkValidity()
+        //
+        console.log(isValid)
 
 
-        if (isValid) {
-            console.log("Valid Form")
-            if (isEditing) {
-                dispatch(updateInvoice())
-            } else {
-                dispatch(addInvoice())
-            }
-            dispatch(closeForm())
-        }
-        console.log("Invalid Form")
+        //
+        // if (isEditing) {
+        //     dispatch(updateInvoice())
+        // } else {
+        //     dispatch(addInvoice())
+        // }
+        // dispatch(closeForm())
+        //
+
 
     }
 
     return (
         <div>
             <Form.Root
-                asChild={false}
                 className={`invoice-form ${showForm ? "show" : ""}`}
                 onSubmit={onFormSubmit}>
 
@@ -231,10 +230,9 @@ function InvoiceForm() {
 
                 <div className="invoice-form-create">
                     <Button text="Add New Item"
-                        variation="accent-1-icon"
+                        variation="light-icon"
                         type="button"
                         onClick={onItemCreate}/>
-
 
                 </div>
 
@@ -242,31 +240,31 @@ function InvoiceForm() {
                 <div className="invoice-form-control">
                     {isEditing ? (<div className="controls__edit">
 
-                            <Button text="Cancel"
-                                variation="accent-1"
+                            <Button text="cancel"
+                                variation="light"
                                 type="button"
                                 onClick={onFormClose}/>
 
-                            <Button text="Save Changes"
-                                variation="primary-1"
+                            <Button text="save changes"
+                                variation="primary"
                                 type="button"
                                 onClick={onFormClose}/>
                         </div>) :
                         <div className="controls__create">
-                            <Button text="Discard"
-                                variation="accent-1"
+                            <Button text="discard"
+                                variation="light"
                                 type="button"
                                 onClick={onFormClose}/>
 
                             <Button text="Save as Draft"
-                                variation="accent-2"
+                                variation="dark"
                                 type="submit"
-                                onClick={onFormClose}/>
+                                onClick={() => console.log("draft")}/>
 
                             <Button text="Save and Send"
-                                variation="primary-1"
+                                variation="primary"
                                 type="submit"
-                                onClick={onFormClose}/>
+                                onClick={() => console.log("pending")}/>
                         </div>
                     }
                 </div>

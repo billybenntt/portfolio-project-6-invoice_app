@@ -11,9 +11,11 @@
   border: transparent;
   max-height: 48px;
   font-size: 12px;
-  font-weight: bold;
+  font-weight: bolder;
   padding: 17px 16px;
-
+  transition: $transition;
+  text-transform: capitalize;
+  outline: 1px solid rgba(55, 59, 83, 0.08);
 
   &:hover {
     opacity: 0.8;
@@ -21,45 +23,56 @@
 
 }
 
-.primary-1 {
+.primary {
   min-width: 138px;
   color: $accent-light-100;
   background-color: $primary-200;
-  text-transform: capitalize;
-
-
 }
 
-.primary-1-icon {
+.primary-icon {
   color: $accent-light-100;
   background-color: $primary-200;
-
-
 }
 
-
-.accent-1 {
+.light {
   min-width: 96px;
   background-color: $accent-light-010;
   color: $accent-light-400;
 
+  &:hover {
+    background-color: darken($accent-light-010, 10%);
+    color: darken($accent-light-400, 10%);
+  }
+
+
 }
 
-.accent-2 {
-  background-color: $accent-dark-100;
-  color: $accent-light-300;
-
-}
-
-
-.accent-1-icon {
+.light-icon {
   width: 100%;
   background-color: $accent-light-010;
   color: $accent-light-400;
+
+  &:hover {
+    background-color: darken($accent-light-010, 10%); // Darken the color by 20%
+    color: darken($accent-light-400, 10%); // Darken the color by 20%
+  }
+
+}
+
+.dark {
+  background-color: $accent-dark-100;
+  color: $accent-light-300;
+
+  &:hover {
+    background-color: lighten($accent-dark-100, 5%);
+    color: #fff
+  }
+
+
 }
 
 
-.danger-1 {
+.danger {
   min-width: 89px;
   color: $accent-light-100;
   background-color: $danger-200;

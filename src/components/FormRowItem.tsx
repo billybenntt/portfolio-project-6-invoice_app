@@ -50,7 +50,7 @@ function FormRowItem(props: FormRowItemProps) {
                 </Form.Label>
                 <Form.Control asChild>
                     <input className="form__input"
-                        type="text"
+                        type="tel"
                         name="quantity"
                         value={quantity}
                         maxLength={3}
@@ -69,10 +69,10 @@ function FormRowItem(props: FormRowItemProps) {
                 </Form.Label>
                 <Form.Control asChild>
                     <input className="form__input"
-                        type="text"
+                        type="tel"
                         name="price"
+                        maxLength={4}
                         value={price}
-                        maxLength={3}
                         placeholder="0"
                         onChange={onItemChange}
                         id={`price-${index}`}
@@ -88,16 +88,17 @@ function FormRowItem(props: FormRowItemProps) {
                         Total
                     </span>
                 </div>
-                <div className="form__input">
+                <div className="form__output">
                     {total}
                 </div>
             </div>
 
             {/*DELETE BUTTON*/}
             <div className="item icon" onClick={onItemDelete}>
-                    <IconDelete/>
+                <IconDelete/>
             </div>
         </div>
+
     )
 }
 

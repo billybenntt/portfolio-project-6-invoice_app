@@ -42,9 +42,10 @@ export type SubmitFormEvent = React.FormEvent<HTMLFormElement> | React.MouseEven
 // COMPONENT PROPS
 export interface ButtonProps {
     text: string
-    style: "accent" | "primary"
-    type: "1" | "2" | "3"
-    show?: "mobile" | "desktop"
+    variation: "primary" | "primary-icon" | "light" | "light-icon" | "dark" | "danger"
+    showSize?: "desktop" | "mobile"
+    type: "submit" | "button",
+    onClick: () => void | ((value: SubmitFormEvent) => void);
 }
 
 export interface FormRowProps {
@@ -56,7 +57,7 @@ export interface FormRowProps {
     value: string | number
 }
 
-export interface FormRowItemProps extends Item{
+export interface FormRowItemProps extends Item {
     index: number;
 }
 

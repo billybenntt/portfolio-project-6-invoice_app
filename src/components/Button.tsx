@@ -2,18 +2,22 @@
 import {ButtonProps} from "../types/app";
 
 
-function Button(props, children) {
+function Button(props: ButtonProps) {
 
-    const {text, variation, type, onClick} = props
+    const {
+        text,
+        variation,
+        type,
+        showSize,
+        onClick
+    } = props
 
-    console.log(children)
 
     return (
         <button
-            className={`btn ${variation}`}
+            className={`btn ${variation} ${showSize}`}
             type={type}
             onClick={onClick}>
-
             <span>{text}</span>
         </button>
     )

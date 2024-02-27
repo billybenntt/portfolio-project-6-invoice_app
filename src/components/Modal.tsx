@@ -1,6 +1,7 @@
 import {closeModal, deleteInvoice} from "../features/Invoice/invoiceSlice.ts";
 import {useAppSelector, useAppDispatch} from '../store/hooks.ts';
 import {useNavigate} from "react-router-dom";
+import {Button} from "./index.tsx";
 
 function Modal() {
 
@@ -30,12 +31,17 @@ function Modal() {
                         This action
                         cannot be undone.</p>
                     <div className="modal__control">
-                        <button className="btn btn-accent-1" onClick={handleModalClose}>
-                            <span className="text-lg">Cancel</span>
-                        </button>
-                        <button className="btn btn-danger-1" onClick={() => handleFormDelete(singleInvoice.invoice_id)}>
-                            <span className="text-lg">Delete</span>
-                        </button>
+
+                        <Button text="Cancel"
+                            variation="light"
+                            type="button"
+                            onClick={handleModalClose}/>
+
+                        <Button text="Delete"
+                            variation="danger"
+                            type="button"
+                            onClick={() => handleFormDelete(singleInvoice.invoice_id)}/>
+
                     </div>
                 </div>
             </div>

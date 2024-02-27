@@ -30,7 +30,6 @@
       border: 1px solid $primary-100;
     }
 
-
   }
 
 }
@@ -94,6 +93,12 @@
       width: 100%;
     }
 
+    .form__output {
+      padding: 0.72rem;
+      width: 100%;
+    }
+
+
   }
 
 
@@ -114,6 +119,15 @@
       border: 1px solid $primary-100;
     }
 
+  }
+
+  .form__output {
+    @extend .text-lg;
+    outline: none;
+    font-family: inherit;
+    border: 1px transparent $accent-light-200;
+    border-radius: $rounded-sm;
+    color: $accent-light-300;
   }
 
 
@@ -139,7 +153,7 @@
     @extend .text-lg;
     border: 1px solid $accent-light-200;
     border-radius: $rounded-sm;
-    padding: 0.5rem;
+    padding: 0.72rem;
     background-color: #fff;
     display: flex;
     justify-content: space-between;

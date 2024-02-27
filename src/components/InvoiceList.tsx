@@ -41,12 +41,14 @@ function InvoiceList() {
                         <Filter/>
                         <div className="control__create">
                             <Button text="New"
-                                variation="primary-1-icon mobile"
+                                variation="primary-icon"
+                                showSize="mobile"
                                 type="button"
                                 onClick={handleFormCreate}/>
 
                             <Button text="New invoice"
-                                variation="primary-1-icon desktop"
+                                variation="primary-icon"
+                                showSize="desktop"
                                 type="button"
                                 onClick={handleFormCreate}/>
                         </div>
