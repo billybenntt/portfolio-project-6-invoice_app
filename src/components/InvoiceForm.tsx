@@ -1,6 +1,6 @@
 import * as Form from '@radix-ui/react-form';
 import {IconArrowLeft, IconPlus} from '../assets/'
-import {FormRowSelect, FormRow, FormRowItem} from "./";
+import {FormRowSelect, FormRow, FormRowItem, Button} from "./";
 import {useAppSelector, useAppDispatch} from '../store/hooks.ts';
 import {UpdateFormEvent, Item, SubmitFormEvent} from "../types/app";
 import {addInvoice, updateInvoice} from "../features/Invoice/invoiceSlice.ts";
@@ -210,7 +210,6 @@ function InvoiceForm() {
                     <div className="form__row-items">
                         <h4 className="items_title">Item List</h4>
                         {/*ITEM LIST*/}
-
                         <div className="items_header">
                             <p>Item Name</p>
                             <p>Qty.</p>
@@ -218,7 +217,6 @@ function InvoiceForm() {
                             <p>Total</p>
                             <p></p>
                         </div>
-
 
                         {invoice.items.map((item: Item, index: number) => (
                             <FormRowItem
@@ -228,34 +226,47 @@ function InvoiceForm() {
                             />
                         ))}
                     </div>
+                </div>
 
 
-                    <button className="btn btn-accent-3" type="button" onClick={onItemCreate}>
-                        <IconPlus/>
-                        <span className="text-lg">Add New Item</span>
-                    </button>
+                <div className="invoice-form-create">
+                    <Button text="Add New Item"
+                        variation="accent-1-icon"
+                        type="button"
+                        onClick={onItemCreate}/>
+
+
                 </div>
 
                 {/*BUTTONS */}
-                <div className="invoice-form__controls">
+                <div className="invoice-form-control">
                     {isEditing ? (<div className="controls__edit">
-                            <button className="btn btn-accent-1" type="button" onClick={onFormClose}>
-                                <span className="text-lg">Cancel</span>
-                            </button>
-                            <button className="btn btn-primary-2">
-                                <span className="text-lg">Save Changes</span>
-                            </button>
+
+                            <Button text="Cancel"
+                                variation="accent-1"
+                                type="button"
+                                onClick={onFormClose}/>
+
+                            <Button text="Save Changes"
+                                variation="primary-1"
+                                type="button"
+                                onClick={onFormClose}/>
                         </div>) :
                         <div className="controls__create">
-                            <button className="btn btn-accent-1" type="button" onClick={onFormClose}>
-                                <span className="text-lg">Discard</span>
-                            </button>
-                            <button className="btn btn-accent-2" type="submit">
-                                <span className="text-lg">Save as Draft</span>
-                            </button>
-                            <button className="btn btn-primary-2" type="submit">
-                                <span className="text-lg">Save and Send</span>
-                            </button>
+                            <Button text="Discard"
+                                variation="accent-1"
+                                type="button"
+                                onClick={onFormClose}/>
+
+                            <Button text="Save as Draft"
+                                variation="accent-2"
+                                type="submit"
+                                onClick={onFormClose}/>
+
+                            <Button text="Save and Send"
+                                variation="primary-1"
+                                type="submit"
+                                onClick={onFormClose}/>
                         </div>
                     }
                 </div>

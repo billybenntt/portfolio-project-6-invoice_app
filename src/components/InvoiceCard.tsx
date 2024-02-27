@@ -1,5 +1,5 @@
 import {useEffect} from "react";
-import {StatusTag} from "./";
+import {Button, StatusTag} from "./";
 import {Invoice} from "../types/app";
 import {Link, useParams} from "react-router-dom";
 import {IconArrowLeft} from '../assets'
@@ -55,21 +55,20 @@ function InvoiceCard() {
                     {/* CARD CONTROLS DESKTOP*/}
                     <div className="invoice-card__controls desktop">
                         <div className="controls__center">
-                            <div>
-                                <button className="btn btn-accent-1" onClick={() => handleFormEdit(id!)}>
-                                    <span className="text-lg">Edit</span>
-                                </button>
-                            </div>
-                            <div>
-                                <button className="btn btn-danger-1" onClick={() => handleFormDelete()}>
-                                    <span className="text-lg">Delete</span>
-                                </button>
-                            </div>
-                            <div>
-                                <button className="btn btn-primary-2">
-                                    <span className="text-lg">Mark As Paid</span>
-                                </button>
-                            </div>
+                            <Button text="Edit"
+                                variation="accent-1"
+                                type="button"
+                                onClick={() => handleFormEdit(id!)}/>
+                            <Button text="Delete"
+                                variation="danger-1"
+                                type="button"
+                                onClick={() => handleFormDelete()}/>
+
+                            <Button text="Mark as paid"
+                                variation="primary-1"
+                                type="button"
+                                onClick={() => console.log("Mark as paid")}/>
+
                         </div>
                     </div>
                 </div>
@@ -183,21 +182,20 @@ function InvoiceCard() {
             {/* CARD CONTROLS MOBILE*/}
             <div className="invoice-card__controls mobile">
                 <div className="controls__center">
-                    <div>
-                        <button className="btn btn-accent-1">
-                            <span className="text-lg">Edit</span>
-                        </button>
-                    </div>
-                    <div>
-                        <button className="btn btn-danger-1" onClick={() => handleFormDelete()}>
-                            <span className="text-lg">Delete</span>
-                        </button>
-                    </div>
-                    <div>
-                        <button className="btn btn-primary-2">
-                            <span className="text-lg">Mark As Paid</span>
-                        </button>
-                    </div>
+                    <Button text="Edit"
+                        variation="accent-1"
+                        type="button"
+                        onClick={() => handleFormEdit(id!)}/>
+                    <Button text="Delete"
+                        variation="danger-1"
+                        type="button"
+                        onClick={() => handleFormDelete()}/>
+
+                    <Button text="Mark as paid"
+                        variation="primary-1"
+                        type="button"
+                        onClick={() => console.log("Mark as paid")}/>
+
                 </div>
             </div>
         </section>

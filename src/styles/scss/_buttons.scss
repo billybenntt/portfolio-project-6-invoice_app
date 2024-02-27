@@ -4,60 +4,63 @@
 // BUTTONS
 
 .btn {
-  height: 3rem;
   display: flex;
   justify-content: center;
-  align-items: center;
   border-radius: $rounded-xl;
   cursor: pointer;
   border: transparent;
+  max-height: 48px;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 17px 16px;
+
 
   &:hover {
-    transition: all 0.5s ease-in-out;
+    opacity: 0.8;
   }
 
 }
 
-
-.btn-primary-1 {
-  padding: 0 0.9rem;
+.primary-1 {
+  min-width: 138px;
   color: $accent-light-100;
   background-color: $primary-200;
   text-transform: capitalize;
 
-  .btn-img {
-    width: 2rem;
-    height: 2rem;
-    background-color: $accent-light-100;
-    border-radius: $rounded-full;
-    display: grid;
-    color: $primary-200;
-    place-content: center;
-    margin-right: 0.5rem;
-  }
-
-  &:hover {
-    opacity: 0.8;
-  }
-
 
 }
 
-
-.btn-primary-2 {
-  min-width: 131px;
+.primary-1-icon {
   color: $accent-light-100;
   background-color: $primary-200;
 
 
-  &:hover {
-    opacity: 0.8;
-  }
 }
 
 
-.btn-danger-1 {
-  width: 89px;
+.accent-1 {
+  min-width: 96px;
+  background-color: $accent-light-010;
+  color: $accent-light-400;
+
+}
+
+.accent-2 {
+  background-color: $accent-dark-100;
+  color: $accent-light-300;
+
+}
+
+
+.accent-1-icon {
+  width: 100%;
+  background-color: $accent-light-010;
+  color: $accent-light-400;
+}
+
+
+.danger-1 {
+  min-width: 89px;
   color: $accent-light-100;
   background-color: $danger-200;
 
@@ -66,40 +69,4 @@
   }
 }
 
-.btn-accent-1 {
-  min-width: 96px;
-  background-color: $accent-light-100;
-  color: $accent-light-400;
 
-  &:hover {
-    background-color: $accent-light-200;
-  }
-}
-
-
-.btn-accent-2 {
-  min-width: 120px;
-  background-color: $accent-dark-100;
-  color: $accent-light-300;
-
-  &:hover {
-    background-color: $accent-dark-500;
-    transition: all 0.5s ease-in-out;
-  }
-}
-
-
-.btn-accent-3 {
-  width: 100%;
-  background-color: $accent-light-100;
-  color: $accent-light-400;
-
-  svg {
-    margin-right: 0.3rem;
-  }
-
-  &:hover {
-    background-color: $accent-light-200;
-
-  }
-}

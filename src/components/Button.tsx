@@ -1,19 +1,20 @@
-import {IconPlus} from '../assets'
+// import {IconPlus} from '../assets'
 import {ButtonProps} from "../types/app";
 
 
-function Button(props: ButtonProps) {
+function Button(props, children) {
 
-    const {text, type, show, style} = props
+    const {text, variation, type, onClick} = props
+
+    console.log(children)
 
     return (
-        <button className={`btn btn-${style}-${type} ${show}`}>
-            <span className="btn-img">
-             <IconPlus/>
-            </span>
-            <span className="text-lg">
-              {text}
-            </span>
+        <button
+            className={`btn ${variation}`}
+            type={type}
+            onClick={onClick}>
+
+            <span>{text}</span>
         </button>
     )
 }

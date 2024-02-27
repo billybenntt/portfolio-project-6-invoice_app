@@ -39,9 +39,16 @@ function InvoiceList() {
                     </div>
                     <div className="invoice-list__control">
                         <Filter/>
-                        <div className="control__create" onClick={handleFormCreate}>
-                            <Button text="new" type="1" show="mobile" style="primary"/>
-                            <Button text="new Invoice" type="1" show="desktop" style="primary"/>
+                        <div className="control__create">
+                            <Button text="New"
+                                variation="primary-1-icon mobile"
+                                type="button"
+                                onClick={handleFormCreate}/>
+
+                            <Button text="New invoice"
+                                variation="primary-1-icon desktop"
+                                type="button"
+                                onClick={handleFormCreate}/>
                         </div>
                     </div>
                 </div>

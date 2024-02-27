@@ -65,7 +65,6 @@
     grid-template-columns:1fr 1fr 1fr 20px;
     justify-content: center;
 
-
     .item:first-child {
       grid-column: 1 / -1;
     }
@@ -91,7 +90,7 @@
 
   .item {
     .form__input {
-      padding: 1rem;
+      padding: 0.72rem;
       width: 100%;
     }
 
@@ -140,7 +139,7 @@
     @extend .text-lg;
     border: 1px solid $accent-light-200;
     border-radius: $rounded-sm;
-    padding: 0.72rem;
+    padding: 0.5rem;
     background-color: #fff;
     display: flex;
     justify-content: space-between;
@@ -179,7 +178,6 @@
 
 }
 
-
 [data-invalid] {
   .form__header {
     color: $danger-200;
@@ -205,7 +203,6 @@
 
   .form__row-items {
     row-gap: 0.5rem;
-    padding: 1rem 0;
 
     .items_header {
       display: grid;
