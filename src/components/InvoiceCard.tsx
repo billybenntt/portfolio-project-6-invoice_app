@@ -34,13 +34,33 @@ function InvoiceCard() {
     const singleInvoice = useAppSelector(store => store.invoice.singleInvoice) as Invoice
 
 
+    const itemList = singleInvoice.items.map((item) => {
+        return <div className="subtotal__item">
+            <div className="mobile">
+                <div>
+                    <h4>{item.name}</h4>
+                    <h3 className="text-lg text-light-1">{item.quantity} x {item.price} TWD</h3>
+                </div>
+                <h4>{item.quantity * item.price} TWD</h4>
+            </div>
+
+            <div className="desktop">
+                <h4>{item.name}</h4>
+                <h4>{item.quantity} Pcs.</h4>
+                <h4>TWD {item.price}</h4>
+                <h4>TWD {item.quantity * item.price}</h4>
+            </div>
+        </div>
+    })
+
+
     return (
         <section className="invoice-card">
             <div className="invoice-card-center">
                 <div className="invoice-card__return">
-                    <span>
-                       <IconArrowLeft/>
-                    </span>
+                            <span>
+                               <IconArrowLeft/>
+                            </span>
                     <Link to={`/`}>
                         <h4>Go back</h4>
                     </Link>
@@ -77,9 +97,9 @@ function InvoiceCard() {
                     <div className="card-group">
                         <div className="invoice__id">
                             <h4>
-                                <span className="text-light-1">
-                                    #
-                                </span>
+                                        <span className="text-light-1">
+                                            #
+                                        </span>
                                 {singleInvoice.invoice_id}
                             </h4>
                             <p>{singleInvoice.description}</p>
@@ -126,54 +146,20 @@ function InvoiceCard() {
                     </div>
                     <div className="card-group">
 
-                        {/*MOBILE */}
-                        <div className="invoice__subtotal mobile">
-                            {/*DYNAMIC SIZE*/}
-                            <div className="subtotal__item">
-                                <div>
-                                    <h4>Banner Design</h4>
-                                    <h4>1 x £ 156.00</h4>
-                                </div>
-                                <h4>£ 156.00</h4>
-                            </div>
-
-                            <div className="subtotal__item">
-                                <div>
-                                    <h4>Banner Design</h4>
-                                    <h4>1 x £ 156.00</h4>
-                                </div>
-                                <h4>£ 156.00</h4>
-                            </div>
-                        </div>
-
-                        {/*DESKTOP */}
-                        <div className="invoice__subtotal desktop">
-                            <div className="subtotal__description">
+                        <div className="invoice__subtotal">
+                            <div className="description desktop">
                                 <p>Item Name</p>
                                 <p>QTY</p>
                                 <p>Price</p>
                                 <p>Total</p>
                             </div>
-                            {/*DYNAMIC SIZE*/}
-
-                            <div className="subtotal__item">
-                                <h4>Banner Design</h4>
-                                <h4>2</h4>
-                                <h4>£156.00</h4>
-                                <h4>£312.00</h4>
-                            </div>
-                            <div className="subtotal__item">
-                                <h4>Banner Design</h4>
-                                <h4>2</h4>
-                                <h4>£156.00</h4>
-                                <h4>£312.00</h4>
-                            </div>
+                            {itemList}
                         </div>
 
                         <div className="invoice__total">
-                            <p className="mobile text-xl">Grand Total</p>
-                            <h4 className="desktop">Amount due</h4>
-                            <h2>£ 556.00</h2>
+                            <p className="mobile">Grand Total</p>
+                            <p className="desktop">Amount due</p>
+                            <h2>TWD {singleInvoice.total}</h2>
                         </div>
                     </div>
                 </div>

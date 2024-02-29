@@ -12,8 +12,7 @@ function IconPlus(props: React.SVGProps<SVGSVGElement>) {
             strokeWidth={2}
             strokeLinecap="round"
             strokeLinejoin="round"
-            {...props}
-        >
+            {...props}>
             <path d="M4 22h14a2 2 0 002-2V7l-5-5H6a2 2 0 00-2 2v4"/>
             <path d="M14 2v4a2 2 0 002 2h4M3 15h6M6 12v6"/>
         </svg>

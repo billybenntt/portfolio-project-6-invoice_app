@@ -315,7 +315,7 @@ input[type=number] {
   line-height: 1.125rem;
 }
 
-.text-base, .invoice-card .invoice__total p, .invoice-card .invoice-card-center p, .invoice-list .invoice-list-center .item__group p, .invoice-list .invoice-list-center .invoice-list__header .invoice-list__title p, .form__row .form__header, .form__row-items .items_header, .form__row-items .form__label, .form__row-select .form__label {
+.text-base, .invoice-card .invoice-card-center p, .invoice-list .invoice-list-center .item__group p, .invoice-list .invoice-list-center .invoice-list__header .invoice-list__title p, .form__row .form__header, .form__row-items .items_header, .form__row-items .form__label, .form__row-select .form__label {
   font-weight: 400;
   font-size: 0.813rem;
   line-height: 1.125rem;
@@ -715,31 +715,36 @@ body {
 }
 .invoice-card .invoice__subtotal {
   padding: 1.5rem;
-  min-height: 74px;
   flex-direction: column;
+  background-color: #F9FAFE;
   row-gap: 1rem;
-  background-color: #f2f2f2;
   border-start-start-radius: 8px;
   border-start-end-radius: 8px;
 }
-.invoice-card .invoice__subtotal .subtotal__item {
-  width: 100%;
-  display: flex;
-  align-items: end;
+.invoice-card .invoice__subtotal .mobile {
   justify-content: space-between;
+  align-items: end;
+  padding: 0.3rem 0;
+}
+.invoice-card .invoice__subtotal .desktop {
+  text-align: center;
+}
+.invoice-card .invoice__subtotal .desktop * {
+  flex: 1 1 25%;
 }
 .invoice-card .invoice__total {
   border-end-start-radius: 8px;
   border-end-end-radius: 8px;
   padding: 1.5rem;
   color: #f2f2f2;
-  height: 80px;
+  min-height: 80px;
   background-color: #373B53;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 .invoice-card .invoice__total p {
+  font-size: 1rem;
   color: #f2f2f2;
 }
 .invoice-card .invoice-card__status {
@@ -852,15 +857,13 @@ body {
   .invoice-card .invoice-card__body .card-group:nth-child(1) .invoice__sender {
     text-align: right;
   }
-  .invoice-card .invoice__subtotal {
-    flex-direction: column;
-    row-gap: 0.5rem;
-    background-color: #F9FAFE;
-  }
-  .invoice-card .invoice__subtotal .subtotal__description {
+  .invoice-card .invoice__subtotal .description {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    flex-basis: 25%;
+  }
+  .invoice-card .invoice__subtotal .subtotal__item {
+    padding: 0.5rem 0;
   }
   .invoice-card .invoice-card__status {
     justify-content: start;

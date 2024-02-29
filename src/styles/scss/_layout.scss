@@ -284,19 +284,29 @@ body {
 
   .invoice__subtotal {
     padding: 1.5rem;
-    min-height: 74px;
     flex-direction: column;
+    background-color: $accent-light-010;
     row-gap: 1rem;
-    background-color: $accent-light-100;
     border-start-start-radius: $rounded-lg;
     border-start-end-radius: $rounded-lg;
 
-    .subtotal__item {
-      width: 100%;
-      display: flex;
-      align-items: end;
+    .mobile {
       justify-content: space-between;
+      align-items: end;
+      padding: 0.3rem 0;
     }
+
+    .desktop {
+      text-align: center;
+
+      * {
+        flex: 1 1 25%;
+      }
+
+
+    }
+
+
   }
 
 
@@ -305,14 +315,14 @@ body {
     border-end-end-radius: $rounded-lg;
     padding: 1.5rem;
     color: $accent-light-100;
-    height: 80px;
+    min-height: 80px;
     background-color: $accent-dark-100;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
     p {
-      @extend .text-base;
+      font-size: 1rem;
       color: $accent-light-100;
     }
 
@@ -476,15 +486,17 @@ body {
     }
 
     .invoice__subtotal {
-      flex-direction: column;
-      row-gap: 0.5rem;
-      background-color: $accent-light-010;
-
-      .subtotal__description {
+      .description {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        flex-basis: 25%;
       }
+
+
+      .subtotal__item {
+        padding: 0.5rem 0;
+      }
+
 
     }
 
