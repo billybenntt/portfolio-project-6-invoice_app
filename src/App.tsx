@@ -10,7 +10,7 @@ function App() {
             <Routes>
                 <Route path='/' element={<InvoicesMainPage/>}/>
                 <Route path='invoice/:id' element={<InvoicesSinglePage/>}/>
-                <Route path='*' element={<EmptyPage/>}/>
+                <Route path='*' element={<InvoicesMainPage/>}/>
             </Routes>
         </BrowserRouter>
     )

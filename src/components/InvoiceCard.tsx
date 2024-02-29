@@ -34,8 +34,8 @@ function InvoiceCard() {
     const singleInvoice = useAppSelector(store => store.invoice.singleInvoice) as Invoice
 
 
-    const itemList = singleInvoice.items.map((item) => {
-        return <div className="subtotal__item">
+    const itemList = singleInvoice.items.map((item, index) => {
+        return <div className="subtotal__item" key={index}>
             <div className="mobile">
                 <div>
                     <h4>{item.name}</h4>
