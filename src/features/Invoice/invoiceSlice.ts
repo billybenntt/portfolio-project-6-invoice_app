@@ -67,6 +67,7 @@ const deleteInvoice = createAsyncThunk(
     async (id: string, thunkAPI: any) => {
         try {
             const {data: [invoice]} = await fetchData.delete(`invoices?invoice_id=eq.${id}`)
+            removeDataFromLocalStorage("invoices")
             return invoice
         } catch (error) {
             return thunkAPI.rejectWithValue('Failed to Delete Invoice', error);

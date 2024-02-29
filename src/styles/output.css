@@ -93,12 +93,14 @@ input[type=number] {
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr 20px;
   justify-content: center;
+  align-items: center;
 }
 .form__row-items .form__row-items-center .item:first-child {
   grid-column: 1/-1;
 }
 .form__row-items .form__row-items-center .item:last-child {
-  align-self: end;
+  margin-top: 16px;
+  justify-self: center;
 }
 .form__row-items .form__row-items-center .icon {
   cursor: pointer;
@@ -218,7 +220,8 @@ input[type=number] {
     grid-column: 1/2;
   }
   .form__row-items .form__row-items-center .item:last-child {
-    align-self: center;
+    margin-bottom: 0.8rem;
+    margin-right: 2rem;
   }
 }
 .btn {
