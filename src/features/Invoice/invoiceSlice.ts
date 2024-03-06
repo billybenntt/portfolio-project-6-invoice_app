@@ -35,10 +35,11 @@ const getAllInvoices = createAsyncThunk(
 
 const addInvoice = createAsyncThunk(
     'invoice/addInvoice',
-    async (_, thunkAPI: any) => {
+    async (data: string, thunkAPI: any) => {
         try {
-            const newInvoice = thunkAPI.getState()['form']['invoice']
-            const {data: [invoice]} = await fetchData.post("invoices", newInvoice)
+
+            let newInvoice = thunkAPI.getState()['form']['invoice']
+            const {data: [invoice]} = await fetchData.post("invoices", {...newInvoice, status: data})
             removeDataFromLocalStorage("invoices")
             return invoice
         } catch (error) {
@@ -49,11 +50,12 @@ const addInvoice = createAsyncThunk(
 
 const updateInvoice = createAsyncThunk(
     'invoice/updateInvoice',
-    async (_, thunkAPI: any) => {
+    async (data: string, thunkAPI: any) => {
         try {
-            const updatedInvoice = thunkAPI.getState()['form']['invoice']
+
+            let updatedInvoice = thunkAPI.getState()['form']['invoice']
             const {data: [invoice]} = await fetchData.patch(`invoices?invoice_id=eq.${updatedInvoice.invoice_id}`,
-                updatedInvoice)
+                {...updatedInvoice, status: data})
             removeDataFromLocalStorage("invoices")
             return invoice
         } catch (error) {

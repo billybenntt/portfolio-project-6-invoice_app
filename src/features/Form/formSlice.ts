@@ -115,13 +115,13 @@ const formSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(setFormInvoice.pending, (state) => {
-                console.log("pending", state);
+                console.log(state);
             })
             .addCase(setFormInvoice.fulfilled, (state, action) => {
                 state.invoice = action.payload
             })
             .addCase(setFormInvoice.rejected, (state) => {
-                console.log("rejected", state);
+                console.log(state);
             });
     },
 

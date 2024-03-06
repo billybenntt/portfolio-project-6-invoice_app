@@ -5,12 +5,15 @@ import {useAppSelector, useAppDispatch} from '../store/hooks.ts';
 import {UpdateFormEvent, Item, SubmitFormEvent} from "../types/app";
 import {addInvoice, updateInvoice} from "../features/Invoice/invoiceSlice.ts";
 import {createItem, handleAddressChange, handleChange, closeForm} from "../features/Form/formSlice.ts";
+import {useState} from "react";
 
 
 function InvoiceForm() {
 
     const dispatch = useAppDispatch()
     const {showForm, isEditing, invoice} = useAppSelector(store => store.form)
+
+    const [status, setStatus] = useState("pending");
 
 
     const onChange = (event: UpdateFormEvent): void => {
@@ -39,18 +42,19 @@ function InvoiceForm() {
         dispatch(closeForm())
     }
 
+
+
     const onFormSubmit = (event: SubmitFormEvent): void => {
         event.preventDefault()
         const formElement = event.target as HTMLFormElement
         const isFormValid = formElement.checkValidity()
-        console.log(isFormValid)
 
 
         if (isFormValid) {
             if (isEditing) {
-                dispatch(updateInvoice())
+                dispatch(updateInvoice(status))
             } else {
-                dispatch(addInvoice())
+                dispatch(addInvoice(status))
             }
             dispatch(closeForm())
         }
@@ -245,7 +249,7 @@ function InvoiceForm() {
                             <Button text="save changes"
                                 variation="primary"
                                 type="submit"
-                                onClick={() => console.log("Edit and save")}/>
+                                onClick={()=> setStatus("pending")}/>
                         </div>) :
                         <div className="controls__create">
                             <Button text="discard"
@@ -256,12 +260,12 @@ function InvoiceForm() {
                             <Button text="Save as Draft"
                                 variation="dark"
                                 type="submit"
-                                onClick={() => console.log("draft")}/>
+                                onClick={()=> setStatus("draft")}/>
 
                             <Button text="Save and Send"
                                 variation="primary"
                                 type="submit"
-                                onClick={() => console.log("pending")}/>
+                                onClick={()=> setStatus("pending")}/>
                         </div>
                     }
                 </div>
