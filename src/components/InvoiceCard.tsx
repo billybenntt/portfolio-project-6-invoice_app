@@ -5,7 +5,7 @@ import {Link, useParams} from "react-router-dom";
 import {IconArrowLeft} from '../assets'
 import {useAppDispatch, useAppSelector} from '../store/hooks.ts';
 import {setFormInvoice, openForm} from "../features/Form/formSlice.ts";
-import {openModal, getSingleInvoice} from "../features/Invoice/invoiceSlice.ts";
+import {openModal, getSingleInvoice, updateInvoice} from "../features/Invoice/invoiceSlice.ts";
 
 
 function InvoiceCard() {
@@ -28,6 +28,17 @@ function InvoiceCard() {
     // DELETE INVOICE AND OPEN MODAL
     const handleFormDelete = (): void => {
         dispatch(openModal())
+    }
+
+    const handleStatusChange = (): void => {
+        dispatch(setFormInvoice("edit"))
+            .then(result => {
+                console.log(result)
+                return dispatch(updateInvoice("paid"));
+            })
+            .catch(error => {
+                console.log(error)
+            });
     }
 
 
@@ -87,7 +98,7 @@ function InvoiceCard() {
                             <Button text="Mark as paid"
                                 variation="primary"
                                 type="button"
-                                onClick={() => console.log("Mark as paid")}/>
+                                onClick={handleStatusChange}/>
 
                         </div>
                     </div>
@@ -97,7 +108,7 @@ function InvoiceCard() {
                     <div className="card-group">
                         <div className="invoice__id">
                             <h4>
-                                        <span className="text-light-1">
+                                <span className="text-light-1">
                                             #
                                         </span>
                                 {singleInvoice.invoice_id}
@@ -180,7 +191,7 @@ function InvoiceCard() {
                     <Button text="mark as paid"
                         variation="primary"
                         type="button"
-                        onClick={() => console.log("Mark as paid")}/>
+                        onClick={handleStatusChange}/>
 
                 </div>
             </div>
