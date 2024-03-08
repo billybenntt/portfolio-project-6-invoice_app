@@ -83,4 +83,57 @@
   }
 }
 
+// FILTER
 
+.filter-btn {
+  all: unset;
+  user-select: none;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 0.3rem;
+
+  .icon {
+    transition: $transition;
+  }
+}
+
+.filter-btn[data-state="open"] {
+  .icon {
+    display: flex;
+  }
+
+}
+
+.filter-btn[data-state="closed"] {
+
+  .icon {
+    transform: rotate(180deg);
+  }
+
+}
+
+
+.filter-content {
+  padding: 1.5rem;
+  display: flex;
+  width: 192px;
+  height: 128px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: $rounded-lg;
+  background-color: #fff;
+  box-shadow: $box-shadow-2;
+
+
+  .filter-option {
+    width: 100%;
+    display: flex;
+    align-items: baseline;
+    font-size: 1rem;
+    column-gap: 0.5rem;
+  }
+
+}

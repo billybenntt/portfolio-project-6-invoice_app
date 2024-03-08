@@ -1,7 +1,7 @@
 import {useEffect} from "react";
 import {Invoice} from "../types/app";
 import {ImageNoInvoices} from '../assets/'
-import {Filter, Button, InvoiceListItem} from "./";
+import {FilterAlt, Button, InvoiceListItem} from "./";
 import {useAppDispatch, useAppSelector} from '../store/hooks.ts';
 import {setFormInvoice, openForm} from "../features/Form/formSlice.ts";
 import {getAllInvoices} from "../features/Invoice/invoiceSlice.ts";
@@ -38,7 +38,8 @@ function InvoiceList() {
                         <p> Total invoices</p>
                     </div>
                     <div className="invoice-list__control">
-                        <Filter/>
+                        <FilterAlt/>
+
                         <div className="control__create">
                             <Button text="New"
                                 variation="primary-icon"
