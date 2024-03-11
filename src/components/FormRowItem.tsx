@@ -1,5 +1,5 @@
 import * as Form from '@radix-ui/react-form';
-import {deleteItem, handleItemChange} from "../features/Form/formSlice.ts";
+import {deleteItem, handleItemChange} from "../store/features/Form/formSlice.ts";
 import {useAppDispatch} from '../store/hooks.ts';
 import {IconDelete} from "../assets";
 import {UpdateFormEvent, FormRowItemProps} from "../types/app";

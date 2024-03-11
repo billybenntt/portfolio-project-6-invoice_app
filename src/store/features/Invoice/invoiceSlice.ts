@@ -1,8 +1,8 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
-import {Invoice} from "../../types/app";
-import data from "../../utils/dataPlaceholder.ts";
-import fetchData from "../../utils/axios/FetchData.ts";
-import {addDataToLocalStorage, getDataFromLocalStorage, removeDataFromLocalStorage} from "../../utils/dataLocalStorage.ts";
+import {Invoice} from "../../../types/app";
+import data from "../../../utils/dataPlaceholder.ts";
+import fetchData from "../../../utils/axios/FetchData.ts";
+import {addDataToLocalStorage, getDataFromLocalStorage, removeDataFromLocalStorage} from "../../../utils/dataLocalStorage.ts";
 
 const defaultData = data as Invoice[]
 

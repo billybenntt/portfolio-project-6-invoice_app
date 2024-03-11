@@ -3,8 +3,8 @@ import {IconArrowLeft} from '../assets/'
 import {FormRowSelect, FormRow, FormRowItem, Button} from "./";
 import {useAppSelector, useAppDispatch} from '../store/hooks.ts';
 import {UpdateFormEvent, Item, SubmitFormEvent} from "../types/app";
-import {addInvoice, updateInvoice} from "../features/Invoice/invoiceSlice.ts";
-import {createItem, handleAddressChange, handleChange, closeForm} from "../features/Form/formSlice.ts";
+import {addInvoice, updateInvoice} from "../store/features/Invoice/invoiceSlice.ts";
+import {createItem, handleAddressChange, handleChange, closeForm} from "../store/features/Form/formSlice.ts";
 import {useState} from "react";
 
 
