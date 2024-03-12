@@ -3,6 +3,7 @@
 @import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700&display=swap");
 :root {
   font-size: 16px;
 }
@@ -291,13 +292,16 @@ input[type=number] {
 }
 
 .filter-btn {
+  font-weight: 400;
+  font-size: 0.813rem;
   all: unset;
   user-select: none;
   padding: 0 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  column-gap: 0.3rem;
+  column-gap: 0.5rem;
+  font-weight: bold;
 }
 .filter-btn .icon {
   transition: 0.3s ease-in-out all;
@@ -312,23 +316,51 @@ input[type=number] {
 }
 
 .filter-content {
+  font-weight: 400;
+  font-size: 0.813rem;
+  font-weight: bold;
   padding: 1.5rem;
   display: flex;
-  width: 192px;
-  height: 128px;
+  width: 12rem;
+  height: 8rem;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   border-radius: 8px;
-  background-color: #fff;
+  background-color: #FFFFFF;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
 }
 .filter-content .filter-option {
   width: 100%;
   display: flex;
-  align-items: baseline;
+  align-items: center;
   font-size: 1rem;
   column-gap: 0.5rem;
+  padding: 0.25rem 0;
+}
+
+.checkbox {
+  all: unset;
+  background-color: #DFE3FA;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 4px;
+  display: flex;
+  margin-top: -0.25rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkbox:hover {
+  outline: 2px dashed #7C5DFA;
+}
+
+.checkbox:focus {
+  background-color: #7C5DFA;
+}
+
+.checkbox[data-state=checked] {
+  background-color: #7C5DFA;
 }
 
 .text-xxl, .invoice-list .invoice-list__empty h2 {
