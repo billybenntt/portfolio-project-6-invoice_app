@@ -1,5 +1,5 @@
 import * as Select from '@radix-ui/react-select';
-import {IconArrowDown, IconArrowLeft} from '../assets';
+import {IconArrowDown, IconArrowLeft} from '@/assets/icons';
 
 
 function FormRowSelect(props: any) {

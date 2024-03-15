@@ -1,4 +1,4 @@
-import {InvoiceList, InvoiceForm} from "../components/";
+import {InvoiceList, InvoiceForm} from "@/components/";
 
 
 function InvoicesMainPage() {

@@ -1,5 +1,4 @@
-// import {IconPlus} from '../assets'
-import {ButtonProps} from "../types/app";
+import {ButtonProps} from "@/types/app";
 
 
 function Button(props: ButtonProps) {

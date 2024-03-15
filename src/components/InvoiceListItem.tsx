@@ -1,7 +1,7 @@
-import {StatusTag} from "./";
-import {Invoice} from "../types/app";
+import {StatusTag} from "@/components";
+import {Invoice} from "@/types/app";
 import {Link} from 'react-router-dom'
-import {IconArrowRight} from '../assets'
+import {IconArrowRight} from '@/assets/icons'
 
 
 function InvoiceListItem(props: Partial<Invoice>) {

@@ -1,6 +1,6 @@
 import * as Form from '@radix-ui/react-form';
-import {FormRowProps} from "../types/app";
-import {useAppSelector} from '../store/hooks.ts';
+import {FormRowProps} from "@/types/app";
+import {useAppSelector} from '@/store/hooks.ts';
 
 function FormRow(props: FormRowProps) {
 

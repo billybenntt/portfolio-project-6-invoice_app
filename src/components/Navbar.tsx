@@ -1,4 +1,4 @@
-import {IconSun, IconMoon, IconLogo} from '../assets'
+import {IconSun, IconMoon, IconLogo} from '@/assets/icons'
 import {Link} from "react-router-dom";
 
 function Navbar() {
@@ -11,9 +11,9 @@ function Navbar() {
                 <Link to={"/"}>
                     <div className="logo" onClick={() => console.log("logo")}>
                         <div className="logo-center">
-                           <div className="logo-img">
-                             <IconLogo className="icon"/>
-                             </div>
+                            <div className="logo-img">
+                                <IconLogo className="icon"/>
+                            </div>
                         </div>
                     </div>
                 </Link>

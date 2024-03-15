@@ -1,10 +1,10 @@
 import * as Form from '@radix-ui/react-form';
-import {IconArrowLeft} from '../assets/'
-import {FormRowSelect, FormRow, FormRowItem, Button} from "./";
-import {useAppSelector, useAppDispatch} from '../store/hooks.ts';
-import {UpdateFormEvent, Item, SubmitFormEvent} from "../types/app";
-import {addInvoice, updateInvoice} from "../store/features/Invoice/invoiceSlice.ts";
-import {createItem, handleAddressChange, handleChange, closeForm} from "../store/features/Form/formSlice.ts";
+import {IconArrowLeft} from '@/assets/icons'
+import {FormRowSelect, FormRow, FormRowItem, Button} from "@/components";
+import {useAppSelector, useAppDispatch} from '@/store/hooks.ts';
+import {UpdateFormEvent, Item, SubmitFormEvent} from "@/types/app";
+import {addInvoice, updateInvoice} from "@/store/features/Invoice/invoiceSlice.ts";
+import {createItem, handleAddressChange, handleChange, closeForm} from "@/store/features/Form/formSlice.ts";
 import {useState} from "react";
 
 
@@ -41,7 +41,6 @@ function InvoiceForm() {
     const onFormClose = (): void => {
         dispatch(closeForm())
     }
-
 
 
     const onFormSubmit = (event: SubmitFormEvent): void => {
@@ -249,7 +248,7 @@ function InvoiceForm() {
                             <Button text="save changes"
                                 variation="primary"
                                 type="submit"
-                                onClick={()=> setStatus("pending")}/>
+                                onClick={() => setStatus("pending")}/>
                         </div>) :
                         <div className="controls__create">
                             <Button text="discard"
@@ -260,12 +259,12 @@ function InvoiceForm() {
                             <Button text="Save as Draft"
                                 variation="dark"
                                 type="submit"
-                                onClick={()=> setStatus("draft")}/>
+                                onClick={() => setStatus("draft")}/>
 
                             <Button text="Save and Send"
                                 variation="primary"
                                 type="submit"
-                                onClick={()=> setStatus("pending")}/>
+                                onClick={() => setStatus("pending")}/>
                         </div>
                     }
                 </div>

@@ -1,7 +1,6 @@
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import * as Checkbox from '@radix-ui/react-checkbox';
-
-import {IconCheck, IconArrowDown} from '../assets'
+import {IconCheck, IconArrowDown} from '@/assets/icons'
 
 
 function Filter() {

@@ -1,10 +1,10 @@
 import {useEffect} from "react";
-import {Invoice} from "../types/app";
-import {ImageNoInvoices} from '../assets/'
-import {FilterAlt, Button, InvoiceListItem} from "./";
-import {useAppDispatch, useAppSelector} from '../store/hooks.ts';
-import {setFormInvoice, openForm} from "../store/features/Form/formSlice.ts";
-import {getAllInvoices} from "../store/features/Invoice/invoiceSlice.ts";
+import {Invoice} from "@/types/app";
+import {ImageNoInvoices} from '@/assets/images'
+import {FilterAlt, Button, InvoiceListItem} from "@/components";
+import {useAppDispatch, useAppSelector} from '@/store/hooks.ts';
+import {setFormInvoice, openForm} from "@/store/features/Form/formSlice.ts";
+import {getAllInvoices} from "@/store/features/Invoice/invoiceSlice.ts";
 
 
 function InvoiceList() {

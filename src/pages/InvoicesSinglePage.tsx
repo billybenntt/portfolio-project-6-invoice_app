@@ -1,4 +1,4 @@
-import {InvoiceCard, InvoiceForm, Modal} from "../components/";
+import {InvoiceCard, InvoiceForm, Modal} from "@/components/";
 
 
 function InvoicesSinglePage() {
