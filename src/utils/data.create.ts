@@ -1,7 +1,7 @@
-import {Item, Invoice, Address} from "@/types/app";
+import {Item, Invoice, Address} from "@/types/app.definitions.ts";
 
 
-export class InvoiceCreator {
+class InvoiceCreator {
     private readonly invoice: Invoice;
 
     // Get Data from Outside
@@ -57,3 +57,5 @@ export class InvoiceCreator {
     }
 
 }
+
+export default InvoiceCreator

@@ -51,7 +51,7 @@ export interface ButtonProps {
 export interface FormRowProps {
     label: string
     inputType: string
-    onChange: (value: UpdateFormEvent, addressType?) => void;
+    onChange: (value: UpdateFormEvent, addressType?: any) => void;
     addressType?: "client" | "sender"
     name: string,
     value: string | number

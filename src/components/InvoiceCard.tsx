@@ -1,6 +1,6 @@
 import {useEffect} from "react";
 import {Button, StatusTag} from "@/components";
-import {Invoice} from "@/types/app";
+import {Invoice} from "@/types/app.definitions.ts";
 import {Link, useParams} from "react-router-dom";
 import {IconArrowLeft} from '@/assets/icons'
 import {useAppDispatch, useAppSelector} from '@/store/hooks.ts';

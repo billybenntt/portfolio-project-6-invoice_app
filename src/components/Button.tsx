@@ -1,4 +1,4 @@
-import {ButtonProps} from "@/types/app";
+import {ButtonProps} from "@/types/app.definitions.ts";
 
 
 function Button(props: ButtonProps) {

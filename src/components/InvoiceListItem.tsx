@@ -1,5 +1,5 @@
 import {StatusTag} from "@/components";
-import {Invoice} from "@/types/app";
+import {Invoice} from "@/types/app.definitions.ts";
 import {Link} from 'react-router-dom'
 import {IconArrowRight} from '@/assets/icons'
 

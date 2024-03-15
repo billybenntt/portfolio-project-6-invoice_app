@@ -1,5 +1,5 @@
 import Button from "./Button.tsx";
-import FilterAlt from "./FilterAlt.tsx";
+import FilterAlt from "./Filter.tsx";
 import FormRow from "./FormRow.tsx";
 import FormRowItem from "./FormRowItem.tsx";
 import FormRowSelect from "./FormRowSelect.tsx";

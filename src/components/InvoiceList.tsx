@@ -1,5 +1,5 @@
 import {useEffect} from "react";
-import {Invoice} from "@/types/app";
+import {Invoice} from "@/types/app.definitions.ts";
 import {ImageNoInvoices} from '@/assets/images'
 import {FilterAlt, Button, InvoiceListItem} from "@/components";
 import {useAppDispatch, useAppSelector} from '@/store/hooks.ts';

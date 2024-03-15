@@ -1,8 +1,8 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
-import {Invoice} from "@/types/app";
-import data from "@/utils/dataPlaceholder.ts";
-import fetchData from "@/utils/axios/FetchData.ts";
-import {addDataToLocalStorage, getDataFromLocalStorage, removeDataFromLocalStorage} from "@/utils/dataLocalStorage.ts";
+import {Invoice} from "@/types/app.definitions.ts";
+import data from "@/utils/data.placeholder.ts";
+import dataFetch from "@/utils/axios/data.fetch.ts";
+import {addDataToLocalStorage, getDataFromLocalStorage, removeDataFromLocalStorage} from "@/utils/data.localstorage.ts";
 
 const defaultData = data as Invoice[]
 
@@ -21,7 +21,7 @@ const getAllInvoices = createAsyncThunk(
         const storedData = getDataFromLocalStorage("invoices");
         try {
             if (!storedData) {
-                const {data} = await fetchData.get("invoices?select=*")
+                const {data} = await dataFetch.get("invoices?select=*")
                 addDataToLocalStorage("invoices", data)
                 return data;
             }
@@ -39,7 +39,7 @@ const addInvoice = createAsyncThunk(
         try {
 
             let newInvoice = thunkAPI.getState()['form']['invoice']
-            const {data: [invoice]} = await fetchData.post("invoices", {...newInvoice, status: data})
+            const {data: [invoice]} = await dataFetch.post("invoices", {...newInvoice, status: data})
             removeDataFromLocalStorage("invoices")
             return invoice
         } catch (error) {
@@ -54,7 +54,7 @@ const updateInvoice = createAsyncThunk(
         try {
 
             let updatedInvoice = thunkAPI.getState()['form']['invoice']
-            const {data: [invoice]} = await fetchData.patch(`invoices?invoice_id=eq.${updatedInvoice.invoice_id}`,
+            const {data: [invoice]} = await dataFetch.patch(`invoices?invoice_id=eq.${updatedInvoice.invoice_id}`,
                 {...updatedInvoice, status: data})
             removeDataFromLocalStorage("invoices")
             return invoice
@@ -68,7 +68,7 @@ const deleteInvoice = createAsyncThunk(
     'invoice/deleteInvoice',
     async (id: string, thunkAPI: any) => {
         try {
-            const {data: [invoice]} = await fetchData.delete(`invoices?invoice_id=eq.${id}`)
+            const {data: [invoice]} = await dataFetch.delete(`invoices?invoice_id=eq.${id}`)
             removeDataFromLocalStorage("invoices")
             return invoice
         } catch (error) {

@@ -1,4 +1,4 @@
-import {StatusTagProps} from "@/types/app";
+import {StatusTagProps} from "@/types/app.definitions.ts";
 
 function StatusTag(props: StatusTagProps) {
 

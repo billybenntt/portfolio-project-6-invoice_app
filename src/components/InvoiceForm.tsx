@@ -2,7 +2,7 @@ import * as Form from '@radix-ui/react-form';
 import {IconArrowLeft} from '@/assets/icons'
 import {FormRowSelect, FormRow, FormRowItem, Button} from "@/components";
 import {useAppSelector, useAppDispatch} from '@/store/hooks.ts';
-import {UpdateFormEvent, Item, SubmitFormEvent} from "@/types/app";
+import {UpdateFormEvent, Item, SubmitFormEvent} from "@/types/app.definitions.ts";
 import {addInvoice, updateInvoice} from "@/store/features/Invoice/invoiceSlice.ts";
 import {createItem, handleAddressChange, handleChange, closeForm} from "@/store/features/Form/formSlice.ts";
 import {useState} from "react";
