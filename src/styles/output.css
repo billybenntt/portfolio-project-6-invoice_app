@@ -408,7 +408,7 @@ input[type=number] {
   color: #0C0E16;
 }
 
-.text-light-1, .invoice-card .invoice-card-center p, .invoice-list .invoice-list__empty p, .invoice-list .invoice-list-center .item__group p, .invoice-list .invoice-list-center .invoice-list__header .invoice-list__title p {
+.text-light-1, .invoice-card .invoice-card-center p, .invoice-list .invoice-list__empty p, .invoice-list .invoice-list-center .item__group p {
   color: #7E88C3;
 }
 
@@ -624,6 +624,16 @@ body {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
+}
+.invoice-list .invoice-list-center .invoice-list__header .invoice-list__title h2 {
+  padding: 0.5rem 0;
+}
+.invoice-list .invoice-list-center .invoice-list__header .invoice-list__title p {
+  color: #252945;
+  font-weight: bold;
+}
+.invoice-list .invoice-list-center .invoice-list__header .invoice-list__title .amount {
+  color: #7E88C3;
 }
 .invoice-list .invoice-list-center .invoice-list__header .invoice-list__control {
   display: flex;

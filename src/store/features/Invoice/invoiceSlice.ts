@@ -22,6 +22,7 @@ const getAllInvoices = createAsyncThunk(
         try {
             if (!storedData) {
                 const {data} = await dataFetch.get("invoices?select=*")
+
                 addDataToLocalStorage("invoices", data)
                 return data;
             }

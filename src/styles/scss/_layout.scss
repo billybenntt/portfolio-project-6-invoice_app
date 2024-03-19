@@ -121,13 +121,20 @@ body {
       .invoice-list__title {
 
         h2 {
-          @extend .text-xl
+          @extend .text-xl;
+          padding: 0.5rem 0;
         }
 
         p {
           @extend .text-base;
-          @extend .text-light-1
+          color: $accent-dark-200;
+          font-weight: bold;
         }
+
+        .amount {
+          color: $accent-light-400;
+        }
+
 
       }
 
@@ -308,7 +315,6 @@ body {
 
 
   }
-
 
 
   .invoice__total {

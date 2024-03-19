@@ -35,7 +35,7 @@ function InvoiceList() {
                 <div className="invoice-list__header">
                     <div className="invoice-list__title">
                         <h2>Invoices</h2>
-                        <p> Total invoices</p>
+                        <p> Total invoices <span className="amount">{allInvoices.length}</span></p>
                     </div>
                     <div className="invoice-list__control">
                         <FilterAlt/>
