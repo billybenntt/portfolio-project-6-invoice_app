@@ -1,8 +1,18 @@
 import * as Form from '@radix-ui/react-form';
-import {FormRowProps} from "@/types/app.definitions.ts";
+import {UpdateFormEvent} from "@/types/app.definitions.ts";
 import {useAppSelector} from '@/store/hooks.ts';
 
-function FormRow(props: FormRowProps) {
+interface IProps {
+    label: string
+    inputType: string
+    onChange: (value: UpdateFormEvent, addressType?: any) => void;
+    addressType?: "client" | "sender"
+    name: string,
+    value: string | number
+}
+
+
+function FormRow(props: IProps) {
 
     const {label, inputType, onChange, addressType, name, value} = props
     const {isEditing} = useAppSelector(store => store.form)

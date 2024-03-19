@@ -1,6 +1,10 @@
-import {StatusTagProps} from "@/types/app.definitions.ts";
+import {InvoiceStatus} from "@/types/app.definitions.ts";
 
-function StatusTag(props: StatusTagProps) {
+interface IProps {
+    invoiceStatus: InvoiceStatus
+}
+
+function StatusTag(props: IProps) {
 
     const {invoiceStatus} = props
 

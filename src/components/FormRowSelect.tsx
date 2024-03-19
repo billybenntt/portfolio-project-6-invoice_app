@@ -1,9 +1,15 @@
 import * as Select from '@radix-ui/react-select';
 import {IconArrowDown, IconArrowLeft} from '@/assets/icons';
 
+interface IProps {
+    label: string
+    name: string
+    value: string
+    onChange: (value: string) => void
+}
 
 
-function FormRowSelect(props: any) {
+function FormRowSelect(props: IProps) {
 
     const {label, name, value, onChange} = props
 

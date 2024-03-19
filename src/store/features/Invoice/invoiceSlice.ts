@@ -9,6 +9,8 @@ const defaultData = data as Invoice[]
 
 // INITIAL STATE
 const initialState: any = {
+
+
     allInvoices: getDataFromLocalStorage("invoices") || [],
     singleInvoice: defaultData[0],
     isLoading: true,

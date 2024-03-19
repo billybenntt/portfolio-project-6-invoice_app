@@ -10,6 +10,7 @@ const defaultData = JSON.parse(JSON.stringify(data))[0]
 const initialState = {
     invoice: {...defaultData},
     isError: false,
+    isLoading: false,
     isEditing: false,
     showForm: false,
 }
@@ -115,13 +116,14 @@ const formSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(setFormInvoice.pending, (state) => {
-                console.log(state);
+                state.isLoading = true
             })
             .addCase(setFormInvoice.fulfilled, (state, action) => {
+                state.isLoading = false
                 state.invoice = action.payload
             })
             .addCase(setFormInvoice.rejected, (state) => {
-                console.log(state);
+                state.isLoading = false
             });
     },
 

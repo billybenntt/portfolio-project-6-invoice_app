@@ -1,14 +1,19 @@
-import {ButtonProps} from "@/types/app.definitions.ts";
+import {SubmitFormEvent} from "@/types/app.definitions.ts";
 
 
-function Button(props: ButtonProps) {
+interface IProps {
+    text: string
+    variation: "primary" | "primary-icon" | "light" | "light-icon" | "dark" | "danger"
+    showSize?: "desktop" | "mobile"
+    type: "submit" | "button",
+    onClick: () => void | ((value: SubmitFormEvent) => void);
+}
+
+
+function Button(props: IProps) {
 
     const {
-        text,
-        variation,
-        type,
-        showSize,
-        onClick
+        text, variation, type, showSize, onClick
     } = props
 
 

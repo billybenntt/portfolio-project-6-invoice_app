@@ -2,9 +2,14 @@ import * as Form from '@radix-ui/react-form';
 import {deleteItem, handleItemChange} from "@/store/features/Form/formSlice.ts";
 import {useAppDispatch} from '@/store/hooks.ts';
 import {IconDelete} from "@/assets/icons";
-import {UpdateFormEvent, FormRowItemProps} from "@/types/app.definitions.ts";
+import {UpdateFormEvent, Item} from "@/types/app.definitions.ts";
 
-function FormRowItem(props: FormRowItemProps) {
+interface IProps extends Item {
+    index: number;
+}
+
+
+function FormRowItem(props: IProps) {
 
     const dispatch = useAppDispatch()
 

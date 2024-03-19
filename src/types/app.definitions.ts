@@ -31,40 +31,12 @@ export interface Item {
     total: number
 }
 
-type InvoiceStatus = "pending" | "paid" | "draft"
+export type InvoiceStatus = "pending" | "paid" | "draft"
 
 
 // EVENT LISTENERS
 export type UpdateFormEvent = React.ChangeEvent<HTMLInputElement>
 export type SubmitFormEvent = React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement, MouseEvent>;
-
-
-// COMPONENT PROPS
-export interface ButtonProps {
-    text: string
-    variation: "primary" | "primary-icon" | "light" | "light-icon" | "dark" | "danger"
-    showSize?: "desktop" | "mobile"
-    type: "submit" | "button",
-    onClick: () => void | ((value: SubmitFormEvent) => void);
-}
-
-export interface FormRowProps {
-    label: string
-    inputType: string
-    onChange: (value: UpdateFormEvent, addressType?: any) => void;
-    addressType?: "client" | "sender"
-    name: string,
-    value: string | number
-}
-
-export interface FormRowItemProps extends Item {
-    index: number;
-}
-
-
-export interface StatusTagProps {
-    invoiceStatus: InvoiceStatus
-}
 
 
 // STORE
