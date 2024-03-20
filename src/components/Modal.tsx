@@ -26,7 +26,7 @@ function Modal() {
             <div className="modal">
                 <div className="modal-center">
                     <h2 className="text-xl">Confirm Deletion</h2>
-                    <p className="text-base text-light-1">Are you sure you want to delete invoice
+                    <p className="text-base">Are you sure you want to delete invoice
                         #{invoice_id}?
                         This action
                         cannot be undone.

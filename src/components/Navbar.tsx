@@ -1,9 +1,30 @@
 import {IconSun, IconMoon, IconLogo} from '@/assets/icons'
+import {ImageAvatar} from '@/assets/images'
 import {Link} from "react-router-dom";
+import {useEffect} from "react";
+import {useAppDispatch, useAppSelector} from '@/store/hooks.ts';
+import {toggleTheme} from "@/store/features/Invoice/invoiceSlice.ts";
 
 function Navbar() {
 
-    const theme = "light"
+    const {currentTheme} = useAppSelector(store => store.invoice)
+    const dispatch = useAppDispatch()
+
+    useEffect(() => {
+        document.documentElement.className = currentTheme
+    }, [currentTheme])
+
+
+    const handleThemeChange = () => {
+        if (currentTheme === 'dark') {
+            dispatch(toggleTheme("light"))
+
+        } else {
+            dispatch(toggleTheme("dark"))
+
+        }
+    }
+
 
     return (
         <nav className="navbar">
@@ -19,8 +40,8 @@ function Navbar() {
                 </Link>
 
                 <div className="navbar__control">
-                    <div className="theme">
-                        {theme === "light" ?
+                    <div className="theme" onClick={handleThemeChange}>
+                        {currentTheme === "light" ?
                             <span className="theme-img">
                                 <IconMoon/>
                             </span> :
@@ -29,7 +50,7 @@ function Navbar() {
                             </span>}
                     </div>
                     <div className="avatar">
-                        <span>😺</span>
+                        <img src={ImageAvatar} alt="avatar-img" className="avatar-img" />
                     </div>
                 </div>
             </div>

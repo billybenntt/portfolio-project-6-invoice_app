@@ -35,7 +35,22 @@ function InvoiceList() {
                 <div className="invoice-list__header">
                     <div className="invoice-list__title">
                         <h2>Invoices</h2>
-                        <p> Total invoices <span className="amount">{allInvoices.length}</span></p>
+                        {/*INVOICE COUNT*/}
+                        {
+                            allInvoices.length === 0 ?
+                                (<p>No invoices</p>)
+                                :
+                                (
+                                    <>
+                                        <p className="mobile">
+                                            {allInvoices.length} {allInvoices.length === 1 ? 'invoice' : 'invoices'}
+                                        </p>
+                                        <p className="desktop">
+                                            There {allInvoices.length === 1 ? 'is' : 'are'} {allInvoices.length} total {allInvoices.length === 1 ? 'invoice' : 'invoices'}
+                                        </p>
+                                    </>
+                                )
+                        }
                     </div>
                     <div className="invoice-list__control">
                         <FilterAlt/>

@@ -1,4 +1,5 @@
 @import "variables";
+@import "mixins";
 
 // FORMS
 .form__row {
@@ -11,7 +12,7 @@
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 0.3rem;
-    color: $accent-light-400;
+    @include color-scheme-text($accent-light-000, $accent-light-400);
     @extend .text-base;
   }
 
@@ -22,12 +23,13 @@
     font-family: inherit;
     width: 100%;
     height: 48px;
-    border: 1px solid $accent-light-200;
     border-radius: $rounded-sm;
     padding: 1rem;
+    @include color-scheme($accent-light-000, $accent-dark-300);
+    @include color-scheme-border($accent-dark-100, $accent-light-200);
 
     &:focus {
-      border: 1px solid $primary-100;
+      border: 1px solid $primary-100 !important;
     }
 
   }
@@ -91,6 +93,7 @@
 
   .item {
     .form__input {
+
       padding: 0.72rem;
       width: 100%;
     }
@@ -111,13 +114,15 @@
 
   .form__input {
     @extend .text-lg;
+    @include color-scheme($accent-light-000, $accent-dark-300);
+    @include color-scheme-border($accent-dark-100, $accent-light-200);
+
     outline: none;
     font-family: inherit;
-    border: 1px solid $accent-light-200;
     border-radius: $rounded-sm;
 
     &:focus {
-      border: 1px solid $primary-100;
+      border: 1px solid $primary-100 !important;
     }
 
   }
@@ -128,7 +133,8 @@
     font-family: inherit;
     border: 1px transparent $accent-light-200;
     border-radius: $rounded-sm;
-    color: $accent-light-300;
+    @include color-scheme-text($accent-light-000, $accent-light-300);
+
   }
 
 
@@ -142,25 +148,24 @@
   margin-bottom: 1rem;
 
   .form__label {
-    color: $accent-light-400;
+    @include color-scheme-text($accent-light-000, $accent-light-400);
     margin-bottom: 0.3rem;
     @extend .text-base
   }
 
   .form_row_input {
-    width: 100%;
-    cursor: pointer;
     all: unset;
+    display: flex;
     @extend .text-lg;
-    border: 1px solid $accent-light-200;
+    @include color-scheme($accent-light-000, $accent-dark-300);
+    @include color-scheme-border($accent-dark-100, $accent-light-200);
+    justify-content: space-between;
     border-radius: $rounded-sm;
     padding: 0.72rem;
-    background-color: #fff;
-    display: flex;
-    justify-content: space-between;
+    cursor: pointer;
 
     &:focus, &:active {
-      border: 1px solid $primary-200;
+      border: 1px solid $primary-200 !important;
     }
 
   }
@@ -173,7 +178,8 @@
   z-index: 999;
   @extend .text-lg;
   cursor: pointer;
-  background-color: white;
+  @include color-scheme($accent-light-000, $accent-dark-100);
+
   box-shadow: 0 10px 20px 0 rgba(72, 84, 159, 0.25);;
   width: var(--radix-select-trigger-width);
   max-height: var(--radix-select-content-available-height);
@@ -187,7 +193,7 @@
     border-bottom: 1px dotted $accent-light-200;
 
     &:hover {
-      color: $primary-200;
+      @include color-scheme-text($primary-100, $primary-200);
     }
   }
 

@@ -10,10 +10,10 @@ const defaultData = data as Invoice[]
 // INITIAL STATE
 const initialState: any = {
 
-
     allInvoices: getDataFromLocalStorage("invoices") || [],
     singleInvoice: defaultData[0],
     isLoading: true,
+    currentTheme: getDataFromLocalStorage("theme"),
     showModal: false,
 };
 
@@ -92,6 +92,10 @@ const invoiceSlice = createSlice({
         closeModal: (state) => {
             state.showModal = false
         },
+        toggleTheme: (state, {payload}) => {
+            state.currentTheme = payload
+            addDataToLocalStorage("theme", state.currentTheme)
+        },
         getSingleInvoice: (state, {payload}) => {
             const {id} = payload
             state.singleInvoice = state.allInvoices.find((item: Invoice) => {
@@ -129,6 +133,7 @@ export {addInvoice, updateInvoice, deleteInvoice, getAllInvoices}
 export const {
     openModal,
     closeModal,
+    toggleTheme,
     getSingleInvoice,
 } = invoiceSlice.actions
 

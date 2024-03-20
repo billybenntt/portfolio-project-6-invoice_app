@@ -4,6 +4,8 @@
 @import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700&display=swap");
 :root {
   font-size: 16px;
 }
@@ -58,17 +60,29 @@ input[type=number] {
   margin-bottom: 0.3rem;
   color: #7E88C3;
 }
+html.dark .form__row .form__header {
+  color: #FFFFFF;
+}
 .form__row .form__input {
   outline: none;
   font-family: inherit;
   width: 100%;
   height: 48px;
-  border: 1px solid #DFE3FA;
   border-radius: 4px;
   padding: 1rem;
+  background-color: #FFFFFF;
+  color: #1E2139;
+  border: 1px solid #DFE3FA;
+}
+html.dark .form__row .form__input {
+  background-color: #1E2139;
+  color: #FFFFFF;
+}
+html.dark .form__row .form__input {
+  border: 1px solid #373B53;
 }
 .form__row .form__input:focus {
-  border: 1px solid #9277FF;
+  border: 1px solid #9277FF !important;
 }
 
 .form__row-items {
@@ -123,13 +137,22 @@ input[type=number] {
   padding-bottom: 0.3rem;
 }
 .form__row-items .form__input {
+  background-color: #FFFFFF;
+  color: #1E2139;
+  border: 1px solid #DFE3FA;
   outline: none;
   font-family: inherit;
-  border: 1px solid #DFE3FA;
   border-radius: 4px;
 }
+html.dark .form__row-items .form__input {
+  background-color: #1E2139;
+  color: #FFFFFF;
+}
+html.dark .form__row-items .form__input {
+  border: 1px solid #373B53;
+}
 .form__row-items .form__input:focus {
-  border: 1px solid #9277FF;
+  border: 1px solid #9277FF !important;
 }
 .form__row-items .form__output {
   outline: none;
@@ -137,6 +160,9 @@ input[type=number] {
   border: 1px transparent #DFE3FA;
   border-radius: 4px;
   color: #888EB0;
+}
+html.dark .form__row-items .form__output {
+  color: #FFFFFF;
 }
 
 .form__row-select {
@@ -150,19 +176,29 @@ input[type=number] {
   color: #7E88C3;
   margin-bottom: 0.3rem;
 }
+html.dark .form__row-select .form__label {
+  color: #FFFFFF;
+}
 .form__row-select .form_row_input {
-  width: 100%;
-  cursor: pointer;
   all: unset;
+  display: flex;
+  background-color: #FFFFFF;
+  color: #1E2139;
   border: 1px solid #DFE3FA;
+  justify-content: space-between;
   border-radius: 4px;
   padding: 0.72rem;
-  background-color: #fff;
-  display: flex;
-  justify-content: space-between;
+  cursor: pointer;
+}
+html.dark .form__row-select .form_row_input {
+  background-color: #1E2139;
+  color: #FFFFFF;
+}
+html.dark .form__row-select .form_row_input {
+  border: 1px solid #373B53;
 }
 .form__row-select .form_row_input:focus, .form__row-select .form_row_input:active {
-  border: 1px solid #7C5DFA;
+  border: 1px solid #7C5DFA !important;
 }
 
 .form__row-select_menu {
@@ -170,10 +206,15 @@ input[type=number] {
   border-radius: 4px;
   z-index: 999;
   cursor: pointer;
-  background-color: white;
+  background-color: #FFFFFF;
+  color: #373B53;
   box-shadow: 0 10px 20px 0 rgba(72, 84, 159, 0.25);
   width: var(--radix-select-trigger-width);
   max-height: var(--radix-select-content-available-height);
+}
+html.dark .form__row-select_menu {
+  background-color: #373B53;
+  color: #FFFFFF;
 }
 .form__row-select_menu .form_row_item {
   user-select: none;
@@ -185,6 +226,9 @@ input[type=number] {
 }
 .form__row-select_menu .form_row_item:hover {
   color: #7C5DFA;
+}
+html.dark .form__row-select_menu .form_row_item:hover {
+  color: #9277FF;
 }
 
 [data-invalid] .form__header {
@@ -328,7 +372,12 @@ input[type=number] {
   align-items: center;
   border-radius: 8px;
   background-color: #FFFFFF;
+  color: #373B53;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}
+html.dark .filter-content {
+  background-color: #373B53;
+  color: #FFFFFF;
 }
 .filter-content .filter-option {
   width: 100%;
@@ -363,14 +412,14 @@ input[type=number] {
   background-color: #7C5DFA;
 }
 
-.text-xxl, .invoice-list .invoice-list__empty h2 {
+.text-xxl {
   font-weight: 700;
   font-size: 2.25rem;
   line-height: 2.063rem;
   letter-spacing: -1px;
 }
 
-.text-xl, .invoice-form .invoice-form-status, .invoice-card .invoice__total h2, .invoice-list .invoice-list-center .invoice-list__header .invoice-list__title h2 {
+.text-xl, .invoice-form .invoice-form-status, .invoice-card .invoice__total h2, .invoice-list .invoice-list__empty h2, .invoice-list .invoice-list-center .invoice-list__header .invoice-list__title h2 {
   font-weight: 700;
   font-size: 1.5rem;
   line-height: 1.375rem;
@@ -404,11 +453,11 @@ input[type=number] {
   letter-spacing: -0.25px;
 }
 
-.text-dark-1, .invoice-list .invoice-list-center .item__group h4 {
+.text-dark-1 {
   color: #0C0E16;
 }
 
-.text-light-1, .invoice-card .invoice-card-center p, .invoice-list .invoice-list__empty p, .invoice-list .invoice-list-center .item__group p {
+.text-light-1 {
   color: #7E88C3;
 }
 
@@ -442,11 +491,19 @@ input[type=number] {
   background-color: #FF8F00;
 }
 .status.draft {
+  background-color: rgba(107, 113, 148, 0.2);
   color: #373B53;
-  background-color: rgba(55, 59, 83, 0.2);
+}
+html.dark .status.draft {
+  color: #F9FAFE;
 }
 .status.draft .status-icon {
   background-color: #373B53;
+  color: #F9FAFE;
+}
+html.dark .status.draft .status-icon {
+  background-color: #F9FAFE;
+  color: #373B53;
 }
 
 .box {
@@ -470,14 +527,24 @@ input[type=number] {
 
 .modal {
   border-radius: 8px;
-  background-color: #fff;
+  background-color: #FFFFFF;
+  color: #252945;
   width: 327px;
-  padding: 3rem;
-  height: 249px;
+  padding: 3rem 2.5rem;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+html.dark .modal {
+  background-color: #252945;
+  color: #FFFFFF;
+}
+.modal p {
+  color: #7E88C3;
+}
+html.dark .modal p {
+  color: #DFE3FA;
 }
 
 .modal-background.show {
@@ -487,7 +554,7 @@ input[type=number] {
 .modal-center {
   display: flex;
   flex-direction: column;
-  row-gap: 1rem;
+  row-gap: 1.3rem;
 }
 .modal-center .modal__control {
   display: flex;
@@ -535,13 +602,26 @@ input[type=number] {
 }
 body {
   font-family: "League Spartan", sans-serif;
+  height: 120vh;
   background-color: #f2f2f2;
+  color: #141625;
+}
+html.dark body {
+  background-color: #141625;
+  color: #f2f2f2;
 }
 
 .main-container {
   display: flex;
+  min-height: 120vh;
   width: 100%;
   justify-content: center;
+  background-color: #f2f2f2;
+  color: #141625;
+}
+html.dark .main-container {
+  background-color: #141625;
+  color: #f2f2f2;
 }
 
 .navbar {
@@ -559,10 +639,16 @@ body {
   display: flex;
   justify-content: space-between;
 }
-.navbar .logo, .navbar .navbar__control {
+.navbar .avatar-img {
+  border-radius: 50%;
+  height: 2.5rem;
+}
+.navbar .logo,
+.navbar .navbar__control {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 .navbar .navbar__control {
   flex-direction: row;
@@ -617,8 +703,13 @@ body {
   width: 327px;
   display: flex;
   background-color: #f2f2f2;
+  color: #141625;
   flex-direction: column;
   gap: 1rem;
+}
+html.dark .invoice-list .invoice-list-center {
+  background-color: #141625;
+  color: #f2f2f2;
 }
 .invoice-list .invoice-list-center .invoice-list__header {
   display: flex;
@@ -626,14 +717,13 @@ body {
   justify-content: space-between;
 }
 .invoice-list .invoice-list-center .invoice-list__header .invoice-list__title h2 {
-  padding: 0.5rem 0;
+  padding: 0.3rem 0;
 }
 .invoice-list .invoice-list-center .invoice-list__header .invoice-list__title p {
-  color: #252945;
-  font-weight: bold;
+  color: #888EB0;
 }
-.invoice-list .invoice-list-center .invoice-list__header .invoice-list__title .amount {
-  color: #7E88C3;
+html.dark .invoice-list .invoice-list-center .invoice-list__header .invoice-list__title p {
+  color: #f2f2f2;
 }
 .invoice-list .invoice-list-center .invoice-list__header .invoice-list__control {
   display: flex;
@@ -647,13 +737,21 @@ body {
   gap: 1rem;
 }
 .invoice-list .invoice-list-center .invoice-list__item {
-  max-height: 134px;
+  max-height: 8.375rem;
   padding: 1.5rem;
   display: flex;
   cursor: pointer;
   border-radius: 8px;
   justify-content: space-between;
   background-color: #FFFFFF;
+  color: #1E2139;
+}
+html.dark .invoice-list .invoice-list-center .invoice-list__item {
+  background-color: #1E2139;
+  color: #FFFFFF;
+}
+.invoice-list .invoice-list-center .invoice-list__item:hover {
+  outline: 3px dashed #7C5DFA;
 }
 .invoice-list .invoice-list-center .item__group {
   display: flex;
@@ -661,8 +759,18 @@ body {
   flex-direction: column;
   row-gap: 1rem;
 }
+.invoice-list .invoice-list-center .item__group h4 {
+  color: #1E2139;
+}
+html.dark .invoice-list .invoice-list-center .item__group h4 {
+  color: #FFFFFF;
+}
 .invoice-list .invoice-list-center .item__group p {
+  color: #888EB0;
   text-align: end;
+}
+html.dark .invoice-list .invoice-list-center .item__group p {
+  color: #f2f2f2;
 }
 .invoice-list .invoice-list__empty {
   padding: 1rem;
@@ -674,15 +782,23 @@ body {
   text-align: center;
 }
 .invoice-list .invoice-list__empty img {
-  width: 60%;
+  width: 100%;
+}
+.invoice-list .invoice-list__empty h2 {
+  color: #1E2139;
+}
+html.dark .invoice-list .invoice-list__empty h2 {
+  color: #FFFFFF;
 }
 .invoice-list .invoice-list__empty p {
   max-width: 327px;
+  word-spacing: 2px;
+  color: #888EB0;
+}
+html.dark .invoice-list .invoice-list__empty p {
+  color: #DFE3FA;
 }
 
-.invoice-card {
-  background-color: #f2f2f2;
-}
 .invoice-card .invoice-card-center {
   width: 327px;
   margin: 5rem auto 0;
@@ -700,6 +816,7 @@ body {
 .invoice-card .invoice-card__header {
   border-radius: 8px;
   background-color: #FFFFFF;
+  color: #1E2139;
   width: 100%;
   height: 91px;
   padding: 1.5rem;
@@ -707,14 +824,36 @@ body {
   align-items: baseline;
   justify-content: space-between;
 }
+html.dark .invoice-card .invoice-card__header {
+  background-color: #1E2139;
+  color: #FFFFFF;
+}
+.invoice-card .invoice-card__header p {
+  font-size: 1rem;
+  color: #7E88C3;
+}
+html.dark .invoice-card .invoice-card__header p {
+  color: #FFFFFF;
+}
 .invoice-card .invoice-card__body {
   border-radius: 8px;
   background-color: #FFFFFF;
+  color: #1E2139;
   padding: 1.5rem;
   width: 100%;
   display: flex;
   flex-direction: column;
   row-gap: 2rem;
+}
+html.dark .invoice-card .invoice-card__body {
+  background-color: #1E2139;
+  color: #FFFFFF;
+}
+.invoice-card .invoice-card__body p {
+  color: #7E88C3;
+}
+html.dark .invoice-card .invoice-card__body p {
+  color: #DFE3FA;
 }
 .invoice-card .invoice-card__body .card-group {
   display: flex;
@@ -734,9 +873,14 @@ body {
   padding: 1.5rem;
   flex-direction: column;
   background-color: #F9FAFE;
+  color: #252945;
   row-gap: 1rem;
   border-start-start-radius: 8px;
   border-start-end-radius: 8px;
+}
+html.dark .invoice-card .invoice__subtotal {
+  background-color: #252945;
+  color: #F9FAFE;
 }
 .invoice-card .invoice__subtotal .mobile {
   justify-content: space-between;
@@ -754,15 +898,29 @@ body {
   border-end-end-radius: 8px;
   padding: 1.5rem;
   color: #f2f2f2;
-  min-height: 80px;
+  min-height: 5rem;
   background-color: #373B53;
+  color: #141625;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+html.dark .invoice-card .invoice__total {
+  background-color: #141625;
+  color: #373B53;
+}
 .invoice-card .invoice__total p {
   font-size: 1rem;
+  color: #F9FAFE;
+}
+html.dark .invoice-card .invoice__total p {
+  color: #F9FAFE;
+}
+.invoice-card .invoice__total h2 {
   color: #f2f2f2;
+}
+html.dark .invoice-card .invoice__total h2 {
+  color: #F9FAFE;
 }
 .invoice-card .invoice-card__status {
   display: flex;
@@ -773,11 +931,17 @@ body {
 }
 .invoice-card .invoice-card__controls.mobile {
   position: absolute;
+  border-radius: 8px;
   background-color: #F9FAFE;
+  color: #1E2139;
   padding: 1.5rem 0;
   margin-top: 3rem;
   width: 100%;
   left: 0;
+}
+html.dark .invoice-card .invoice-card__controls.mobile {
+  background-color: #1E2139;
+  color: #F9FAFE;
 }
 .invoice-card .invoice-card__controls.mobile .controls__center {
   margin: 0 auto;
@@ -796,10 +960,15 @@ body {
   top: 0;
   opacity: 0;
   background-color: #FFFFFF;
+  color: #141625;
   border: 1px solid black;
   padding-top: 5.7rem;
   padding-left: 0;
   z-index: -10;
+}
+html.dark .invoice-form {
+  background-color: #141625;
+  color: #FFFFFF;
 }
 .invoice-form .invoice-form-center {
   margin: 0 auto;
@@ -832,8 +1001,15 @@ body {
   align-items: center;
   padding: 1rem;
   border-radius: 8px;
+  background-color: #F9FAFE;
+  color: #1E2139;
 }
-.invoice-form .invoice-form-control .controls__edit, .invoice-form .invoice-form-control .controls__create {
+html.dark .invoice-form .invoice-form-control {
+  background-color: #1E2139;
+  color: #F9FAFE;
+}
+.invoice-form .invoice-form-control .controls__edit,
+.invoice-form .invoice-form-control .controls__create {
   column-gap: 1rem;
   display: flex;
 }
@@ -861,11 +1037,17 @@ body {
     align-items: center;
     column-gap: 2rem;
   }
+  .invoice-list .invoice-list__empty img {
+    width: 50%;
+  }
   .invoice-card .invoice-card-center {
     width: 688px;
   }
   .invoice-card .invoice-card__body {
     padding: 2rem;
+  }
+  .invoice-card .invoice-card__body p {
+    font-size: 0.9rem;
   }
   .invoice-card .invoice-card__body .card-group:nth-child(1) {
     justify-content: space-between;
@@ -903,6 +1085,12 @@ body {
   }
   .invoice-form .invoice-form-control {
     justify-content: end;
+    background-color: #FFFFFF;
+    color: #141625;
+  }
+  html.dark .invoice-form .invoice-form-control {
+    background-color: #141625;
+    color: #FFFFFF;
   }
 }
 @media only screen and (min-width: 1024px) {

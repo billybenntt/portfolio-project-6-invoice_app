@@ -1,8 +1,9 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import { InvoicesMainPage, InvoicesSinglePage} from "@/pages";
+import {InvoicesMainPage, InvoicesSinglePage} from "@/pages";
 import {Navbar} from "@/components";
 
 function App() {
+
 
     return (
         <BrowserRouter>
