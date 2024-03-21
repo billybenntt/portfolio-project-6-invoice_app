@@ -626,11 +626,11 @@ html.dark .main-container {
 
 .navbar {
   padding: 1rem;
-  overflow: hidden;
 }
 .navbar .navbar-center {
   background-color: #373B53;
   z-index: 5;
+  overflow: hidden;
   position: fixed;
   top: 0;
   left: 0;
@@ -1023,11 +1023,13 @@ html.dark .invoice-form .invoice-form-control {
   .navbar .navbar-center {
     display: flex;
     flex-direction: row;
-    height: 80px;
+    height: 5rem;
+    border-bottom-right-radius: 1rem;
+    border-top-right-radius: 1rem;
   }
   .navbar .navbar-center .logo-center {
-    height: 80px;
-    width: 80px;
+    height: 5rem;
+    width: 5rem;
   }
   .invoice-list .invoice-list-center {
     width: 688px;

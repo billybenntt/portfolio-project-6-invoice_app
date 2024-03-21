@@ -19,12 +19,15 @@ body {
 // NAVBAR
 .navbar {
   padding: 1rem;
-  overflow: hidden;
+
 
   .navbar-center {
     // HORIZONTAL POSITION
     background-color: $accent-dark-100;
     z-index: 5;
+    overflow: hidden;
+
+
     position: fixed;
     top: 0;
     left: 0;
@@ -442,11 +445,13 @@ body {
     .navbar-center {
       display: flex;
       flex-direction: row;
-      height: 80px;
+      height: 5rem;
+      border-bottom-right-radius: 1rem;
+      border-top-right-radius: 1rem;
 
       .logo-center {
-        height: 80px;
-        width: 80px;
+        height: 5rem;
+        width: 5rem;
       }
     }
   }
