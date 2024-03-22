@@ -934,14 +934,15 @@ html.dark .invoice-card .invoice__total h2 {
   justify-content: space-between;
 }
 .invoice-card .invoice-card__controls.mobile {
-  position: absolute;
+  position: fixed;
   border-radius: 8px;
+  left: 0;
+  bottom: 0;
   background-color: #F9FAFE;
   color: #1E2139;
   padding: 1.5rem 0;
   margin-top: 3rem;
   width: 100%;
-  left: 0;
 }
 html.dark .invoice-card .invoice-card__controls.mobile {
   background-color: #1E2139;

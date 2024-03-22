@@ -347,15 +347,15 @@ body {
   }
 
   .invoice-card__controls.mobile {
-    position: absolute;
+    position: fixed;
     border-radius: $rounded-lg;
-
+    left: 0;
+    bottom: 0;
     @include color-scheme($accent-light-010, $accent-dark-300);
 
     padding: 1.5rem 0;
     margin-top: 3rem;
     width: 100%;
-    left: 0;
 
     .controls__center {
       margin: 0 auto;
