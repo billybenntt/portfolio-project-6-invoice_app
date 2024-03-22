@@ -47,7 +47,7 @@ body {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-
+    user-select: none;
   }
 
   .navbar__control {
@@ -592,7 +592,7 @@ body {
 
       .navbar__control {
         flex-direction: column;
-        user-select: none;
+
 
         .avatar {
           width: 100%;
