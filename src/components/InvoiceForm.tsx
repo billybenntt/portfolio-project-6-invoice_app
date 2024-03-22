@@ -61,7 +61,7 @@ function InvoiceForm() {
     }
 
     return (
-        <div>
+        <div className={`form-backdrop ${showForm ? "show" : ""}`}>
             <Form.Root
                 className={`invoice-form ${showForm ? "show" : ""}`}
                 onSubmit={onFormSubmit}>

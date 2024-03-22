@@ -521,6 +521,7 @@ html.dark .status.draft .status-icon {
   width: 100%;
   height: 100%;
   z-index: 5000;
+  backdrop-filter: blur(4px);
   background-color: rgba(0, 0, 0, 0.5);
   display: none;
 }
@@ -529,6 +530,7 @@ html.dark .status.draft .status-icon {
   border-radius: 8px;
   background-color: #FFFFFF;
   color: #252945;
+  outline: 2px solid rgba(252, 252, 252, 0.25);
   width: 327px;
   padding: 3rem 2.5rem;
   position: absolute;
@@ -631,6 +633,7 @@ html.dark .main-container {
   background-color: #373B53;
   z-index: 5;
   overflow: hidden;
+  outline: 2px solid rgba(252, 252, 252, 0.25);
   position: fixed;
   top: 0;
   left: 0;
@@ -951,7 +954,26 @@ html.dark .invoice-card .invoice-card__controls.mobile {
   align-items: center;
 }
 
+.form-backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+.form-backdrop.show {
+  display: block;
+  z-index: 1;
+}
+
 .invoice-form {
+  background-color: #FFFFFF;
+  color: #141625;
   position: fixed;
   overflow-y: scroll;
   scrollbar-width: none;
@@ -959,9 +981,7 @@ html.dark .invoice-card .invoice-card__controls.mobile {
   height: 100%;
   top: 0;
   opacity: 0;
-  background-color: #FFFFFF;
-  color: #141625;
-  border: 1px solid black;
+  outline: 2px solid rgba(252, 252, 252, 0.25);
   padding-top: 5.7rem;
   padding-left: 0;
   z-index: -10;
@@ -1115,6 +1135,7 @@ html.dark .invoice-form .invoice-form-control {
   }
   .navbar .navbar-center .navbar__control {
     flex-direction: column;
+    user-select: none;
   }
   .navbar .navbar-center .navbar__control .avatar {
     width: 100%;

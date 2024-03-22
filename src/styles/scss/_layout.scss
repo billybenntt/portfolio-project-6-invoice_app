@@ -26,8 +26,7 @@ body {
     background-color: $accent-dark-100;
     z-index: 5;
     overflow: hidden;
-
-
+    outline: $border-smooth;
     position: fixed;
     top: 0;
     left: 0;
@@ -370,7 +369,26 @@ body {
 
 // INVOICE FORM
 
+.form-backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+.form-backdrop.show {
+  display: block;
+  z-index: 1;
+}
+
+
 .invoice-form {
+  @include color-scheme($accent-light-000, $accent-dark-400);
   position: fixed;
   overflow-y: scroll;
   scrollbar-width: none;
@@ -378,8 +396,7 @@ body {
   height: 100%;
   top: 0;
   opacity: 0;
-  @include color-scheme($accent-light-000, $accent-dark-400);
-  border: 1px solid black;
+  outline: $border-smooth;
   padding-top: 5.7rem;
   padding-left: 0;
   z-index: -10;
@@ -437,6 +454,7 @@ body {
   opacity: 1;
   z-index: 4;
 }
+
 
 // MEDIA QUERIES
 
@@ -574,7 +592,7 @@ body {
 
       .navbar__control {
         flex-direction: column;
-
+        user-select: none;
 
         .avatar {
           width: 100%;
